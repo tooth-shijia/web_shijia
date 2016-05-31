@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:aop="http://www.springframework.org/schema/aop"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+    <annotation-driven>
+        <message-converters>
+            <beans:bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <beans:property name="supportedMediaTypes" value="application/json"></beans:property>
+            </beans:bean>
+        </message-converters>
+    </annotation-driven>
+
+    <context:component-scan base-package="com.shijia"/>
+
+    <context:annotation-config></context:annotation-config>
+
+    <resources mapping="/webjs/**" location="/WEB-INF/views/website/js/"/>
+    <resources mapping="/webcss/**" location="/WEB-INF/views/website/css/"/>
+    <resources mapping="/webimg/**" location="/WEB-INF/views/website/img/"/>
+
+    <resources mapping="/adminjs/**" location="/WEB-INF/views/admin/js/"/>
+    <resources mapping="/admincss/**" location="/WEB-INF/views/admin/css/"/>
+    <resources mapping="/adminimg/**" location="/WEB-INF/views/admin/img/"/>
+
+    <resources mapping="/assets/**" location="/WEB-INF/views/admin/assets/"/>
+
+    <!-- freemarker的配置 -->
+    <beans:bean id="freemarkerConfigurer" class="com.shijia.web.common.framework.freemarker.ViewConfigurer">
+        <beans:property name="templateLoaderPath" value="/WEB-INF/views/"/>
+        <beans:property name="defaultEncoding" value="UTF-8"/>
+        <beans:property name="freemarkerSettings">
+            <beans:props>
+                <beans:prop key="template_update_delay">10</beans:prop>
+                <beans:prop key="locale">en_US</beans:prop>
+                <beans:prop key="datetime_format">yyyy-MM-dd HH:mm:ss</beans:prop>
+                <beans:prop key="date_format">yyyy-MM-dd</beans:prop>
+                <beans:prop key="number_format">#.##</beans:prop>
+                <beans:prop key="auto_import">common/common.ftl as common</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="staticMethod" class="com.shijia.web.common.framework.freemarker.ViewStaticMethod">
+        <beans:property name="classList">
+            <beans:list>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+    <!-- FreeMarker视图解析 ,在这里配置后缀名ftl和视图解析器。。 -->
+    <beans:bean id="viewResolver" class="com.shijia.web.common.framework.freemarker.ViewPageResolver">
+        <beans:property name="viewStaticMethod" ref="staticMethod"></beans:property>
+        <beans:property name="viewClass"
+                        value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <beans:property name="suffix" value=".html"/>
+        <beans:property name="contentType" value="text/html;charset=UTF-8"/>
+        <beans:property name="exposeRequestAttributes" value="true"/>
+        <beans:property name="exposeSessionAttributes" value="true"/>
+        <beans:property name="exposeSpringMacroHelpers" value="true"/>
+    </beans:bean>
+
+    <!-- Aop切面记录日志 start-->
+    <aop:config>
+        <aop:aspect id="aroundMethod" ref="performanceAopAdvice">
+            <aop:pointcut id="performanceMonitorPoint"
+                          expression="execution(* com.shijia.web.repository.*.*(..) )
+			|| execution(* com.shijia.web.service.*.*(..) )"/>
+            <aop:around pointcut-ref="performanceMonitorPoint" method="aroundMethod"/>
+        </aop:aspect>
+    </aop:config>
+
+    <beans:bean id="performanceAopAdvice" class="com.shijia.web.common.framework.PerformanceAopAdvice">
+    </beans:bean>
+
+    <beans:bean class="com.shijia.web.common.framework.ajax.AjaxHandlerMapping"/>
+    <beans:bean class="com.shijia.web.common.framework.ajax.AjaxHandlerAdapter"/>
+
+    <!--拦截器设置。 start -->
+    <interceptors>
+        <beans:bean class="com.shijia.web.common.framework.interceptor.ControllerInteceptor"></beans:bean>
+    </interceptors>
+    <!--拦截器设置。 end -->
+
+    <!-- 公共Exception的Resolver -->
+    <beans:bean id="webexceptionresolver"
+          class="com.shijia.web.common.framework.exception.WebExceptionResolver"></beans:bean>
+
+</beans:beans>

@@ -21,16 +21,17 @@
 
     <context:annotation-config></context:annotation-config>
 
-    <resources mapping="/webjs/**" location="/WEB-INF/views/website/js/"/>
-    <resources mapping="/webcss/**" location="/WEB-INF/views/website/css/"/>
-    <resources mapping="/webimg/**" location="/WEB-INF/views/website/img/"/>
+    <!--<resources mapping="/webjs/**" location="/WEB-INF/views/website/js/"/>-->
+    <!--<resources mapping="/webcss/**" location="/WEB-INF/views/website/css/"/>-->
+    <!--<resources mapping="/webimg/**" location="/WEB-INF/views/website/img/"/>-->
 
     <resources mapping="/adminjs/**" location="/WEB-INF/views/admin/js/"/>
-    <resources mapping="/admincss/**" location="/WEB-INF/views/admin/css/"/>
-    <resources mapping="/adminimg/**" location="/WEB-INF/views/admin/img/"/>
+    <!--<resources mapping="/admincss/**" location="/WEB-INF/views/admin/css/"/>-->
+    <!--<resources mapping="/adminimg/**" location="/WEB-INF/views/admin/img/"/>-->
 
     <resources mapping="/assets/**" location="/WEB-INF/views/admin/assets/"/>
-
+    <resources mapping="/js/**" location="/WEB-INF/views/js/"/>
+    <resources mapping="/css/**" location="/WEB-INF/views/css/"/>
     <!-- freemarker的配置 -->
     <beans:bean id="freemarkerConfigurer" class="com.shijia.web.common.framework.freemarker.ViewConfigurer">
         <beans:property name="templateLoaderPath" value="/WEB-INF/views/"/>

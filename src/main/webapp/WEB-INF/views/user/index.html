@@ -1,25 +1,16 @@
-<@override name="css">
-<link rel="stylesheet" type="text/css"
-      href="/ucss/websitecss.css">
-</@override> <@override name="main">
-
-<!-- =====================content start===================== -->
-<div class="web_header">
-    ${time}
-    <div>
-        <a><img src="/uimg/loginico.png">Login</a>
-    </div>
-</div>
-<div class="web_title">
-    <img src="/uimg/logo.png">
-
-    <div></div>
-</div>
-
-<!-- =====================content end===================== -->
-
-</@override>
+<@override name="css"></@override>
 <@override name="js">
+    <script type="text/javascript">
 
+    $(document).ready(function () {
+        $(".web_title div a:eq(0)").addClass("alive");
+    });
 
-</@override> <@extends name="./common/master_user.html"/>
+    </script>
+</@override>
+
+<@override name="main">
+    <div style="width:100%;height:5px;background: #9f07f7;"></div>
+</@override>
+
+<@extends name="./common/master_user.html"/>

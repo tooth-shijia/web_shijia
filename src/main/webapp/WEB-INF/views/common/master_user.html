@@ -1,28 +1,39 @@
-<@block name="include"></@block>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>${m_title}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>${m_title}</title>
     <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
     <@block name="css"></@block>
+    <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
+    <@block name="js"></@block>
 </head>
 <body>
+    <div class="web_header">
+        ${time}
+        ${login}
+    </div>
+    <div class="web_title">
+        <img src="/uimg/logo.png">
 
-<#--========MVC主展示页面========-->
-
+        <div>
+            <a>首页</a>
+            <a>公司简介</a>
+            <a>产品展示</a>
+            <a>专业团队</a>
+            <a>医技沟通</a>
+            <a>质量保障</a>
+            <a>联系我们</a>
+        </div>
+    </div>
     <@block name="main"></@block>
 
-<#--========MVC公共js调用========-->
-
-    <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
-    <@block name="js"></@block>
 <@block name="jsb"></@block>
 
 <#--========MVC主展示页面end========-->

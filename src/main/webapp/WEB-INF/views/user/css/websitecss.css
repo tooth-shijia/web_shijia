@@ -3,7 +3,7 @@
 
 */
 body{
-    min-width: 1000px;
+    min-width: 1080px;
 }
 .web_header{
     height:25px;
@@ -21,7 +21,7 @@ body{
 }
 .web_header>div:last-child{
     position:absolute;
-    right:30px;
+    right:40px;
     width:auto;
     height:100%
 }
@@ -32,9 +32,10 @@ body{
     color:#fff;
     line-height:25px;
     text-decoration: none;
-    margin-right: 5px;
+    margin-right: 10px;
+    float: left;
 }
-.web_header>div>a:hover{ cursor: pointer;}
+.web_header>div>a:hover{ cursor: pointer;color:yellow;}
 .web_header>div>a>img{ width: 18px;height:18px;margin-right:5px;}
 
 /**
@@ -51,5 +52,22 @@ body{
 .web_title>div{
     float: right;
     height: 100%;
-    width: 100px;
+    width: auto;
+    padding:20px 0px;
 }
+.web_title>div>a{
+    display: block;
+    height: 30px;
+    width: 90px;
+    float: left;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    color: #9f07f7;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.web_title>div>a:hover{ color: #fff;background: #9f07f7; border-radius:3px;}
+.alive{color: #fff !important; background: #9f07f7; border-radius:3px;}
+

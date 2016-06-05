@@ -1,4 +1,4 @@
-package com.shijia.web.controller.webclient;
+package com.shijia.web.controller.user;
 
 import com.shijia.web.common.utils.DateUtils;
 import org.springframework.ui.Model;

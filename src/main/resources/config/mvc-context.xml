@@ -32,6 +32,7 @@
     <resources mapping="/assets/**" location="/WEB-INF/views/admin/assets/"/>
     <resources mapping="/js/**" location="/WEB-INF/views/js/"/>
     <resources mapping="/css/**" location="/WEB-INF/views/css/"/>
+    <resources mapping="/shijiaweb/**" location="/WEB-INF/views/shijiaweb/"/>
     <!-- freemarker的配置 -->
     <beans:bean id="freemarkerConfigurer" class="com.shijia.web.common.framework.freemarker.ViewConfigurer">
         <beans:property name="templateLoaderPath" value="/WEB-INF/views/"/>

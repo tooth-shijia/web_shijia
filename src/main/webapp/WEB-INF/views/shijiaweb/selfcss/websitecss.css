@@ -1,0 +1,55 @@
+/*
+  首页的登录链接模块的样式
+
+*/
+body{
+    min-width: 1000px;
+}
+.web_header{
+    height:25px;
+    wight:100%;
+    background: #9f07f7;
+    position:relative;
+}
+.web_header>div:first-child{
+    left: 60px;
+    color: #fff;
+    line-height: 25px;
+    position: absolute;
+    font-family: 楷体;
+    font-size: 16px;
+}
+.web_header>div:last-child{
+    position:absolute;
+    right:30px;
+    width:auto;
+    height:100%
+}
+.web_header>div>a{
+    display: block;
+    height: inherit;
+    width:auto;
+    color:#fff;
+    line-height:25px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.web_header>div>a:hover{ cursor: pointer;}
+.web_header>div>a>img{ width: 18px;height:18px;margin-right:5px;}
+
+/**
+ 首页的标题导航的样式
+*/
+.web_title{
+    width:90%;
+    height:120px;
+    margin:0px auto;
+    padding:25px 0px;
+    position: relative;
+}
+.web_title>img{ width: 240px;height:70px;}
+.web_title>div{
+    float: right;
+    height: 100%;
+    width: 100px;
+}

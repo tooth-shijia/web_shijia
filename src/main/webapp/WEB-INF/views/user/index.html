@@ -1,9 +1,25 @@
-<@override name="css"></@override>
+<@override name="css">
+    <style type="text/css">
+        #showinfo>a{
+            font-size: 25px;
+        }
+
+
+
+    </style>
+
+
+</@override>
 <@override name="js">
     <script type="text/javascript">
 
     $(document).ready(function () {
         $(".web_title div a:eq(0)").addClass("alive");
+
+        $('#showinfo').carousel({
+            interval: 3000
+        });
+        $('#showinfo').carousel('cycle');
     });
 
     </script>
@@ -11,6 +27,34 @@
 
 <@override name="main">
     <div style="width:100%;height:5px;background: #9f07f7;"></div>
+    <div id="showinfo"  class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#showinfo" data-slide-to="0" class="active"></li>
+            <li data-target="#showinfo" data-slide-to="1"></li>
+            <li data-target="#showinfo" data-slide-to="2"></li>
+        </ol>
+    <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/uimg/slider1.jpg" style="width:100%;" alt="First slide">
+            </div>
+            <div class="item">
+                <img src="/uimg/slider2.jpg"  style="width:100%;" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="/uimg/slider3.jpg"  style="width:100%;"  alt="Third slide">
+            </div>
+        </div>
+    <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left" href="#showinfo"
+            data-slide="prev"></a>
+        <a class="carousel-control right" href="#showinfo"
+            data-slide="next"></a>
+    </div>
+    <div style="width:100%;height:5px;background: #9f07f7;"></div>
+
+
 </@override>
 
 <@extends name="./common/master_user.html"/>

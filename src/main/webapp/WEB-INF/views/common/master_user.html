@@ -9,10 +9,10 @@
     <title>${m_title}</title>
     <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
-    <@block name="css"></@block>
     <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
     <@block name="js"></@block>
+    <@block name="css"></@block>
 </head>
 <body>
     <div class="web_header">
@@ -34,8 +34,23 @@
     </div>
     <@block name="main"></@block>
 
-<@block name="jsb"></@block>
+    <@block name="jsb"></@block>
+    <div  class="footer">
+        <div class="foottitle"></div>
+        <div class="content">
+            <div class="ewm">
+                <div>
+                    <span>欢迎关注</span>
+                    <span>Welcome Attention</span>
+                </div>
+                <img src="/uimg/weixin.jpg">
+            </div>
 
-<#--========MVC主展示页面end========-->
+
+        </div>
+        <div class="foottail">
+            <span style="display: block;width:100%;text-align:center;height:30px;line-height: 30px; font-family: 微软雅黑; margin: 0 auto; color:#a8a8a8; font-size: 14px; ">上海世佳义齿有限公司 | Copyright 2016-~ All Rights Reserved </span>
+        </div>
+    </div>
     </body>
 </html>

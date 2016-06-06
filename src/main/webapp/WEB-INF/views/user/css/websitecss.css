@@ -12,12 +12,12 @@ body{
     position:relative;
 }
 .web_header>div:first-child{
-    left: 60px;
+    left: 5%;
     color: #fff;
     line-height: 25px;
     position: absolute;
-    font-family: 楷体;
-    font-size: 16px;
+    font-family: 微软雅黑;
+    font-size: 14px;
 }
 .web_header>div:last-child{
     position:absolute;
@@ -55,19 +55,85 @@ body{
     width: auto;
     padding:20px 0px;
 }
+
 .web_title>div>a{
     display: block;
     height: 30px;
     width: 90px;
     float: left;
     font-family: 微软雅黑;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
     text-align: center;
     color: #9f07f7;
     margin-left: 10px;
     cursor: pointer;
+    line-height: 30px;
 }
 .web_title>div>a:hover{ color: #fff;background: #9f07f7; border-radius:3px;}
 .alive{color: #fff !important; background: #9f07f7; border-radius:3px;}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+底部信息样式
+
+
+*/
+.footer{
+    width:100%;
+    height:auto;
+    background: #333;
+}
+.footer>div{
+    width:90%;
+    margin: 0 auto;
+}
+.footer>.foottitle{
+    height: 80px;
+}
+.footer>.content{
+    height: 300px;
+    border-bottom: 3px solid #272727;
+    border-top: 3px solid #272727;
+    padding:10px 50px;
+}
+.footer>.content>.ewm{
+    height:100%;
+    width: 210px;
+
+    float:left;
+}
+.footer>.content>.ewm>div{
+    width: 100%;
+    height:60px;
+    border-bottom: 3px solid #9f07f7;
+}
+.footer>.content>.ewm>div>span{
+    color:#a8a8a8;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+
+}
+.footer>.content>.ewm>img{
+    width: 180px;
+    height: 180px;
+    margin: 10px auto;
+    display: block;
+}
+.footer>.foottail{
+    height: 40px;
+}

@@ -2,13 +2,11 @@
   首页的登录链接模块的样式
 
 */
-body{
-    min-width: 1080px;
-}
+
 .web_header{
     height:25px;
     wight:100%;
-    background: #9f07f7;
+    background: #4cc2c4;
     position:relative;
 }
 .web_header>div:first-child{
@@ -23,7 +21,7 @@ body{
     position:absolute;
     right:40px;
     width:auto;
-    height:100%
+    height:100%;
 }
 .web_header>div>a{
     display: block;
@@ -36,14 +34,14 @@ body{
     float: left;
 }
 .web_header>div>a:hover{ cursor: pointer;color:yellow;}
-.web_header>div>a>img{ width: 18px;height:18px;margin-right:5px;}
+.web_header>div>a>span{ width: 18px;height:100%;margin-right:2px;}
 
 /**
  首页的标题导航的样式
 */
 .web_title{
     width:90%;
-    height:120px;
+    height:auto;
     margin:0px auto;
     padding:25px 0px;
     position: relative;
@@ -65,13 +63,13 @@ body{
     font-size: 18px;
     text-decoration: none;
     text-align: center;
-    color: #9f07f7;
+    color: #4cc2c4;
     margin-left: 10px;
     cursor: pointer;
     line-height: 30px;
 }
-.web_title>div>a:hover{ color: #fff;background: #9f07f7; border-radius:3px;}
-.alive{color: #fff !important; background: #9f07f7; border-radius:3px;}
+.web_title>div>a:hover{ color: #fff;background: #4cc2c4; border-radius:3px;}
+.alive{color: #fff !important; background: #4cc2c4; border-radius:3px;}
 
 
 
@@ -119,7 +117,7 @@ body{
 .footer>.content>.ewm>div{
     width: 100%;
     height:60px;
-    border-bottom: 3px solid #9f07f7;
+    border-bottom: 3px solid #4cc2c4;
 }
 .footer>.content>.ewm>div>span{
     color:#a8a8a8;
@@ -137,3 +135,122 @@ body{
 .footer>.foottail{
     height: 40px;
 }
+
+
+
+/**************************end*******************/
+
+/******login页 begin**********************/
+
+.Lg_header{
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    width:80%;
+}
+
+.Lg_content{
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+ }
+.Lg_content>.Lg_part{
+    float:right ;
+    background: rgba(76, 194, 196, 0.81);
+    height: 100%;
+    width:40%;
+    padding: 0px 40px;
+    min-width: 300px;
+}
+.Lg_content>.Lg_part>div{
+    width: 100%;
+    height: 100%;
+
+}
+.Lg_part_title{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 2em;
+    line-height: 30px;
+}
+.Lg_part_title>h2{
+    color: #fff;
+}
+
+
+.input_div,.yzminput_div{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 1.5em;
+}
+.input_div>span{
+    display: block;
+    width: 10%;
+    height: 100%;
+    background: inherit;
+    float: left;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-right: 0px;
+    border-left: 1px solid #fff;
+    top:0px !important;
+}
+.input_div>input[type="text"],.input_div>input[type="password"]{
+    width: 90%;
+    height: 100%;
+    background:none;
+    float: left;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 0px;
+    padding:8px 5px 8px 0px;
+    color: #fff;
+    font-size: 18px;
+    outline:none;
+}
+.yzminput_div>.yzm{
+    width: 90px;
+    height: 100%;
+    background:none;
+    float: left;
+    border: 1px solid #fff;
+    padding:8px 15px;
+    color: #fff;
+    font-size: 18px;
+    outline:none;
+    margin-right: 20px;
+}
+.yzminput_div>img{
+    height: 40px;
+    width: 120px;
+    margin: 5px auto;
+    cursor: pointer;
+}
+.input_div>input[type="submit"]{
+    background: #fff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: #000;
+    padding: 10px 0;
+    width: 40%;
+    font-family: Consolas;
+    font-weight: bold;
+    display: block;
+    transition: .5s all;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+    float: left;
+}
+.input_div>input[type="submit"]:hover{
+    background-color: #F54785;
+    color: #fff;
+}
+

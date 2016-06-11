@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>${m_title}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/uimg/favicon.ico" />
 
+    <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
+    <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
+    <script  language="JavaScript">
+        function changeYzm() {
+            var url = "/getYzmServlet?"+Math.random();
+            $("#yzm").attr("src",url);
+        }
+    </script>
+
+
+</head>
+<body style="max-width:100%; max-height: 100%;">
+    <div class="Lg_header">
+        <h2>上海世佳义齿</h2>
+    </div>
+    <div class = "Lg_content">
+        <div class="">
+
+        </div>
+        <div class="Lg_part">
+            <div>
+                <div class="Lg_part_title">
+                    <h2>
+                        Welcome
+                    </h2>
+                </div>
+                <form>
+                    <div class="input_div">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <input type="text" placeholder="" />
+                    </div>
+                    <div class="input_div">
+                        <span class="glyphicon glyphicon-lock"></span>
+                        <input type="password"  />
+                    </div>
+                    <div class="yzminput_div">
+                        <input type="text" class="yzm" maxlength="4" placeholder="验证码" />
+                        <img id="yzm" src="/getYzmServlet" alt="看不清，点击更换" onclick="changeYzm()">
+                    </div>
+                    <div class="input_div">
+                        <input type="submit" value="Submit"/>
+                    </div>
+                </form>
+                <div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="Lg_footer">
+
+
+    </div>
 </body>
 </html>

@@ -30,6 +30,7 @@
     <resources mapping="/ujs/**" location="/WEB-INF/views/user/js/"/>
     <resources mapping="/ucss/**" location="/WEB-INF/views/user/css/"/>
     <resources mapping="/uimg/**" location="/WEB-INF/views/user/img/"/>
+    <resources mapping="/fonts/**" location="/WEB-INF/views/user/fonts/"/>
 
     <!-- freemarker的配置 -->
     <beans:bean id="freemarkerConfigurer" class="com.shijia.web.common.framework.freemarker.ViewConfigurer">

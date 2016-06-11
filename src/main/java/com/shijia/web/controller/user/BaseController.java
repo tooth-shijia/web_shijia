@@ -22,8 +22,8 @@ public class BaseController {
         modelAndView.addAttribute("time","<div>"+DateUtils.getTodayForString()+"</div>");
         if(true){
             String login = "<div>"
-                    +"<a href=\"/shijia/login.html\"><img src=\"/uimg/loginico.png\" >Login</a>"
-                    +"<a href=\"/shijia/signup.html\"><img src=\"/uimg/signup.png\" >Sign up</a>"
+                    +"<a href=\"/shijia/login.html\"><span class=\"glyphicon glyphicon-log-in\" ></span>Login</a>"
+                    +"<a href=\"/shijia/signup.html\"><span class=\"glyphicon glyphicon-edit\" ></span>Sign up</a>"
                     +"</div>";
             modelAndView.addAttribute("login",login);
         }

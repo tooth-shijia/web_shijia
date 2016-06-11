@@ -159,7 +159,7 @@
     background: rgba(76, 194, 196, 0.81);
     height: 100%;
     width:40%;
-    padding: 0px 40px;
+    padding: 20px 40px;
     min-width: 300px;
 }
 .Lg_content>.Lg_part>div{
@@ -174,7 +174,7 @@
     line-height: 30px;
 }
 .Lg_part_title>h2{
-    color: #fff;
+    color: #ffee2b;
 }
 
 

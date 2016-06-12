@@ -10,8 +10,10 @@
 
     <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
+    <link rel="stylesheet" type="text/css" href="/ucss/common.css">
     <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
+
     <script  language="JavaScript">
         function changeYzm() {
             var url = "/getYzmServlet?"+Math.random();
@@ -33,7 +35,7 @@
             <div>
                 <div class="Lg_part_title">
                     <h2>
-                        Welcome
+                        Welcome You Here
                     </h2>
                 </div>
                 <form>
@@ -47,10 +49,21 @@
                     </div>
                     <div class="yzminput_div">
                         <input type="text" class="yzm" maxlength="4" placeholder="验证码" />
-                        <img id="yzm" src="/getYzmServlet" alt="看不清，点击更换" onclick="changeYzm()">
+                        <img id="yzm" src="/getYzmServlet" alt="看不清，点击更换" onclick="changeYzm()" title="看不清，点击更换">
                     </div>
-                    <div class="input_div">
+                    <div class="input_submit_div">
                         <input type="submit" value="Submit"/>
+                        <div class="checkbox_div">
+                            <div id="checkBox"  class="checkBox">
+                                <span></span>
+                                <input type="checkbox"/>
+                                <span>自动登录</span>
+                            </div>
+                        </div>
+
+                        <div class="forgotpwd_div">
+                            <a href = "/shijia/forgotpwd.html">忘记密码？</a>
+                        </div>
                     </div>
                 </form>
                 <div>
@@ -65,5 +78,7 @@
 
 
     </div>
+
+    <script type="text/javascript" src="/ujs/common.js"></script>
 </body>
 </html>

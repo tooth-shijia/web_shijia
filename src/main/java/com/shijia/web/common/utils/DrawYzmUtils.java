@@ -58,7 +58,7 @@ public class DrawYzmUtils {
 
 
 
-
+        graphics.dispose();
         return sb.toString();
     }
 }

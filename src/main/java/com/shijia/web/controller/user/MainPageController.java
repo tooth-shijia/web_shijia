@@ -21,14 +21,21 @@ public class MainPageController  extends  BaseController{
     @RequestMapping("/login")
     public  ModelAndView moveToLoginPage(){
         ModelAndView model = new ModelAndView("user/login");
-        model.addObject("m_title","上海世佳义齿");
+        model.addObject("m_title","登录");
         return model;
     }
 
     @RequestMapping("/signup")
     public  ModelAndView moveToSignupPage(){
         ModelAndView model = new ModelAndView("user/signup");
-        model.addObject("m_title","上海世佳义齿");
+        model.addObject("m_title","注册");
+        return model;
+    }
+
+    @RequestMapping("/forgotpwd")
+    public  ModelAndView moveToForgotPwdPage(){
+        ModelAndView model = new ModelAndView("user/forgotpwd");
+        model.addObject("m_title","找回密码");
         return model;
     }
 }

@@ -13,9 +13,10 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.2.xsd
 	    http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+             default-autowire="byName">
 
-
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     <!-- 公共的Spring容器 -->
     
     <!-- 公共的数据源配置 -->

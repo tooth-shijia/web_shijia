@@ -32,5 +32,6 @@
 
     <mappers>
         <mapper resource="config/mapper/shijia-mapper.xml"/>
+        <mapper resource="config/mapper/mapper.xml"/>
     </mappers>
 </configuration>

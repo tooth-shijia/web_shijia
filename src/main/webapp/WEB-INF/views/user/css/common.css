@@ -1,0 +1,37 @@
+.checkBox{
+    width: 100px;
+    height: 20px;
+    float: left;
+    line-height: 20px;
+    cursor:pointer;
+}
+.checkBox>span,.checkbox>input{
+    display: block;
+    float: left;
+}
+.checkBox>span:first-child{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 2px;
+    background: #fff;
+    color: #fff;
+    top:0px !important;
+    text-align: center;
+}
+.checkBox>span:last-child{
+    text-align: left;
+    font-family: "微软雅黑";
+    margin-left: 5px;
+    font-size: 100%;
+
+}
+.checkBox>input[type="checkbox"]{
+    outline: none !important;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    zoom:1;
+}
+.checkedStatus{
+    background: #F54785 !important;
+}

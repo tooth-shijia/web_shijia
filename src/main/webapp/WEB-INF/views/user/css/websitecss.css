@@ -46,7 +46,7 @@
     padding:25px 0px;
     position: relative;
 }
-.web_title>img{ width: 240px;height:70px;}
+.web_title>img{ width: 310px;height:70px;}
 .web_title>div{
     float: right;
     height: 100%;
@@ -67,6 +67,9 @@
     margin-left: 10px;
     cursor: pointer;
     line-height: 30px;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
 }
 .web_title>div>a:hover{ color: #fff;background: #4cc2c4; border-radius:3px;}
 .alive{color: #fff !important; background: #4cc2c4; border-radius:3px;}
@@ -111,29 +114,112 @@
 .footer>.content>.ewm{
     height:100%;
     width: 210px;
-
     float:left;
 }
-.footer>.content>.ewm>div{
-    width: 100%;
-    height:60px;
-    border-bottom: 3px solid #4cc2c4;
-}
-.footer>.content>.ewm>div>span{
-    color:#a8a8a8;
-    font-size: 20px;
-    display: block;
-    width: 100%;
+/*.footer>.content>.ewm>div{*/
+    /*width: 100%;*/
+    /*height:60px;*/
+    /*border-bottom: 3px solid #4cc2c4;*/
+/*}*/
+/*.footer>.content>.ewm>div>span{*/
+    /*color:#a8a8a8;*/
+    /*font-size: 20px;*/
+    /*display: block;*/
+    /*width: 100%;*/
 
-}
+/*}*/
 .footer>.content>.ewm>img{
     width: 180px;
     height: 180px;
     margin: 10px auto;
     display: block;
 }
+
+@media screen and (max-width: 1366px){
+    .footer>.content>.aboutus{
+        height:100%;
+        width: 33%;
+        float:left;
+        margin-left: 30px;
+    }
+
+    .footer>.content>.contactus{
+        height:100%;
+        width: 38%;
+        float:left;
+        margin-left: 30px;
+    }
+}
+@media screen and (width: 1366px){
+    .footer>.content>.aboutus{
+        height:100%;
+        width: 34%;
+        float:left;
+        margin-left: 30px;
+    }
+
+    .footer>.content>.contactus{
+        height:100%;
+        width: 40%;
+        float:left;
+        margin-left: 30px;
+    }
+}
+@media screen and (min-width: 1400px){
+    .footer>.content>.aboutus{
+        height:100%;
+        width: 35%;
+        float:left;
+        margin-left: 30px;
+    }
+
+    .footer>.content>.contactus{
+        height:100%;
+        width: 41%;
+        float:left;
+        margin-left: 30px;
+    }
+}
+@media screen and (max-width: 1280px){
+    .footer>.content>.aboutus{
+        height:100%;
+        width: 32%;
+        float:left;
+        margin-left: 30px;
+    }
+
+    .footer>.content>.contactus{
+        height:100%;
+        width: 36%;
+        float:left;
+        margin-left: 30px;
+    }
+}
+.footer>.content>div>div{
+    width: 100%;
+}
+.footer>.content>div>div:first-child{
+    height:60px;
+    border-bottom: 3px solid #4cc2c4;
+}
+.footer>.content>div>div:first-child>span{
+    color:#a8a8a8;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+
+}
+.footer>.content>.aboutus>div>.mc,.footer>.content>.contactus>div>.mc{
+    color: #a8a8a8;
+    display: block;
+}
+
+
+
+
+
 .footer>.foottail{
-    height: 40px;
+    height: 60px;
 }
 
 

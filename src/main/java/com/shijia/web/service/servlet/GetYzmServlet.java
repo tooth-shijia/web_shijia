@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * Created by Tangxinqi on 2016/6/10.
@@ -23,15 +24,22 @@ public class GetYzmServlet extends HttpServlet {
         DrawYzmUtils draw = new DrawYzmUtils(120,40);
         String code  = draw.FormatYzmImage(img);
         req.getSession().setAttribute("checkcode", code);
-        ImageIO.write(img, "png", resp.getOutputStream());
+        OutputStream out = resp.getOutputStream();
+        ImageIO.write(img, "png",out);
+        try{
+            out.flush();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            out.close();
+        }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
-
-
 
     }
 }

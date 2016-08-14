@@ -9,5 +9,16 @@
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
+    <bean id = "dataPersistenceManager" class="com.shijia.web.repository.dao.DataPersistenceManager"
+        factory-method="getInstance" >
+        <property name="dataPersistenceObject" ref="mysqlDataSourse"></property>
+    </bean>
+
+
+    <bean id = "mysqlDataSourse" class="com.shijia.web.repository.dao.impl.mybatis.DataPersistenceMySqlObjectByMyBatisImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+
+    </bean>
+
 
 </beans:beans>

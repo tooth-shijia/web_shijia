@@ -8,9 +8,10 @@ import java.util.Map;
  * Created by Tangxinqi on 2016/6/19.
  */
 public class SqlProvider {
+
     public String getSelectOneSqlById(Map<String, Object> para) {
 
-        String Sql = "select * from " + para.get("tableName") + " where id= '" + para.get("ID")+"'";
+        String Sql = "select * from  " + para.get("tableName") + " where id = #{ID}";
         LogHelper.info("Excute Sql："+Sql);
         return Sql;
     }

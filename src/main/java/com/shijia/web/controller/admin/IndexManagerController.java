@@ -1,5 +1,6 @@
 package com.shijia.web.controller.admin;
 
+import com.shijia.web.common.framework.ajax.Ajax;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("admin/")
 public class IndexManagerController extends BaseAdminController{
+
+
 
     @RequestMapping("index")
     public String index() {

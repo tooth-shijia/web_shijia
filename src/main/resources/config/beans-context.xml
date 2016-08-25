@@ -15,10 +15,7 @@
     </bean>
 
 
-    <bean id = "mysqlDataSourse" class="com.shijia.web.repository.dao.impl.mybatis.DataPersistenceMySqlObjectByMyBatisImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 
-    </bean>
 
 
 </beans:beans>

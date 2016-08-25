@@ -59,6 +59,27 @@ public class HttpUtils {
         return null;
     }
 
+    public static String get(String urlStr, int timeout) throws Exception {
+        StringBuilder str = new StringBuilder("");
+        URL url = new URL(urlStr);
+        // 打开URL链接
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        // 以GET方式传送接口参数
+        conn.setDoOutput(true);
+        conn.setDoInput(true);
+        conn.setReadTimeout(timeout);//?
+        conn.setRequestMethod("GET");
+        // 获取接口响应信息
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+
+        String line;
+        while (null != (line = br.readLine()))
+            str.append(line);
+        br.close();
+        return str.toString();
+
+    }
+
     /**
      * post请求
      *

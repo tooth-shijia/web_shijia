@@ -57,19 +57,19 @@ public class OrderItem {
      * 入件日期
      */
     @JSONField(name = "INPUT_DATE")
-    private Date input_date;
+    private String input_date;
 
     /**
      * 预出货日期
      */
     @JSONField(name = "DUE_DATE")
-    private Date due_date;
+    private String due_date;
 
     /**
      * 打印日期
      */
     @JSONField(name = "PRINT_DATE")
-    private Date print_date;
+    private String print_date;
 
     /**
      * 是否出货
@@ -197,27 +197,27 @@ public class OrderItem {
         this.box_no = box_no;
     }
 
-    public Date getInput_date() {
+    public String getInput_date() {
         return input_date;
     }
 
-    public void setInput_date(Date input_date) {
+    public void setInput_date(String input_date) {
         this.input_date = input_date;
     }
 
-    public Date getDue_date() {
+    public String getDue_date() {
         return due_date;
     }
 
-    public void setDue_date(Date due_date) {
+    public void setDue_date(String due_date) {
         this.due_date = due_date;
     }
 
-    public Date getPrint_date() {
+    public String getPrint_date() {
         return print_date;
     }
 
-    public void setPrint_date(Date print_date) {
+    public void setPrint_date(String print_date) {
         this.print_date = print_date;
     }
 

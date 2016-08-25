@@ -67,7 +67,7 @@
     <bean id="orderQueryUrl"
           class="com.shijia.web.repository.util.domain.RESTfulConfigItem">
         <property name="url" value="#{apiConfig['OrderQuery_URL']}"/>
-        <property name="timeout" value="#{apiConfig['OrderQuery_TIMEOUT']]}"/>
+        <property name="timeout" value="#{apiConfig['OrderQuery_TIMEOUT']}"/>
     </bean>
 
     <!-- 接口地址配置 end -->

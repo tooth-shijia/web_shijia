@@ -68,14 +68,5 @@
     </servlet-mapping>
 
 
-    <servlet>
-        <servlet-name>getYzmServlet</servlet-name>
-        <servlet-class>com.shijia.web.service.servlet.GetYzmServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>getYzmServlet</servlet-name>
-        <url-pattern>/getYzmServlet</url-pattern>
-    </servlet-mapping>
-
 
 </web-app>

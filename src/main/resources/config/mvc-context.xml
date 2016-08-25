@@ -51,6 +51,7 @@
     <beans:bean id="staticMethod" class="com.shijia.web.common.framework.freemarker.ViewStaticMethod">
         <beans:property name="classList">
             <beans:list>
+                <beans:value>com.shijia.web.common.framework.freemarker.utils.UrlUtils</beans:value>
             </beans:list>
         </beans:property>
     </beans:bean>

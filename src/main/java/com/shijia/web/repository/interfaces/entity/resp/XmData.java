@@ -11,73 +11,59 @@ public class XmData {
     /**
      * 产品id
      */
-    @JSONField(name = "PRODUCT_ID")
     private String product_id;
 
     /**
      * 产品名称
      */
-    @JSONField(name = "PRODUCT_NAME")
     private String product_name;
 
-    @JSONField(name = "A")
     private String a;
 
-    @JSONField(name = "B")
     private String b;
 
-    @JSONField(name = "C")
     private String c;
 
-    @JSONField(name = "D")
     private String d;
 
     /**
      * 种植数
      */
-    @JSONField(name = "IMPLANT_NO")
     private int implant_no;
 
     /**
      * 颜色
      */
-    @JSONField(name = "SHADE")
     private String shade;
 
     /**
      * 数量
      */
-    @JSONField(name = "QUANTITY")
     private int quantity;
 
     /**
      * 状态
      */
-    @JSONField(name = "STATUS")
     private String status;
 
     /**
      * 产品备注
      */
-    @JSONField(name = "PRODUCT_NOTE")
     private String product_note;
 
     /**
      * 收费方式
      */
-    @JSONField(name = "PAYMENT_TERMS")
     private String payment_terms;
 
     /**
      * 单价
      */
-    @JSONField(name = "PRICE")
     private double price;
 
     /**
      * 总金额
      */
-    @JSONField(name = "TOTAL_AMOUNT")
     private double total_amount;
 
 
@@ -85,6 +71,7 @@ public class XmData {
         return product_id;
     }
 
+    @JSONField(name = "PRODUCT_ID")
     public void setProduct_id(String product_id) {
         this.product_id = product_id;
     }
@@ -93,6 +80,7 @@ public class XmData {
         return product_name;
     }
 
+    @JSONField(name = "PRODUCT_NAME")
     public void setProduct_name(String product_name) {
         this.product_name = product_name;
     }
@@ -101,6 +89,7 @@ public class XmData {
         return a;
     }
 
+    @JSONField(name = "A")
     public void setA(String a) {
         this.a = a;
     }
@@ -109,6 +98,7 @@ public class XmData {
         return b;
     }
 
+    @JSONField(name = "B")
     public void setB(String b) {
         this.b = b;
     }
@@ -117,6 +107,7 @@ public class XmData {
         return c;
     }
 
+    @JSONField(name = "C")
     public void setC(String c) {
         this.c = c;
     }
@@ -125,6 +116,7 @@ public class XmData {
         return d;
     }
 
+    @JSONField(name = "D")
     public void setD(String d) {
         this.d = d;
     }
@@ -133,6 +125,7 @@ public class XmData {
         return implant_no;
     }
 
+    @JSONField(name = "IMPLANT_NO")
     public void setImplant_no(int implant_no) {
         this.implant_no = implant_no;
     }
@@ -141,6 +134,7 @@ public class XmData {
         return shade;
     }
 
+    @JSONField(name = "SHADE")
     public void setShade(String shade) {
         this.shade = shade;
     }
@@ -149,6 +143,7 @@ public class XmData {
         return quantity;
     }
 
+    @JSONField(name = "QUANTITY")
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
@@ -157,6 +152,7 @@ public class XmData {
         return status;
     }
 
+    @JSONField(name = "STATUS")
     public void setStatus(String status) {
         this.status = status;
     }
@@ -165,6 +161,7 @@ public class XmData {
         return product_note;
     }
 
+    @JSONField(name = "PRODUCT_NOTE")
     public void setProduct_note(String product_note) {
         this.product_note = product_note;
     }
@@ -173,6 +170,7 @@ public class XmData {
         return payment_terms;
     }
 
+    @JSONField(name = "PAYMENT_TERMS")
     public void setPayment_terms(String payment_terms) {
         this.payment_terms = payment_terms;
     }
@@ -181,6 +179,7 @@ public class XmData {
         return price;
     }
 
+    @JSONField(name = "PRICE")
     public void setPrice(double price) {
         this.price = price;
     }
@@ -189,6 +188,7 @@ public class XmData {
         return total_amount;
     }
 
+    @JSONField(name = "TOTAL_AMOUNT")
     public void setTotal_amount(double total_amount) {
         this.total_amount = total_amount;
     }

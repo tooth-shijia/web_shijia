@@ -2,6 +2,7 @@ package com.shijia.web.service.interfaces.impl;
 
 import com.shijia.web.common.utils.LogHelper;
 import com.shijia.web.repository.interfaces.IOrderQueryHttp;
+import com.shijia.web.repository.interfaces.entity.resp.OrderFlowItemResp;
 import com.shijia.web.repository.interfaces.entity.resp.OrderQueryItemResp;
 import com.shijia.web.service.interfaces.IOrderQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,15 @@ public class OrderQueryServiceImpl implements IOrderQueryService {
             return orderQueryHttp.queryOrderDetail(str, tag, accurate);
         } catch (Exception e) {
             LogHelper.error("OrderQueryServiceImpl -> queryOrderDetail异常", e);
+        }
+        return null;
+    }
+
+    public List<OrderFlowItemResp> queryOrderFlow(String orderid) {
+        try {
+            return orderQueryHttp.queryOrderFlow(orderid);
+        } catch (Exception e) {
+            LogHelper.error("OrderQueryServiceImpl -> queryOrderFlow异常", e);
         }
         return null;
     }

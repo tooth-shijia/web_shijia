@@ -53,7 +53,7 @@
     </bean>
 
     <!--<bean id = "mysqlDataSourse" class="com.shijia.web.repository.dao.impl.mybatis.DataPersistenceMySqlObjectByMyBatisImpl">-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
+    <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
     <!--</bean>-->
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -73,6 +73,14 @@
         <property name="url" value="#{apiConfig['OrderQuery_URL']}"/>
         <property name="timeout" value="#{apiConfig['OrderQuery_TIMEOUT']}"/>
     </bean>
+
+    <!-- 查询流程 -->
+    <bean id="orderFlowUrl"
+          class="com.shijia.web.repository.util.domain.RESTfulConfigItem">
+        <property name="url" value="#{apiConfig['OrderFlow_URL']}"/>
+        <property name="timeout" value="#{apiConfig['OrderFlow_TIMEOUT']}"/>
+    </bean>
+
 
     <!-- 接口地址配置 end -->
 

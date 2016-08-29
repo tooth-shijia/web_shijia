@@ -3,24 +3,26 @@ package com.shijia.web.repository.interfaces.entity.resp;
 import java.util.List;
 
 /**
- * 查询订单，每一项resp
- *
  * @author YanxiSir
- * @since 16/8/25
+ * @since 16/8/29
  */
-public class OrderQueryItemResp {
+public class OrderFlowItemResp {
 
     /**
-     * 没有数据
-     * "code":4001,"explain":"no data"
+     * 4002：参数订单编号为空
+     * 4001：无数据返回
      */
     private int code;
+    /**
+     * 代码说明
+     */
     private String explain;
+    /**
+     * 记录总数
+     */
     private int records;
-    private int ordernumber;
 
-    private List<OrderItem> data;
-
+    private List<OrderFlowItem> data;
 
     public int getCode() {
         return code;
@@ -46,19 +48,11 @@ public class OrderQueryItemResp {
         this.records = records;
     }
 
-    public int getOrdernumber() {
-        return ordernumber;
-    }
-
-    public void setOrdernumber(int ordernumber) {
-        this.ordernumber = ordernumber;
-    }
-
-    public List<OrderItem> getData() {
+    public List<OrderFlowItem> getData() {
         return data;
     }
 
-    public void setData(List<OrderItem> data) {
+    public void setData(List<OrderFlowItem> data) {
         this.data = data;
     }
 }

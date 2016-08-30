@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 16/5/22
  */
 @Controller
-@RequestMapping("admin/")
+@RequestMapping("/admin")
 public class ProductAboutController extends BaseAdminController{
 
-    @RequestMapping("productshow")
+    @RequestMapping("/productshow")
     public String showProduct(){
         return "admin/productshow";
     }
 
-    @RequestMapping("productedit")
+    @RequestMapping("/productedit")
     public String productEdit(){
         return "admin/productedit";
     }

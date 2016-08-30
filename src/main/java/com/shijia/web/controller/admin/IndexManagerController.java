@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 16/5/21
  */
 @Controller
-@RequestMapping("admin/")
+@RequestMapping("/admin")
 public class IndexManagerController extends BaseAdminController{
 
 
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     public String index() {
 
         return "admin/index";

@@ -1,14 +1,12 @@
 package com.shijia.web.controller.user;
 
-import com.shijia.web.common.framework.HttpContext;
 import com.shijia.web.common.utils.DateUtils;
-import org.apache.commons.httpclient.HttpClient;
-import org.springframework.http.HttpRequest;
+import com.shijia.web.repository.dao.DataPersistenceManager;
+import com.shijia.web.repository.dao.DataPersistenceObject;
+import com.shijia.web.repository.dao.Users;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Calendar;
 
 /**
  * Created by Tangxinqi on 2016/6/3.
@@ -27,6 +25,11 @@ public class BaseController {
                     +"</div>";
             modelAndView.addAttribute("login",login);
         }
-
+//        DataPersistenceObject dpo = DataPersistenceManager.getInstance().getDataPersistenceObject();
+////        DataPersistenceMySqlObjectImpl dpo = new DataPersistenceMySqlObjectImpl();
+//        Users user = (Users)dpo.selectById("111","users",Users.class);
+//        System.out.println(user.getUsr_name());
+////
+////        System.out.println(user.getId());
     }
 }

@@ -378,3 +378,19 @@
 .forgotpwd_div>a:hover{
     color: #F54785;
 }
+
+/*******************公司简介样式begin***************/
+@media screen and (max-height: 768px){
+    .common_div{
+        width: 100%;
+        min-width: 1280px;
+        height: 768px;
+    }
+}
+@media screen and (max-height: 1080px){
+    .common_div{
+        width: 100%;
+        min-width: 1280px;
+        height: 1080px;
+    }
+}

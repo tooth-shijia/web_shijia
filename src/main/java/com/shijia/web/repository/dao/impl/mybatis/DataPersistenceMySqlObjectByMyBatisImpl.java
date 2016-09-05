@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+
 import java.lang.reflect.Field;
 import java.util.Map;
 
@@ -24,7 +25,7 @@ public class DataPersistenceMySqlObjectByMyBatisImpl extends BaseDataPersistence
 
     private DaoMapper wapper;
 
-    private Logger logger ;
+    private Logger logger;
 
     public DataPersistenceMySqlObjectByMyBatisImpl() {
 
@@ -41,11 +42,9 @@ public class DataPersistenceMySqlObjectByMyBatisImpl extends BaseDataPersistence
     }
 
 
+    public <T> T selectById(String id, String tableName, Class<T> clazz) {
 
-
-    public <T> T selectById(String id,String tableName, Class<T> clazz) {
-
-        Map<String, Object> map = wapper.selectOneById(id,tableName);
+        Map<String, Object> map = wapper.selectOneById(id, tableName);
         T resultBean = this.formatMapToBean(map, clazz);
         this.sqlSessionFactory.openSession().commit();
         return resultBean;
@@ -54,8 +53,8 @@ public class DataPersistenceMySqlObjectByMyBatisImpl extends BaseDataPersistence
 
     public <T> T selectBySqlFilter(String sqlWhere, String tableName, Class<T> clazz) {
 
-        Map<String,Object> map = wapper.selectOneByFilter(sqlWhere,tableName);
-        T resultBean  = this.formatMapToBean(map,clazz);
+        Map<String, Object> map = wapper.selectOneByFilter(sqlWhere, tableName);
+        T resultBean = this.formatMapToBean(map, clazz);
         return resultBean;
     }
 
@@ -63,20 +62,20 @@ public class DataPersistenceMySqlObjectByMyBatisImpl extends BaseDataPersistence
         return null;
     }
 
-    private <T> T formatMapToBean(Map<String,Object> map, Class<T> clazz){
+    private <T> T formatMapToBean(Map<String, Object> map, Class<T> clazz) {
 
         T object = null;
-        if(map.isEmpty()){
+        if (map.isEmpty()) {
             return null;
         }
         try {
             object = clazz.newInstance();
             Field[] fields = object.getClass().getDeclaredFields();
-            for (Field field:fields){
+            for (Field field : fields) {
                 String fieldName = field.getName().toLowerCase();
-                if(map.containsKey(fieldName)){
+                if (map.containsKey(fieldName)) {
                     field.setAccessible(true);
-                    field.set(object,map.get(fieldName));
+                    field.set(object, map.get(fieldName));
                 }
             }
         } catch (InstantiationException e) {
@@ -97,7 +96,7 @@ public class DataPersistenceMySqlObjectByMyBatisImpl extends BaseDataPersistence
     }
 
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(this.sqlSessionFactory,"sqlSessionFactory must init");
+        Assert.notNull(this.sqlSessionFactory, "sqlSessionFactory must init");
         this.wapper = this.sqlSessionFactory.openSession().getMapper(DaoMapper.class);
     }
 }

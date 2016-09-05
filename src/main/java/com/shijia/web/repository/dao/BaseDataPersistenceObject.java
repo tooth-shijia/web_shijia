@@ -1,8 +1,6 @@
 package com.shijia.web.repository.dao;
 
 
-import org.springframework.context.support.ApplicationObjectSupport;
-
 /**
  * Created by Tangxinqi on 2016/6/18.
  */

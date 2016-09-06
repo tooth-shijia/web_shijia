@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
 
     <script language="JavaScript">
+
         function changeYzm() {
             var url = "/login/vcode?" + Math.random();
             $("#yzm").attr("src", url);
@@ -81,6 +82,11 @@
 </div>
 
 <script type="text/javascript" src="/ujs/common.js"></script>
+<script language="JavaScript">
+    $(document).ready(function(){
+        $("#checkBox").checkon();
+    });
+</script>
 <!--<script type="text/javascript" src="${UrlUtils.getUserJs('/common.js')}"/>-->
 </body>
 </html>

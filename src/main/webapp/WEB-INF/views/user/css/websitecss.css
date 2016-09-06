@@ -2,6 +2,10 @@
   首页的登录链接模块的样式
 
 */
+html,body{
+    width: 100%;
+    height: 100%;
+}
 
 .web_header{
     height:25px;
@@ -379,25 +383,54 @@
     color: #F54785;
 }
 
-/*******************公司简介样式begin***************/
-@media screen and (max-height: 768px){
-    .common_div{
-        width: 100%;
-        min-width: 1280px;
-        height: 768px;
-    }
-}
-@media screen and (max-height: 1080px){
-    .common_div{
-        width: 100%;
-        min-width: 1280px;
-        height: 1080px;
-    }
-}
 
 .header_on{
     width: 100%;
     height: 50px;
     min-width: 1024px;
-    background: #000000;
+    background: rgba(255,255,255,0.9);
+    position: fixed;
+    top: 0px;
+    box-shadow: 0 0 3px #b0b0b0;
+}
+.header_on>img{
+    float: left;
+    width:40px;
+    height:50px;
+    margin-left: 60px;
+}
+.header_on>div{
+    float: right;
+    height: inherit;
+    line-height: 50px;
+    margin-right: 60px;
+
+}
+.header_on>div>a{
+    outline: none;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    width: 80px;
+    display: block;
+    height: inherit;
+    float: left;
+    transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    font-family: "微软雅黑";
+
+}
+.header_on>div>a:first-child{
+    width: 50px;
+}
+.header_on>div>a:hover{
+    color: #4cc2c4;
+}
+
+.common_div{
+    width: 100%;
+    min-width: 1280px;
+    height: 100%;
 }

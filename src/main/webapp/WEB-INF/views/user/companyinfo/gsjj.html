@@ -9,20 +9,56 @@
     <link rel="shortcut icon" href="/uimg/favicon.ico" />
     <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
+    <link rel="stylesheet" type="text/css" href="/ucss/common.css">
+    <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/ujs/common.js"></script>
+    <script language="JavaScript">
+
+        function scrollup() {
+           alert(1);
+        }
+        function scrolldown() {
+            alert(2)
+        }
+    </script>
 </head>
 <body style="margin: 0px;">
+
    <div class="header_on" >
-       <!--<img src="/uimg/logo.png" href="/shijia/index.html" style="width:310px;height:70px;">-->
+       <img src="/uimg/logo2.png" >
+       <div>
+           <a href="/shijia/index.html">首页</a>
+           <a href="/shijia/companyinfo/gsjj.html" style="color: #4cc2c4">公司简介</a>
+           <a>产品展示</a>
+           <a>专业团队</a>
+           <a>医技沟通</a>
+           <a>质量保障</a>
+           <a>联系我们</a>
+       </div>
    </div>
-   <div class="common_div" style="background-color:  #d9d9d9"></div>
+   <div class="common_div" style="background-color:  #e0e0e0"></div>
    <div class="common_div"></div>
    <div class="common_div" style="background-color: #00ffff"></div>
    <div class="common_div"></div>
    <div class="common_div"></div>
    <div class="common_div"></div>
-
+   <ol class="scoll_bar">
+       <li class="active"><a><span class="dot"></span></a></li>
+       <li><a><span class="dot"></span></a></li>
+       <li><a><span class="dot"></span></a></li>
+       <li><a><span class="dot"></span></a></li>
+       <li><a><span class="dot"></span></a></li>
+       <li><a><span class="dot"></span></a></li>
+   </ol>
 
 
    <@extends name="./common/master_user_tail.html"/>
+
+   <script language="JavaScript">
+       (function(){
+           $("body").allowShowByScoll(true,scrollup,scrolldown);
+       })();
+
+   </script>
 </body>
 </html>

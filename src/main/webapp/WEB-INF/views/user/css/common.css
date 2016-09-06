@@ -35,3 +35,41 @@
 .checkedStatus{
     background: #F54785 !important;
 }
+
+.scoll_bar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    z-index: 99;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+}
+.scoll_bar li{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin: 7px 0;
+}
+.scoll_bar a .dot{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    text-indent: -9999em;
+    background: #757575;
+    cursor: pointer;
+}
+.scoll_bar .active a .dot{
+    top: 1px;
+    left: 1px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #95d7fd;
+    background: none;
+}

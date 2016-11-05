@@ -12,4 +12,5 @@ public interface IProductTypeDAO {
      * ProductType
      */
     public int addProductType(ProductType productType);
+
 }

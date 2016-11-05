@@ -86,7 +86,7 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="productShowDAO" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.shijia.web.repository.mapper.IProductShow1DAO"/>
+        <property name="mapperInterface" value="com.shijia.web.repository.mapper.ProductShowDAO"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="productTypeDAO" class="org.mybatis.spring.mapper.MapperFactoryBean">

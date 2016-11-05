@@ -20,7 +20,7 @@
     <!-- 公共的Spring容器 -->
 
     <!-- 公共的数据源配置 -->
-    <util:properties id="dbConfig" location="classpath:/config/jdbc.properties"></util:properties>
+    <util:properties id="dbConfig" location="classpath:/jdbc.properties"></util:properties>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           lazy-init="default" autowire="default" destroy-method="close">
@@ -57,13 +57,13 @@
     <!--</bean>-->
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:config/mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <!-- api -->
     <util:properties id="apiConfig"
-                     location="classpath:config/server.properties"></util:properties>
+                     location="classpath:server.properties"></util:properties>
 
     <!-- 接口地址配置 start -->
 

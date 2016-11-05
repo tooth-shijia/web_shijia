@@ -10,7 +10,7 @@
     <context:annotation-config></context:annotation-config>
     <!-- Root Context: defines shared resources visible to all other web components -->
 
-    <import resource="classpath:config/web-framework.xml" />
-    <import resource="classpath:config/beans-context.xml" />
+    <import resource="classpath:web-framework.xml" />
+    <import resource="classpath:beans-context.xml" />
 
 </beans>

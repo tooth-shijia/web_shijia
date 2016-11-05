@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shijia.web.repository.mapper.INewsMapper">
+
+    <resultMap id="NewsShowMap" type="com.shijia.web.repository.mapper.domain.NewsShow">
+        <result property="id" column="id"/>
+        <result property="newsName" column="news_name"/>
+        <result property="newsType" column="news_type"/>
+        <result property="comefrom" column="comefrom"/>
+        <result property="author" column="author"/>
+        <result property="content" column="content"/>
+        <result property="showCount" column="show_count"/>
+        <result property="createTime" column="createtime"/>
+        <result property="lastModifyTime" column="lastmodifytime"/>
+        <result property="isDelete" column="is_delete"/>
+    </resultMap>
+
+    <sql id="Sql_Base_Table_Name">
+        `news_show`
+    </sql>
+
+    <!-- create -->
+    <insert id="addNewsShow" parameterType="com.shijia.web.repository.mapper.domain.NewsShow">
+        INSERT INTO
+        <include refid="Sql_Base_Table_Name"/>
+        (news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete)
+        VALUES
+        (#{newName},#{newsType},#{comefrom},#{author},#{content},#{showCount},#{createTime},
+        #{lastModifyTime},#{isDelete})
+    </insert>
+    <!-- select -->
+    <!-- update -->
+
+
+</mapper>

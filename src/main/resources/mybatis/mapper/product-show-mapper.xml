@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shijia.web.repository.mapper.IProductShowMapper">
+
+    <resultMap id="ProductShowMap" type="com.shijia.web.repository.mapper.domain.ProductShow">
+        <result property="id" column="id"/>
+        <result property="productName" column="product_name"/>
+        <result property="productId" column="product_id"/>
+        <result property="productClassify" column="product_classify"/>
+        <result property="productType" column="product_type"/>
+        <result property="comefrom" column="comefrom"/>
+        <result property="author" column="author"/>
+        <result property="content" column="content"/>
+        <result property="showCount" column="show_count"/>
+        <result property="createTime" column="createtime"/>
+        <result property="lastModifyTime" column="lastmodifytime"/>
+        <result property="isDelete" column="is_delete"/>
+    </resultMap>
+
+    <sql id="Sql_Base_Table_Name">
+        `product_show`
+    </sql>
+
+    <!-- create -->
+    <insert id="addProductShow" parameterType="com.shijia.web.repository.mapper.domain.ProductShow">
+        INSERT INTO
+        <include refid="Sql_Base_Table_Name"/>
+        (product_name,product_id,product_classify,product_type,comefrom,author,content,show_count,
+        createtime,lastmodifytime,is_delete)
+        VALUES
+        (#{productName},#{productId},#{productClassify},#{productType},#{comefrom},#{author},
+        #{content},#{showCount},#{createTime},#{lastModifyTime},#{isDelete})
+    </insert>
+
+    <!-- select -->
+</mapper>

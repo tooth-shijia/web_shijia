@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shijia.web.repository.mapper.IProductTypeMapper">
+
+    <resultMap id="ProductTypeMap" type="com.shijia.web.repository.mapper.domain.ProductType">
+        <result property="id" column="id"/>
+        <result property="typeName" column="type_name"/>
+        <result property="productId" column="product_id"/>
+        <result property="createTime" column="createtime"/>
+        <result property="lastModifyTime" column="lastmodifytime"/>
+        <result property="lastModifyPeople" column="lastmodifypeople"/>
+    </resultMap>
+
+    <sql id="Sql_Base_Table_Name">
+        `product_type`
+    </sql>
+
+    <!-- create -->
+    <insert id="addProductType" parameterType="com.shijia.web.repository.mapper.domain.ProductType">
+        INSERT INTO
+        <include refid="Sql_Base_Table_Name"/>
+        (type_name,product_id,createtime,lastmodifytime,lastmodifypeople)
+        VALUES
+        (#{typeName},#{productId},#{createTime},#{lastModifyTime},#{lastModifyPeople})
+    </insert>
+    <!-- select -->
+    <!-- update -->
+
+</mapper>

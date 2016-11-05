@@ -30,7 +30,7 @@ public class ResourceUtils {
     }
 
     public static Properties getWebProperties() throws Exception {
-        String path = getCurrentPath("config", "web.properties");
+        String path = getCurrentPath("config", "config/web.properties");
         return getProperties(path);
     }
 

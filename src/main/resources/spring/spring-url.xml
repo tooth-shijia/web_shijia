@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+             default-autowire="byName">
+
+    <!-- 查询订单 -->
+    <bean id="orderQueryUrl"
+          class="com.shijia.web.repository.util.domain.RESTfulConfigItem">
+        <property name="url" value="${OrderQuery_URL}"/>
+        <property name="timeout" value="${OrderQuery_TIMEOUT}"/>
+    </bean>
+
+    <!-- 查询流程 -->
+    <bean id="orderFlowUrl"
+          class="com.shijia.web.repository.util.domain.RESTfulConfigItem">
+        <property name="url" value="${OrderFlow_URL}"/>
+        <property name="timeout" value="${OrderFlow_TIMEOUT}"/>
+    </bean>
+
+
+    <!-- 接口地址配置 end -->
+
+
+</beans:beans>

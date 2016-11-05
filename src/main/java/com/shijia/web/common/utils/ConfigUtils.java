@@ -48,7 +48,7 @@ public class ConfigUtils {
      * 获取webproperties
      */
     public static Properties getWebProperties() throws FileNotFoundException, IOException {
-        String path = getCurrentPath("config", "web.properties");
+        String path = getCurrentPath("config", "config/web.properties");
         return getProperties(path);
     }
 

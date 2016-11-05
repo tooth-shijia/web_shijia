@@ -6,7 +6,7 @@ import com.shijia.web.repository.mapper.domain.ProductType;
  * @author YanxiSir
  * @since 16/11/6
  */
-public interface IProductTypeMapper {
+public interface IProductTypeDAO {
 
     /**
      * ProductType

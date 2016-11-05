@@ -98,6 +98,12 @@
             <version>4.1</version>
         </dependency>
         <!-- mybatis 配置结束 -->
+        <!--datasource-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.18</version>
+        </dependency>
 
         <!-- spring 配置开始 -->
         <dependency>

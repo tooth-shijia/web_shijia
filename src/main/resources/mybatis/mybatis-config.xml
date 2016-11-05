@@ -21,15 +21,6 @@
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
     </settings>
 
-    <!--<typeAliases>-->
-        <!--<typeAlias type="com.shijia.web.repository.mapper.domain.ProductShow"-->
-                   <!--alias="ProductShow"/>-->
-        <!--<typeAlias type="com.shijia.web.repository.mapper.domain.ProductType"-->
-                   <!--alias="ProductType"/>-->
-        <!--<typeAlias type="com.shijia.web.repository.mapper.domain.NewsShow"-->
-                   <!--alias="NewsShow"/>-->
-    <!--</typeAliases>-->
-
     <mappers>
         <mapper resource="mybatis/mapper/product-show-mapper.xml"/>
         <mapper resource="mybatis/mapper/product-type-mapper.xml"/>

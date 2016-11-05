@@ -6,11 +6,13 @@
 	http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <context:component-scan base-package="com.shijia" />
+    <context:component-scan base-package="com.shijia.web">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
     <context:annotation-config></context:annotation-config>
-    <!-- Root Context: defines shared resources visible to all other web components -->
 
-    <import resource="classpath:web-framework.xml" />
-    <import resource="classpath:beans-context.xml" />
+    <import resource="classpath:properties.xml"/>
+    <import resource="classpath:spring/spring-url.xml"/>
+    <import resource="classpath:mybatis/mybatis.xml"/>
 
 </beans>

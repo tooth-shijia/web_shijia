@@ -1,10 +1,6 @@
 package com.shijia.web.controller.user;
 
 import com.shijia.web.common.utils.DateUtils;
-import com.shijia.web.repository.dao.DataPersistenceManager;
-import com.shijia.web.repository.dao.DataPersistenceObject;
-import com.shijia.web.repository.dao.Users;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 

@@ -33,4 +33,14 @@
     </insert>
 
     <!-- select -->
+    <select id="getProductByPageAndType" parameterType="int" resultMap="ProductShowMap">
+        select
+        id,productName,productId,productClassify,productType,comefrom,author,content,showCount,createTime,
+        lastModifyTime,isDelete
+        from
+        <include refid="Sql_Base_Table_Name"/>
+        where
+        productType=#{2} and isDelete=0
+        limit {0},{1}
+    </select>
 </mapper>

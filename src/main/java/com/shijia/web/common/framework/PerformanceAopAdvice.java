@@ -1,11 +1,14 @@
 package com.shijia.web.common.framework;
 
-import com.shijia.web.common.utils.LogHelper;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
 
 
 public class PerformanceAopAdvice {
+
+    private static final Logger logger = LoggerFactory.getLogger(PerformanceAopAdvice.class);
 
     public Object aroundMethod(ProceedingJoinPoint pjp) throws Throwable {
         // 启动一个 stop watch
@@ -23,13 +26,11 @@ public class PerformanceAopAdvice {
                 returnValue = pjp.proceed();
             }
         } catch (Throwable e) {
-            if (e != null) {
-                LogHelper.error(methodName, e);
-            }
+            logger.error(methodName, e);
             throw e;
         } finally {
             sw.stop();
-            LogHelper.info(methodName + ":" + sw.getTotalTimeMillis());
+            logger.info(methodName + ":" + sw.getTotalTimeMillis());
         }
         // 返回业务方法返回值
         return returnValue;

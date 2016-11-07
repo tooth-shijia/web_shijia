@@ -81,8 +81,14 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.shijia.web.repository.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>-->
+
+    <!--</bean>-->
+
     <bean id="newsDAO" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.shijia.web.repository.mapper.INewsDAO"/>
+        <property name="mapperInterface" value="com.shijia.web.repository.mapper.INewDAO"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <bean id="productShowDAO" class="org.mybatis.spring.mapper.MapperFactoryBean">

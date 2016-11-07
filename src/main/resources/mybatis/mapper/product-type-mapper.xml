@@ -24,6 +24,12 @@
         (#{typeName},#{productId},#{createTime},#{lastModifyTime},#{lastModifyPeople})
     </insert>
     <!-- select -->
+    <select id="getProductTypeAll" resultMap="ProductTypeMap">
+        select
+        id,typeName,productId,createTime,lastModifyTime,lastModifyPeople
+        from
+        <include refid="Sql_Base_Table_Name"/>
+    </select>
     <!-- update -->
 
 </mapper>

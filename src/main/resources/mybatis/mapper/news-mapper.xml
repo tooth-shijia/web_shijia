@@ -29,6 +29,16 @@
         #{lastModifyTime},#{isDelete})
     </insert>
     <!-- select -->
+    <select id="getNewsByPageAndType" parameterType="int"
+            resultMap="NewsShowMap">
+        select
+        id,newsName,newsType,comefrom,author,content,showCount,createTime,lastModifyTime,isDelete
+        from
+        <include refid="Sql_Base_Table_Name"/>
+        where
+        newsType=#{2} and isDelete=0
+        limit #{0},#{1}
+    </select>
     <!-- update -->
 
 

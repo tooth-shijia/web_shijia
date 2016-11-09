@@ -26,7 +26,8 @@ public class ProductShow {
     private String productName;
     private String productId;
     private int productClassify;
-    private int productType;
+    private int productTypeId;
+    private String productTypeName;
     private String comefrom;
     private String author;
     private String content;
@@ -67,12 +68,20 @@ public class ProductShow {
         this.productClassify = productClassify;
     }
 
-    public int getProductType() {
-        return productType;
+    public int getProductTypeId() {
+        return productTypeId;
     }
 
-    public void setProductType(int productType) {
-        this.productType = productType;
+    public void setProductTypeId(int productTypeId) {
+        this.productTypeId = productTypeId;
+    }
+
+    public String getProductTypeName() {
+        return productTypeName;
+    }
+
+    public void setProductTypeName(String productTypeName) {
+        this.productTypeName = productTypeName;
     }
 
     public String getComefrom() {

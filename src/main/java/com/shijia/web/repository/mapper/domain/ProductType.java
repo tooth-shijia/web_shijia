@@ -15,6 +15,7 @@ public class ProductType {
      * 'lastmodifypeople' varchar(50) NOT NULL DEFAULT '' COMMENT '最后修改人',
      */
     private int id;
+    private int typeId;
     private String typeName;
     private Date createTime;
     private Date lastModifyTime;
@@ -58,5 +59,13 @@ public class ProductType {
 
     public void setLastModifyPeople(String lastModifyPeople) {
         this.lastModifyPeople = lastModifyPeople;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 }

@@ -4,8 +4,8 @@
 
     <resultMap id="ProductTypeMap" type="com.shijia.web.repository.mapper.domain.ProductType">
         <result property="id" column="id"/>
+        <result property="typeId" column="type_id"/>
         <result property="typeName" column="type_name"/>
-        <result property="productId" column="product_id"/>
         <result property="createTime" column="createtime"/>
         <result property="lastModifyTime" column="lastmodifytime"/>
         <result property="lastModifyPeople" column="lastmodifypeople"/>
@@ -19,14 +19,14 @@
     <insert id="addProductType" parameterType="com.shijia.web.repository.mapper.domain.ProductType">
         INSERT INTO
         <include refid="Sql_Base_Table_Name"/>
-        (type_name,product_id,createtime,lastmodifytime,lastmodifypeople)
+        (type_name,type_id,createtime,lastmodifytime,lastmodifypeople)
         VALUES
-        (#{typeName},#{productId},#{createTime},#{lastModifyTime},#{lastModifyPeople})
+        (#{typeName},#{typeId},#{createTime},#{lastModifyTime},#{lastModifyPeople})
     </insert>
     <!-- select -->
     <select id="getProductTypeAll" resultMap="ProductTypeMap">
         select
-        id,typeName,productId,createTime,lastModifyTime,lastModifyPeople
+        id,type_id,type_name,createtime,lastmodifytime,lastmodifypeople
         from
         <include refid="Sql_Base_Table_Name"/>
     </select>

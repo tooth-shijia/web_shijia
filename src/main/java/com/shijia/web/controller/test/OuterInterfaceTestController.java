@@ -1,4 +1,4 @@
-package com.shijia.web.controller;
+package com.shijia.web.controller.test;
 
 import com.alibaba.fastjson.JSON;
 import com.shijia.web.repository.interfaces.entity.resp.OrderFlowItemResp;
@@ -14,12 +14,11 @@ import java.util.List;
 
 /**
  * @author YanxiSir
- * @since 16/8/25
+ * @since 16/11/9
  */
 @Controller
-@RequestMapping("/test")
-public class TestController {
-
+@RequestMapping("/test/outapi")
+public class OuterInterfaceTestController {
     @Autowired
     private IOrderQueryService orderQueryService;
 

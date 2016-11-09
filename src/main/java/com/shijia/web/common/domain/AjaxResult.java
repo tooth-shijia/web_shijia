@@ -17,6 +17,7 @@ public class AjaxResult {
     public AjaxResult(boolean success, String msg) {
         this.msg = msg;
         this.success = success;
+        this.obj = null;
     }
 
     public AjaxResult(boolean success, String msg, Object obj) {

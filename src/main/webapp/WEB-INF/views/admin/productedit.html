@@ -32,67 +32,59 @@
 
     <div class="page-content">
         <!-- /.page-header -->
+        <div id="edit_conditions">
+            <!-- 一些选择项 -->
+            <div class="">
+                <span>产品类型：</span>
+                <div class="btn-group">
+                    <button data-toggle="dropdown" class="btn dropdown-toggle">
+                        <span class="icon-caret-down icon-on-right"></span>
+                    </button>
 
+                    <ul class="dropdown-menu dropdown-default" id="product_type_list">
+
+                        <!--<li class="divider"></li>-->
+
+                    </ul>
+                </div>
+                <!-- /btn-group -->
+                <span>来源：</span>
+                <div class="btn-group">
+                    <button data-toggle="dropdown" class="btn dropdown-toggle">
+
+                        <span class="icon-caret-down icon-on-right"></span>
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-default">
+                        <li>
+                            <a href="#">转载</a>
+                        </li>
+
+                        <li>
+                            <a href="#">原创</a>
+                        </li>
+
+                        <li>
+                            <a href="#">宣传</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /btn-group -->
+            </div>
+            <div style="top:10px;">
+                <span>产品名称：</span>
+                <input id="tags" type="text" class="ui-autocomplete-input" autocomplete="off">
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
-
-                <!-- 一些选择项 -->
-                <div class="btn-toolbar">
-                    <div class="btn-group">
-                        <button data-toggle="dropdown" class="btn dropdown-toggle">
-                            产品类型
-                            <span class="icon-caret-down icon-on-right"></span>
-                        </button>
-
-                        <ul class="dropdown-menu dropdown-default">
-                            <li>
-                                <a href="#">产品0</a>
-                            </li>
-
-                            <li>
-                                <a href="#">产品1</a>
-                            </li>
-
-                            <li>
-                                <a href="#">产品2</a>
-                            </li>
-
-                            <!--<li class="divider"></li>-->
-
-                        </ul>
-                    </div><!-- /btn-group -->
-                    <div class="btn-group">
-                        <button data-toggle="dropdown" class="btn dropdown-toggle">
-                            来源
-                            <span class="icon-caret-down icon-on-right"></span>
-                        </button>
-
-                        <ul class="dropdown-menu dropdown-default">
-                            <li>
-                                <a href="#">转载</a>
-                            </li>
-
-                            <li>
-                                <a href="#">原创</a>
-                            </li>
-
-                            <li>
-                                <a href="#">宣传</a>
-                            </li>
-
-                            <!--<li class="divider"></li>-->
-
-                        </ul>
-                    </div><!-- /btn-group -->
-
-                </div>
 
                 <h4 class="header green clearfix">
                     <!-- 编辑器风格 -->
                 </h4>
 
-                <div class="wysiwyg-editor" id="editor1" contenteditable="true" ></div>
+                <div class="wysiwyg-editor" id="editor1" contenteditable="true"></div>
 
                 <div class="hr hr-double dotted"></div>
 
@@ -112,108 +104,5 @@
 <@override name="js">
 <!-- inline scripts related to this page -->
 
-<script type="text/javascript">
-    jQuery(function($){
-
-        function showErrorAlert (reason, detail) {
-            var msg='';
-            if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
-            else {
-                console.log("error uploading file", reason, detail);
-            }
-            $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+
-                    '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
-        }
-
-        //$('#editor1').ace_wysiwyg();//this will create the default editor will all buttons
-
-        //but we want to change a few buttons colors for the third style
-        $('#editor1').ace_wysiwyg({
-            toolbar:
-                    [
-                        'font',
-                        null,
-                        'fontSize',
-                        null,
-                        {name:'bold', className:'btn-info'},
-                        {name:'italic', className:'btn-info'},
-                        {name:'strikethrough', className:'btn-info'},
-                        {name:'underline', className:'btn-info'},
-                        null,
-                        {name:'insertunorderedlist', className:'btn-success'},
-                        {name:'insertorderedlist', className:'btn-success'},
-                        {name:'outdent', className:'btn-purple'},
-                        {name:'indent', className:'btn-purple'},
-                        null,
-                        {name:'justifyleft', className:'btn-primary'},
-                        {name:'justifycenter', className:'btn-primary'},
-                        {name:'justifyright', className:'btn-primary'},
-                        {name:'justifyfull', className:'btn-inverse'},
-                        null,
-                        {name:'createLink', className:'btn-pink'},
-                        {name:'unlink', className:'btn-pink'},
-                        null,
-                        {name:'insertImage', className:'btn-success'},
-                        null,
-                        'foreColor',
-                        null,
-                        {name:'undo', className:'btn-grey'},
-                        {name:'redo', className:'btn-grey'}
-                    ],
-            'wysiwyg': {
-                fileUploadError: showErrorAlert
-            }
-        }).prev().addClass('wysiwyg-style2');
-
-        //Add Image Resize Functionality to Chrome and Safari
-        //webkit browsers don't have image resize functionality when content is editable
-        //so let's add something using jQuery UI resizable
-        //another option would be opening a dialog for user to enter dimensions.
-        if ( typeof jQuery.ui !== 'undefined' && /applewebkit/.test(navigator.userAgent.toLowerCase()) ) {
-
-            var lastResizableImg = null;
-            function destroyResizable() {
-                if(lastResizableImg == null) return;
-                lastResizableImg.resizable( "destroy" );
-                lastResizableImg.removeData('resizable');
-                lastResizableImg = null;
-            }
-
-            var enableImageResize = function() {
-                $('.wysiwyg-editor')
-                        .on('mousedown', function(e) {
-                            var target = $(e.target);
-                            if( e.target instanceof HTMLImageElement ) {
-                                if( !target.data('resizable') ) {
-                                    target.resizable({
-                                        aspectRatio: e.target.width / e.target.height,
-                                    });
-                                    target.data('resizable', true);
-
-                                    if( lastResizableImg != null ) {//disable previous resizable image
-                                        lastResizableImg.resizable( "destroy" );
-                                        lastResizableImg.removeData('resizable');
-                                    }
-                                    lastResizableImg = target;
-                                }
-                            }
-                        })
-                        .on('click', function(e) {
-                            if( lastResizableImg != null && !(e.target instanceof HTMLImageElement) ) {
-                                destroyResizable();
-                            }
-                        })
-                        .on('keydown', function() {
-                            destroyResizable();
-                        });
-            }
-
-            enableImageResize();
-
-
-        }
-
-
-    });
-</script>
+<script type="text/javascript" src="/ajs/productedit.js"></script>
 </@override> <@extends name="./common/master_admin.html"/>

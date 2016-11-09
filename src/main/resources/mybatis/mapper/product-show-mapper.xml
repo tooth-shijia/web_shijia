@@ -7,7 +7,8 @@
         <result property="productName" column="product_name"/>
         <result property="productId" column="product_id"/>
         <result property="productClassify" column="product_classify"/>
-        <result property="productType" column="product_type"/>
+        <result property="productTypeId" column="product_type_id"/>
+        <result property="productTypeName" column="product_type_name"/>
         <result property="comefrom" column="comefrom"/>
         <result property="author" column="author"/>
         <result property="content" column="content"/>
@@ -25,22 +26,22 @@
     <insert id="addProductShow" parameterType="com.shijia.web.repository.mapper.domain.ProductShow">
         INSERT INTO
         <include refid="Sql_Base_Table_Name"/>
-        (product_name,product_id,product_classify,product_type,comefrom,author,content,show_count,
+        (product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,
         createtime,lastmodifytime,is_delete)
         VALUES
-        (#{productName},#{productId},#{productClassify},#{productType},#{comefrom},#{author},
+        (#{productName},#{productId},#{productClassify},#{productTypeId},#{productTypeName},#{comefrom},#{author},
         #{content},#{showCount},#{createTime},#{lastModifyTime},#{isDelete})
     </insert>
 
     <!-- select -->
     <select id="getProductByPageAndType" parameterType="int" resultMap="ProductShowMap">
         select
-        id,productName,productId,productClassify,productType,comefrom,author,content,showCount,createTime,
-        lastModifyTime,isDelete
+        id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,createtime,
+        lastmodifytime,is_delete
         from
         <include refid="Sql_Base_Table_Name"/>
         where
-        productType=#{2} and isDelete=0
+        product_type_id=#{2} and is_delete=0
         limit {0},{1}
     </select>
 </mapper>

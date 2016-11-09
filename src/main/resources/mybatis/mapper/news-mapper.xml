@@ -32,11 +32,11 @@
     <select id="getNewsByPageAndType" parameterType="int"
             resultMap="NewsShowMap">
         select
-        id,newsName,newsType,comefrom,author,content,showCount,createTime,lastModifyTime,isDelete
+        id,news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete
         from
         <include refid="Sql_Base_Table_Name"/>
         where
-        newsType=#{2} and isDelete=0
+        news_type=#{2} and is_delete=0
         limit #{0},#{1}
     </select>
     <!-- update -->

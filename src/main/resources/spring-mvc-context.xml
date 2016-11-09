@@ -84,8 +84,6 @@
     <beans:bean id="performanceAopAdvice" class="com.shijia.web.common.framework.PerformanceAopAdvice">
     </beans:bean>
 
-    <beans:bean class="com.shijia.web.common.framework.ajax.AjaxHandlerMapping"/>
-    <beans:bean class="com.shijia.web.common.framework.ajax.AjaxHandlerAdapter"/>
 
     <!--拦截器设置。 start -->
     <interceptors>

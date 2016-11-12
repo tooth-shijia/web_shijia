@@ -42,6 +42,6 @@
         <include refid="Sql_Base_Table_Name"/>
         where
         product_type_id=#{2} and is_delete=0
-        limit {0},{1}
+        limit #{0},#{1}
     </select>
 </mapper>

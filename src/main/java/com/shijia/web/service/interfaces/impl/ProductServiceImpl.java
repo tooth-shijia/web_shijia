@@ -1,14 +1,20 @@
 package com.shijia.web.service.interfaces.impl;
 
+import com.shijia.web.common.utils.DateUtils;
+import com.shijia.web.common.utils.StringUtils;
+import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.repository.mapper.IProductTypeDAO;
 import com.shijia.web.repository.mapper.ProductShowDAO;
 import com.shijia.web.repository.mapper.domain.ProductShow;
 import com.shijia.web.repository.mapper.domain.ProductType;
 import com.shijia.web.service.domain.productshow.AddProductShowReq;
 import com.shijia.web.service.interfaces.IProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +23,8 @@ import java.util.List;
  */
 @Service("productService")
 public class ProductServiceImpl implements IProductService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Autowired
     private ProductShowDAO productShowDAO;
@@ -41,9 +49,46 @@ public class ProductServiceImpl implements IProductService {
      * @param type
      * @return
      */
-    public List<ProductShow> getProductByPageAndType(int pageIndex, int pageSize, int type) {
+    public List<ProductShowModel> getProductByPageAndType(int pageIndex, int pageSize, int type) {
         int startIndex = (pageIndex - 1) * pageSize;
-        return productShowDAO.getProductByPageAndType(startIndex, pageSize, type);
+        List<ProductShowModel> modelList = null;
+        try {
+            List<ProductShow> list = productShowDAO.getProductByPageAndType(startIndex, pageSize, type);
+            modelList = new ArrayList<ProductShowModel>();
+            if (list != null) {
+                for (ProductShow ps : list) {
+                    ProductShowModel item = new ProductShowModel();
+                    item.setId(ps.getId());
+                    if (StringUtils.isNotEmpty(ps.getProductName()))
+                        item.setProductName(ps.getProductName());
+                    if (StringUtils.isNotEmpty(ps.getProductId()))
+                        item.setProductId(ps.getProductId());
+                    item.setProductTypeId(ps.getProductTypeId());
+                    if (StringUtils.isNotEmpty(ps.getProductTypeName()))
+                        item.setProductTypeName(ps.getProductTypeName());
+                    if (StringUtils.isNotEmpty(ps.getAuthor()))
+                        item.setAuthor(ps.getAuthor());
+                    if (StringUtils.isNotEmpty(ps.getComefrom()))
+                        item.setComefrom(ps.getComefrom());
+                    item.setShowCount(ps.getShowCount());
+                    item.setContent(ps.getContent());
+
+                    if (ps.getIsDelete() == 0) {
+                        item.setIsDelete("否");
+                    } else if (ps.getIsDelete() == 1) {
+                        item.setIsDelete("已删除");
+                    }
+                    if (ps.getCreateTime() != null)
+                        item.setCreateTime(DateUtils.getDate(ps.getCreateTime()));
+                    if (ps.getLastModifyTime() != null)
+                        item.setLastModifyTime(DateUtils.getDate(ps.getLastModifyTime()));
+                    modelList.add(item);
+                }
+            }
+        } catch (Exception e) {
+            logger.error("getProductByPageAndType 异常", e);
+        }
+        return modelList;
     }
 
     /**
@@ -57,6 +102,17 @@ public class ProductServiceImpl implements IProductService {
         ps.setProductTypeId(addProductShowReq.getProductTypeId());
         ps.setProductTypeName(addProductShowReq.getProductTypeName());
         ps.setContent(addProductShowReq.getContent());
-        return productShowDAO.addProductShow(ps);
+        ps.setProductId(addProductShowReq.getProductId());
+        ps.setCreateTime(DateUtils.getCurDate());
+        ps.setLastModifyTime(DateUtils.getCurDate());
+        ps.setAuthor(addProductShowReq.getAuthor());
+        ps.setComefrom(addProductShowReq.getComefrom());
+        int result = -1;
+        try {
+            result = productShowDAO.addProductShow(ps);
+        } catch (Exception e) {
+            logger.error("addProduct 异常", e);
+        }
+        return result;
     }
 }

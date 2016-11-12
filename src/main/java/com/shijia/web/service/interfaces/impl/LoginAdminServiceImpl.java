@@ -3,7 +3,7 @@ package com.shijia.web.service.interfaces.impl;
 import com.shijia.web.common.cookie.CookieManageBean;
 import com.shijia.web.common.session.SessionAdminMember;
 import com.shijia.web.common.session.SessionManager;
-import com.shijia.web.controller.viewmodel.admin.login.LoginAdminReqModel;
+import com.shijia.web.controller.admin.viewmodel.login.LoginAdminReqModel;
 import com.shijia.web.service.interfaces.ILoginAdminService;
 import org.springframework.stereotype.Service;
 

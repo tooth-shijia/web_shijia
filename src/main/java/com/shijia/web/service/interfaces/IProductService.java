@@ -1,5 +1,6 @@
 package com.shijia.web.service.interfaces;
 
+import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.repository.mapper.domain.ProductShow;
 import com.shijia.web.repository.mapper.domain.ProductType;
 import com.shijia.web.service.domain.productshow.AddProductShowReq;
@@ -14,7 +15,7 @@ public interface IProductService {
 
     public List<ProductType> getProductTypeAll();
 
-    public List<ProductShow> getProductByPageAndType(int pageIndex, int pageSize, int type);
+    public List<ProductShowModel> getProductByPageAndType(int pageIndex, int pageSize, int type);
 
     public int addProduct(AddProductShowReq addProductShowReq);
 }

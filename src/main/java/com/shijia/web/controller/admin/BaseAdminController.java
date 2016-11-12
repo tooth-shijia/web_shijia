@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,14 +34,15 @@ public class BaseAdminController {
             HttpServletResponse response = HttpContext.getResponse();
 
             String host = request.getHeader("host");
-            String adminLoginurl = "http://"+host + "/admin/login";
+            String requestUrl = request.getRequestURL().toString();
+            String adminLoginurl = "http://" + host + "/admin/login?backUrl=" + requestUrl;
             try {
                 response.sendRedirect(adminLoginurl);
             } catch (Exception e) {
 
             }
-        }else{
-            modelAndView.addAttribute("member",adminMember);
+        } else {
+            modelAndView.addAttribute("member", adminMember);
         }
     }
 

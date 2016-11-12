@@ -50,20 +50,74 @@ $(window).load(function () {
 
     //初始化
     init();
+    //初始化事件
+    initEvent();
     //获取产品类型列表
     getProductTypeAll();
 
 
-
 });
+function initEvent() {
+    $("#submit").bind("click", submitNewProduct);
+};
+//提交新产品
+function submitNewProduct() {
+    var productName = $("#productName").val();
+    var productId = $("#productId").val();
+    var author = $("#author").val();
+    var productTypeId = $("#product_type_list").val();
+    var comefrom = $("#comefrom").val();
+    var content = $("#editor1").html();
+    if (productName == "") {
+        alert("产品名不能为空");
+        return false;
+    }
+    if (author == "") {
+        alert("作者不能为空");
+        return false;
+    }
+    if (content == "") {
+        alert("内容为空");
+        return false;
+    }
+    if(productId == ""){
+        alert("产品id不能为空");
+        return false;
+    }
+    var req = {};
+    req.productName = productName;
+    req.productId = productId;
+    req.author = author;
+    req.productTypeId = productTypeId;
+    req.comefrom = comefrom;
+    req.content = encodeURIComponent(encodeURIComponent(content));
 
+    var param = {};
+    param.req = req;
+
+    $.ajax({
+        type: "POST",
+        url: "/admin/ajax/addProduct",
+        data: "reqStr=" + JSON.stringify(req),
+        success: function (res) {
+            if (res.success) {
+                alert(res.msg);
+                var url = "http://" + window.location.host + "/admin/productshow.html";
+                window.location.href = url;
+            } else {
+                alert(res.msg);
+            }
+        }
+    });
+
+};
 function getProductTypeAll() {
     $.get("/admin/ajax/getAllProductType", function (res) {
         if (res.success) {
             var typelistHtml = "";
             for (i = 0; i < res.obj.length; i++) {
                 var item = res.obj[i];
-                typelistHtml += "<li> <a href='#' value=''" + item.typeId + "'>" + item.typeName + "</a> </li>";
+                typelistHtml += "<option value='" + item.typeId + "'>" + item.typeName + "</option>";
             }
             $("#product_type_list").html(typelistHtml);
 
@@ -114,9 +168,6 @@ function init() {
                     destroyResizable();
                 });
         }
-
         enableImageResize();
-
-
     }
 }

@@ -1,4 +1,4 @@
-package com.shijia.web.controller.viewmodel.admin.login;
+package com.shijia.web.controller.admin.viewmodel.login;
 
 /**
  * 管理后台登录 model

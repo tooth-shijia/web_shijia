@@ -1,6 +1,6 @@
 package com.shijia.web.service.interfaces;
 
-import com.shijia.web.controller.viewmodel.admin.login.LoginAdminReqModel;
+import com.shijia.web.controller.admin.viewmodel.login.LoginAdminReqModel;
 
 /**
  * @author YanxiSir

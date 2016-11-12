@@ -2,7 +2,7 @@ package com.shijia.web.controller.admin;
 
 import com.alibaba.fastjson.JSON;
 import com.shijia.web.common.domain.AjaxResult;
-import com.shijia.web.controller.viewmodel.admin.login.LoginAdminReqModel;
+import com.shijia.web.controller.admin.viewmodel.login.LoginAdminReqModel;
 import com.shijia.web.service.interfaces.ICommonService;
 import com.shijia.web.service.interfaces.ILoginAdminService;
 import org.springframework.beans.factory.annotation.Autowired;

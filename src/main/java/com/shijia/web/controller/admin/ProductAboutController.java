@@ -22,5 +22,4 @@ public class ProductAboutController extends BaseAdminController{
         return "admin/productedit";
     }
 
-
 }

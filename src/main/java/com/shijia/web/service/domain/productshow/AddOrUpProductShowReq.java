@@ -5,7 +5,7 @@ package com.shijia.web.service.domain.productshow;
  * @author YanxiSir
  * @since 16/11/9
  */
-public class AddProductShowReq {
+public class AddOrUpProductShowReq {
 
     private String productName;
     private String productId;
@@ -14,7 +14,29 @@ public class AddProductShowReq {
     private String author;
     private String comefrom;
     private String content;
+    private int id;
 
+    /**
+     * 1：add ； 2：update
+     */
+    private int reqType;
+
+
+    public int getReqType() {
+        return reqType;
+    }
+
+    public void setReqType(int reqType) {
+        this.reqType = reqType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getComefrom() {
         return comefrom;

@@ -33,6 +33,31 @@
         #{content},#{showCount},#{createTime},#{lastModifyTime},#{isDelete})
     </insert>
 
+    <!-- update -->
+    <update id="updateProductShowById" parameterType="com.shijia.web.repository.mapper.domain.ProductShow">
+        UPDATE
+        <include refid="Sql_Base_Table_Name"/>
+        SET
+        product_name=#{productName},
+        product_id=#{productId},
+        product_classify=#{productClassify},
+        product_type_id=#{productTypeId},
+        product_type_name=#{productTypeName},
+        comefrom=#{comefrom},
+        author=#{author},
+        content=#{content},
+        lastmodifytime=#{lastModifyTime}
+        WHERE
+        id=#{id}
+    </update>
+    <update id="deleteProductShowById" parameterType="int">
+        UPDATE
+        <include refid="Sql_Base_Table_Name"/>
+        SET
+        is_delete = #{0}
+        WHERE
+        id=#{1}
+    </update>
     <!-- select -->
     <select id="getProductByPageAndType" parameterType="int" resultMap="ProductShowMap">
         select
@@ -44,4 +69,13 @@
         product_type_id=#{2} and is_delete=0
         limit #{0},#{1}
     </select>
+    <select id="getTotalCountByTypeId" parameterType="int">
+        select count(*)
+        from
+        <include refid="Sql_Base_Table_Name"/>
+        where
+        product_type_id=#{0}
+    </select>
+
+
 </mapper>

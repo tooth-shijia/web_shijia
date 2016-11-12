@@ -27,4 +27,29 @@ public interface ProductShowDAO {
      * @return
      */
     public List<ProductShow> getProductByPageAndType(int startIndex, int pageSize, int productType);
+
+    /**
+     * 更新内容
+     *
+     * @param productShow
+     * @return
+     */
+    public int updateProductShowById(ProductShow productShow);
+
+    /**
+     * 删除 or 恢复
+     *
+     * @param deleteOrNot 1，删除 ； 0，恢复
+     * @param id
+     * @return
+     */
+    public int delOpeProductShowById(int deleteOrNot, int id);
+
+    /**
+     * 获取某类型产品总数
+     *
+     * @param typeId
+     * @return
+     */
+    public int getTotalCountByTypeId(int typeId);
 }

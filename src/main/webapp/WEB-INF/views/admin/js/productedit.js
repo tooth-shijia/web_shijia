@@ -66,6 +66,8 @@ function submitNewProduct() {
     var productId = $("#productId").val();
     var author = $("#author").val();
     var productTypeId = $("#product_type_list").val();
+    var productTypeName = $("#product_type_list").find("option:selected").html();
+
     var comefrom = $("#comefrom").val();
     var content = $("#editor1").html();
     if (productName == "") {
@@ -80,15 +82,26 @@ function submitNewProduct() {
         alert("内容为空");
         return false;
     }
-    if(productId == ""){
+    if (productId == "") {
         alert("产品id不能为空");
         return false;
     }
     var req = {};
+
+    var id = $("#productLogicId").val();
+    if (id > 0) {
+        req.id = id;
+        req.reqType = 2;
+    } else {
+        req.id = -1;
+        req.reqType = 1;
+    }
+
     req.productName = productName;
     req.productId = productId;
     req.author = author;
     req.productTypeId = productTypeId;
+    req.productTypeName = productTypeName;
     req.comefrom = comefrom;
     req.content = encodeURIComponent(encodeURIComponent(content));
 
@@ -97,7 +110,7 @@ function submitNewProduct() {
 
     $.ajax({
         type: "POST",
-        url: "/admin/ajax/addProduct",
+        url: "/admin/ajax/addOrUpProduct",
         data: "reqStr=" + JSON.stringify(req),
         success: function (res) {
             if (res.success) {

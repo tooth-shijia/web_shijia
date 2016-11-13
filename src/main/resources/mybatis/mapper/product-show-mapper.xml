@@ -67,6 +67,7 @@
         <include refid="Sql_Base_Table_Name"/>
         where
         product_type_id=#{2}
+        order by id desc
         limit #{0},#{1}
     </select>
     <select id="getTotalCountByTypeId" parameterType="int" resultType="int">

@@ -19,11 +19,7 @@ public class DbTestController {
     @Autowired
     private IProductService productService;
 
-    @ResponseBody
-    @RequestMapping("/getAllProductType")
-    public Object getProductType() {
-        return productService.getProductTypeAll();
-    }
+
 
 
 }

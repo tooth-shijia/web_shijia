@@ -50,7 +50,7 @@
         WHERE
         id=#{id}
     </update>
-    <update id="deleteProductShowById" parameterType="int">
+    <update id="delOpeProductShowById" parameterType="int">
         UPDATE
         <include refid="Sql_Base_Table_Name"/>
         SET
@@ -59,23 +59,30 @@
         id=#{1}
     </update>
     <!-- select -->
-    <select id="getProductByPageAndType" parameterType="int" resultMap="ProductShowMap">
+    <select id="getProductByPageAndTypeContainDelete" parameterType="int" resultMap="ProductShowMap">
         select
         id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,createtime,
         lastmodifytime,is_delete
         from
         <include refid="Sql_Base_Table_Name"/>
         where
-        product_type_id=#{2} and is_delete=0
+        product_type_id=#{2}
         limit #{0},#{1}
     </select>
-    <select id="getTotalCountByTypeId" parameterType="int">
+    <select id="getTotalCountByTypeId" parameterType="int" resultType="int">
         select count(*)
         from
         <include refid="Sql_Base_Table_Name"/>
         where
         product_type_id=#{0}
     </select>
-
+    <select id="getProductById" parameterType="int" resultMap="ProductShowMap">
+        select
+        id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,createtime,
+        lastmodifytime,is_delete
+        from
+        <include refid="Sql_Base_Table_Name"/>
+        where id=#{0}
+    </select>
 
 </mapper>

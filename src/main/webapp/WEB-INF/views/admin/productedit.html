@@ -14,15 +14,33 @@
                 <i class="icon-home home-icon"></i>
                 <a href="#">首页</a>
             </li>
-            <li class="active">新增产品</li>
+            <li class="active">
+                <#if type=="update">更新产品
+                    <#else>新增产品
+                </#if>
+            </li>
         </ul>
         <!-- .breadcrumb -->
     </div>
 
     <div class="page-content">
         <!-- /.page-header -->
-        <input hidden="hidden" value="${id}" id="productLogicId">
+        <input hidden="hidden" value="${id}" id="idHidden">
+        <input hidden="hidden" value="${type}" id="typeHidden">
+        <input hidden="hidden" value="${product.productClassify}" id="siteIdHidden">
+        <input hidden="hidden" value="${product.comefrom}" id="comefromHidden">
+        <input hidden="hidden" value="${product.productTypeId}" id="productTypeIdHidden">
+
+
         <div id="edit_conditions">
+            <div class="col-sm-12">
+                <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>品牌：</span>
+                    <select class="" id="siteId">
+                        <option value='1'>世佳</option>
+                        <option value='2'>贝艺</option>
+                    </select>
+                </label>
+            </div>
             <div class="col-sm-12">
                 <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span> 产品类型：</span>
                     <select class="" id="product_type_list">
@@ -40,14 +58,15 @@
             </div>
             <div class="col-sm-12">
                 <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>产品名称:</span> <input
-                        type="text" aria-controls="example" id="productName"></label>
+                        type="text" aria-controls="example" id="productName" value="${product.productName}"></label>
             </div>
             <div class="col-sm-12">
-                <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>产品id:</span> <input type="text" aria-controls="example" id="productId"></label>
+                <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>产品id:</span> <input
+                        type="text" aria-controls="example" id="productId" value="${product.productId}"></label>
             </div>
             <div class="col-sm-12">
                 <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>作者:</span> <input
-                        type="text" aria-controls="example" id="author"></label>
+                        type="text" aria-controls="example" id="author" value="${product.author}"></label>
             </div>
         </div>
         <div class="row">
@@ -58,7 +77,7 @@
                     <!-- 编辑器风格 -->
                 </h4>
 
-                <div class="wysiwyg-editor" id="editor1" contenteditable="true"></div>
+                <div class="wysiwyg-editor" id="editor1" contenteditable="true">${product.content}</div>
 
                 <div class="hr hr-double dotted"></div>
 

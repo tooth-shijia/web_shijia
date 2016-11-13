@@ -20,6 +20,6 @@ public interface IProductTypeDAO {
      *
      * @return
      */
-    public List<ProductType> getProductTypeAll();
+    public List<ProductType> getProductTypeAll(int siteId);
 
 }

@@ -53,13 +53,15 @@ $(window).load(function () {
     //初始化事件
     initEvent();
     //获取产品类型列表
-    getProductTypeAll();
-
-
+    //getProductTypeAll();
+    //如果是更新 修改下拉框
+    judgeAddOrUpdate();
 });
 function initEvent() {
     $("#submit").bind("click", submitNewProduct);
+    $("#siteId").bind("change", getProductTypeAll);
 };
+
 //提交新产品
 function submitNewProduct() {
     var productName = $("#productName").val();
@@ -69,6 +71,8 @@ function submitNewProduct() {
     var productTypeName = $("#product_type_list").find("option:selected").html();
 
     var comefrom = $("#comefrom").val();
+    var siteId = $("#siteId").val();
+
     var content = $("#editor1").html();
     if (productName == "") {
         alert("产品名不能为空");
@@ -88,8 +92,9 @@ function submitNewProduct() {
     }
     var req = {};
 
-    var id = $("#productLogicId").val();
-    if (id > 0) {
+    var type = $("#typeHidden").val();
+    var id = $("#idHidden").val();
+    if (type == "update") {
         req.id = id;
         req.reqType = 2;
     } else {
@@ -97,6 +102,7 @@ function submitNewProduct() {
         req.reqType = 1;
     }
 
+    req.siteId = siteId;
     req.productName = productName;
     req.productId = productId;
     req.author = author;
@@ -110,7 +116,7 @@ function submitNewProduct() {
 
     $.ajax({
         type: "POST",
-        url: "/admin/ajax/addOrUpProduct",
+        url: "/admin/ajax/product/addOrUpProduct",
         data: "reqStr=" + JSON.stringify(req),
         success: function (res) {
             if (res.success) {
@@ -125,7 +131,8 @@ function submitNewProduct() {
 
 };
 function getProductTypeAll() {
-    $.get("/admin/ajax/getAllProductType", function (res) {
+    var siteId = $("#siteId").val();
+    $.get("/admin/ajax/product/getAllProductType?parentId=-1&siteId=" + siteId, function (res) {
         if (res.success) {
             var typelistHtml = "";
             for (i = 0; i < res.obj.length; i++) {
@@ -133,13 +140,30 @@ function getProductTypeAll() {
                 typelistHtml += "<option value='" + item.typeId + "'>" + item.typeName + "</option>";
             }
             $("#product_type_list").html(typelistHtml);
-
+            if ($("#typeHidden").val() == "update") {
+                var productTypeId = $("#productTypeIdHidden").val();
+                $("#product_type_list option[value='" + productTypeId + "']").attr("selected", true);
+            }
         } else {
             alert(res.msg);
         }
     })
 };
+function judgeAddOrUpdate() {
 
+    var type = $("#typeHidden").val();
+    if (type == "update") {
+        var siteId = $("#siteIdHidden").val();
+        var comefrom = $("#comefromHidden").val();
+        $("#siteId option[value='" + siteId + "']").attr("selected", true);
+        $("#comefrom option[value='" + comefrom + "']").attr("selected", true);
+        $("#submit").html("更新");
+        //setTimeout('getProductTypeAll()',1000);
+    }
+    getProductTypeAll();
+
+
+};
 //初始化
 function init() {
     if (typeof jQuery.ui !== 'undefined' && /applewebkit/.test(navigator.userAgent.toLowerCase())) {

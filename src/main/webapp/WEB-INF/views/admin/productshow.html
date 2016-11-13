@@ -45,16 +45,24 @@
             <div class="table-responsive">
                 <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <label class="col-sm-6"> 产品类型：
+                        <div class="col-sm-3">
+                            <label class=""> 产品类型：
+                                <select class="" id="siteId">
+                                    <option value='1'>世佳</option>
+                                    <option value='2'>贝艺</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class=""> 产品类型：
                                 <select class="" id="product_type_list">
                                 </select>
                             </label>
                         </div>
                         <div class="col-sm-6">
-                            <div class="dataTables_filter" id="sample-table-2_filter"><label>Search: <input type="text"
-                                                                                                            aria-controls="sample-table-2"></label>
-                            </div>
+                            <!--<div class="dataTables_filter" id="sample-table-2_filter"><label>Search: <input type="text"-->
+                                                                                                            <!--aria-controls="sample-table-2"></label>-->
+                            <!--</div>-->
                         </div>
                     </div>
                     <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable"
@@ -78,7 +86,7 @@
                             </th>
                             <th class="hidden-480 sorting" role="columnheader" tabindex="0"
                                 aria-controls="sample-table-2" rowspan="1" colspan="1"
-                                aria-label="Clicks: activate to sort column ascending" style="width: 113px;">阅读次数
+                                aria-label="Clicks: activate to sort column ascending" style="width: 120px;">阅读次数
                             </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
                                 rowspan="1" colspan="1" aria-label="Update: activate to sort column ascending"
@@ -114,7 +122,7 @@
                     </table>
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="dataTables_info" id="sample-table-2_info">Showing 1 to 10 of 23 entries</div>
+                            <div class="dataTables_info" id="showTotal"></div>
                         </div>
                         <div class="col-sm-6">
                             <div class="dataTables_paginate paging_bootstrap">

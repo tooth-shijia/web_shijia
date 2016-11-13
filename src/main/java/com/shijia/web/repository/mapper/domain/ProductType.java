@@ -7,14 +7,11 @@ import java.util.Date;
  * @since 16/5/22
  */
 public class ProductType {
-    /**
-     * 'id' int(10) NOT NULL AUTO_INCREMENT COMMENT 'id 主键',
-     * 'type_name' varchar(50) NOT NULL DEFAULT '' COMMENT '类型名',
-     * 'createtime' datatime DEFAULT NULL COMMENT '添加时间',
-     * 'lastmodifytime' datetime DEFAULT NULL COMMENT '最后修改时间',
-     * 'lastmodifypeople' varchar(50) NOT NULL DEFAULT '' COMMENT '最后修改人',
-     */
+
     private int id;
+    private int siteId;
+    private int parentTypeId;
+    private String parentTypeName;
     private int typeId;
     private String typeName;
     private Date createTime;
@@ -27,6 +24,38 @@ public class ProductType {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(int siteId) {
+        this.siteId = siteId;
+    }
+
+    public int getParentTypeId() {
+        return parentTypeId;
+    }
+
+    public void setParentTypeId(int parentTypeId) {
+        this.parentTypeId = parentTypeId;
+    }
+
+    public String getParentTypeName() {
+        return parentTypeName;
+    }
+
+    public void setParentTypeName(String parentTypeName) {
+        this.parentTypeName = parentTypeName;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 
     public String getTypeName() {
@@ -59,13 +88,5 @@ public class ProductType {
 
     public void setLastModifyPeople(String lastModifyPeople) {
         this.lastModifyPeople = lastModifyPeople;
-    }
-
-    public int getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
     }
 }

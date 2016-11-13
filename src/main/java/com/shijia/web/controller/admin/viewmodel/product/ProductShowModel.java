@@ -20,7 +20,7 @@ public class ProductShowModel {
     private int showCount = 0;
     private String createTime = "";
     private String lastModifyTime = "";
-    private String isDelete = "";
+    private int isDelete;
 
     public int getId() {
         return id;
@@ -126,11 +126,11 @@ public class ProductShowModel {
         this.lastModifyTime = lastModifyTime;
     }
 
-    public String getIsDelete() {
+    public int getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(String isDelete) {
+    public void setIsDelete(int isDelete) {
         this.isDelete = isDelete;
     }
 }

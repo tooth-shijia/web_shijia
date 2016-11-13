@@ -15,12 +15,21 @@ public class AddOrUpProductShowReq {
     private String comefrom;
     private String content;
     private int id;
+    private int siteId;
 
     /**
      * 1：add ； 2：update
      */
     private int reqType;
 
+
+    public int getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(int siteId) {
+        this.siteId = siteId;
+    }
 
     public int getReqType() {
         return reqType;

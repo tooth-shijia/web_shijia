@@ -26,7 +26,7 @@ public interface ProductShowDAO {
      * @param productType
      * @return
      */
-    public List<ProductShow> getProductByPageAndType(int startIndex, int pageSize, int productType);
+    public List<ProductShow> getProductByPageAndTypeContainDelete(int startIndex, int pageSize, int productType);
 
     /**
      * 更新内容
@@ -52,4 +52,12 @@ public interface ProductShowDAO {
      * @return
      */
     public int getTotalCountByTypeId(int typeId);
+
+    /**
+     * 按id获取某个产品
+     *
+     * @param id
+     * @return
+     */
+    public ProductShow getProductById(int id);
 }

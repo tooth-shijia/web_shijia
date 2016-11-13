@@ -1,8 +1,10 @@
 package com.shijia.web.service.interfaces.impl;
 
+import com.shijia.web.common.consts.enums.ESiteType;
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
+import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
 import com.shijia.web.repository.mapper.IProductTypeDAO;
 import com.shijia.web.repository.mapper.ProductShowDAO;
 import com.shijia.web.repository.mapper.domain.ProductShow;
@@ -15,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author YanxiSir
@@ -33,18 +37,50 @@ public class ProductServiceImpl implements IProductService {
     private IProductTypeDAO productTypeDAO;
 
     /**
-     * 获取所有产品类型
+     * 获取所有产品类型（1：世佳 ； 2：贝艺）
      *
+     * @param siteId
+     * @param parentId 世佳获取所有类型 ； 贝艺，parentId=-1 获取parent 否则获取child
      * @return
      */
-    public List<ProductType> getProductTypeAll() {
-        List<ProductType> list = null;
+    public List<ProductTypeModel> getProductTypeAll(int siteId, int parentId) {
+        List<ProductTypeModel> modelList = null;
         try {
-            list = productTypeDAO.getProductTypeAll();
+            List<ProductType> list = productTypeDAO.getProductTypeAll(siteId);
+            modelList = new ArrayList<ProductTypeModel>();
+            if (parentId <= 0) {
+                Map<Integer, String> map = new HashMap<Integer, String>();
+                for (ProductType type : list) {
+                    if (!map.containsKey(type.getParentTypeId())) {
+                        map.put(type.getParentTypeId(), type.getParentTypeName());
+                    }
+                }
+                for (Map.Entry entry : map.entrySet()) {
+                    ProductTypeModel item = new ProductTypeModel();
+                    item.setTypeId((Integer) entry.getKey());
+                    item.setTypeName((String) entry.getValue());
+                    modelList.add(item);
+                }
+            } else {
+                Map<Integer, String> map = new HashMap<Integer, String>();
+                for (ProductType type : list) {
+                    if (type.getParentTypeId() != parentId) continue;
+                    if (!map.containsKey(type.getTypeId())) {
+                        map.put(type.getTypeId(), type.getTypeName());
+                    }
+                }
+                for (Map.Entry entry : map.entrySet()) {
+                    ProductTypeModel item = new ProductTypeModel();
+                    item.setTypeId((Integer) entry.getKey());
+                    item.setTypeName((String) entry.getValue());
+                    modelList.add(item);
+                }
+            }
+
         } catch (Exception e) {
             logger.error("getProductTypeAll 异常", e);
         }
-        return list;
+        return modelList;
     }
 
     /**
@@ -59,7 +95,7 @@ public class ProductServiceImpl implements IProductService {
         int startIndex = (pageIndex - 1) * pageSize;
         List<ProductShowModel> modelList = null;
         try {
-            List<ProductShow> list = productShowDAO.getProductByPageAndType(startIndex, pageSize, type);
+            List<ProductShow> list = productShowDAO.getProductByPageAndTypeContainDelete(startIndex, pageSize, type);
             modelList = new ArrayList<ProductShowModel>();
             if (list != null) {
                 for (ProductShow ps : list) {
@@ -78,12 +114,7 @@ public class ProductServiceImpl implements IProductService {
                         item.setComefrom(ps.getComefrom());
                     item.setShowCount(ps.getShowCount());
                     item.setContent(ps.getContent());
-
-                    if (ps.getIsDelete() == 0) {
-                        item.setIsDelete("否");
-                    } else if (ps.getIsDelete() == 1) {
-                        item.setIsDelete("已删除");
-                    }
+                    item.setIsDelete(ps.getIsDelete());
                     if (ps.getCreateTime() != null)
                         item.setCreateTime(DateUtils.getDate(ps.getCreateTime()));
                     if (ps.getLastModifyTime() != null)
@@ -113,6 +144,7 @@ public class ProductServiceImpl implements IProductService {
         ps.setLastModifyTime(DateUtils.getCurDate());
         ps.setAuthor(addProductShowReq.getAuthor());
         ps.setComefrom(addProductShowReq.getComefrom());
+        ps.setProductClassify(addProductShowReq.getSiteId());
         int result = -1;
         try {
             result = productShowDAO.addProductShow(ps);
@@ -139,6 +171,7 @@ public class ProductServiceImpl implements IProductService {
         ps.setAuthor(updateProductShowReq.getAuthor());
         ps.setComefrom(updateProductShowReq.getComefrom());
         ps.setId(updateProductShowReq.getId());
+        ps.setProductClassify(updateProductShowReq.getSiteId());
         int result = -1;
         try {
             result = productShowDAO.updateProductShowById(ps);
@@ -192,5 +225,21 @@ public class ProductServiceImpl implements IProductService {
             logger.error("getTotalCountByTypeId 异常", e);
         }
         return total;
+    }
+
+    /**
+     * 按id获取某个产品
+     *
+     * @param id
+     * @return
+     */
+    public ProductShow getProductById(int id) {
+        ProductShow productShow = new ProductShow();
+        try {
+            productShow = productShowDAO.getProductById(id);
+        } catch (Exception e) {
+            logger.error("getProductById 异常", e);
+        }
+        return productShow;
     }
 }

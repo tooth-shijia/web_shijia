@@ -29,7 +29,7 @@ public class DateUtils {
      * @return
      */
     public static String getDate(Date date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-hh-dd HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return format.format(date);
     }
 

@@ -5,6 +5,8 @@ import com.shijia.web.common.consts.enums.EProductShowReq;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
+import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
+import com.shijia.web.controller.admin.viewmodel.product.PsTotalModel;
 import com.shijia.web.repository.mapper.domain.ProductType;
 import com.shijia.web.service.domain.productshow.AddOrUpProductShowReq;
 import com.shijia.web.service.interfaces.IProductService;
@@ -21,7 +23,7 @@ import java.util.List;
  * @since 16/11/9
  */
 @Controller
-@RequestMapping("/admin/ajax")
+@RequestMapping("/admin/ajax/product")
 public class ProductAboutAjaxController {
 
     @Autowired
@@ -52,24 +54,27 @@ public class ProductAboutAjaxController {
             return new AjaxResult(false, "请输入产品描述");
         }
         int result = -1;
-        if(req.getReqType() == EProductShowReq.REQ_ADD.value()) {
+        String operate = "";
+        if (req.getReqType() == EProductShowReq.REQ_ADD.value()) {
+            operate = "新增";
             result = productService.addProduct(req);
-        }else if(req.getReqType() == EProductShowReq.REQ_UPDATE.value()){
+        } else if (req.getReqType() == EProductShowReq.REQ_UPDATE.value()) {
+            operate = "更新";
             result = productService.updateProductShowById(req);
         }
         if (result > 0) {
-            return new AjaxResult(true, "添加成功");
+            return new AjaxResult(true, operate + "成功");
         } else {
-            return new AjaxResult(false, "添加失败");
+            return new AjaxResult(false, operate + "失败");
         }
 
     }
 
     @ResponseBody
     @RequestMapping("/getAllProductType")
-    public AjaxResult getProductType() {
+    public AjaxResult getProductType(int siteId, int parentId) {
 
-        List<ProductType> list = productService.getProductTypeAll();
+        List<ProductTypeModel> list = productService.getProductTypeAll(siteId, parentId);
         if (list == null) {
             return new AjaxResult(false, "没有获取到产品类型列表");
         }
@@ -95,11 +100,47 @@ public class ProductAboutAjaxController {
     @ResponseBody
     @RequestMapping("/getTotalByTypeId")
     public AjaxResult getTotalByTypeId(int productTypeId) {
+        PsTotalModel psTotalModel = new PsTotalModel();
         int total = productService.getTotalCountByTypeId(productTypeId);
         if (total >= 0) {
-            return new AjaxResult(true, "success", total);
+            int pageSize = total / PAGE_SIZE + (total % PAGE_SIZE > 0 ? 1 : 0);
+            psTotalModel.setTotal(total);
+            psTotalModel.setPageSize(pageSize);
+            return new AjaxResult(true, "success", psTotalModel);
         } else {
-            return new AjaxResult(false, "查询总数异常");
+            return new AjaxResult(false, "查询总数异常", psTotalModel);
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/delProductById")
+    public AjaxResult delProductById(Integer id) {
+        if (id == null || id.intValue() <= 0) {
+            return new AjaxResult(false, "id不能为空");
+        }
+        int result = productService.delProductShowById(id);
+        if (result < 0) {
+            return new AjaxResult(false, "删除失败");
+        } else if (result == 0) {
+            return new AjaxResult(false, "没有找到该条记录");
+        } else {
+            return new AjaxResult(true, "删除成功");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/recoverProductById")
+    public AjaxResult recoverProductShowById(Integer id) {
+        if (id == null || id.intValue() <= 0) {
+            return new AjaxResult(false, "id不能为空");
+        }
+        int result = productService.recoverProductShowById(id);
+        if (result < 0) {
+            return new AjaxResult(false, "恢复失败");
+        } else if (result == 0) {
+            return new AjaxResult(false, "没有找到该条记录");
+        } else {
+            return new AjaxResult(true, "恢复成功");
         }
     }
 

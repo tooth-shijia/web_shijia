@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NewsManagerController extends BaseAdminController {
 
 
-    @RequestMapping("/newsmanager/{type}")
-    public String newsManager(Model model,@PathVariable String type){
-
-        model.addAttribute("type",type);
+    @RequestMapping("/newsmanager")
+    public String newsManager() {
 
         return "admin/newmanager";
     }

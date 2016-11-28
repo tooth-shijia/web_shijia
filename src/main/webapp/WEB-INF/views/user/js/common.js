@@ -28,41 +28,62 @@
 (function ($) {
     $.fn.extend({
         allowShowByScoll: function (boolean, fnpullup, fnpulldown) {
+
             if (boolean == true) {
+
                 this[0].onmousewheel = function (e) {
-                    e = e || window.event;
-                    if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
-                        if (e.wheelDelta > 0) { //当滑轮向上滚动时
-                            if (fnpullup != null)fnpullup();
-                        }
-                        if (e.wheelDelta < 0) { //当滑轮向下滚动时
-                            if (fnpulldown != null)fnpulldown();
-                        }
-                    } else if (e.detail) {  //Firefox滑轮事件
-                        if (e.detail > 0) { //当滑轮向上滚动时
-                            if (fnpullup != null) fnpullup();
-                        }
-                        if (e.detail < 0) { //当滑轮向下滚动时
-                            if (fnpulldown != null) fnpulldown();
-                        }
-                    }
+                    mouseWheelEvent(e,fnpullup, fnpulldown);
                 };
 
                 this[0].onkeydown = function (e) {
-                    var e = event || window.event || arguments.callee.caller.arguments[0];
-                    if (e && e.keyCode == 38) {
-                        if (fnpullup != null) fnpullup();
-                    }
-                    else if (e && e.keyCode == 40) {
-                        if (fnpulldown != null) fnpulldown();
-                    }
+                    onKeyDownEvent(e,fnpullup, fnpulldown);
                 };
+                if(document.addEventListener){
+                    document.addEventListener("DOMMouseScroll",function (e) {
+                        mouseWheelEvent(e,fnpullup, fnpulldown);
+                    },false);
+                }
             }
             else {
                 this[0].onmousewheel = null;
+                if(document.addEventListener){
+                    document.removeEventListener("DOMMouseScroll",function (e) {
+                        mouseWheelEvent(e,fnpullup, fnpulldown);
+                    });
+                }
                 this[0].onkeydown = null;
             }
         }
     });
 })(jQuery);
 
+function mouseWheelEvent(e, fnpullup, fnpulldown) {
+    e = e || window.event;
+    e.preventDefault();
+    if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+        if (e.wheelDelta > 0) { //当滑轮向上滚动时
+            if (fnpullup != null)fnpullup();
+        }
+        if (e.wheelDelta < 0) { //当滑轮向下滚动时
+            if (fnpulldown != null)fnpulldown();
+        }
+    } else if (e.detail) {  //Firefox滑轮事件
+        if (e.detail > 0) { //当滑轮向上滚动时
+            if (fnpullup != null) fnpullup();
+        }
+        if (e.detail < 0) { //当滑轮向下滚动时
+            if (fnpulldown != null) fnpulldown();
+        }
+    }
+}
+
+function onKeyDownEvent(e, fnpullup, fnpulldown) {
+
+    var e = e || window.event || arguments.callee.caller.arguments[0];
+    if (e && e.keyCode == 38) {
+        if (fnpullup != null) fnpullup();
+    }
+    else if (e && e.keyCode == 40) {
+        if (fnpulldown != null) fnpulldown();
+    }
+}

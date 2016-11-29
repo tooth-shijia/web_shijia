@@ -21,8 +21,105 @@
         </ul>
     </div>
     <div class="page-content">
+        <div class="col-xs-12" id="productShowTable">
+            <div class="table-header" style="height:42px;">
+                编辑过所有新闻列表
+                <a href="newsedit.html" class="btn btn-info" style="float:right;">
+                    <i class="icon-pencil">新增</i>
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class=""> 新闻类型：
+                                <select class="" id="newsType">
+                                    <option value='1'>公司新闻</option>
+                                    <option value='2'>行业动态</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <!--<div class="dataTables_filter" id="sample-table-2_filter"><label>Search: <input type="text"-->
+                            <!--aria-controls="sample-table-2"></label>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable"
+                           aria-describedby="sample-table-2_info">
+                        <thead>
+                        <tr role="row">
+                            <th class="center sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label="
+														" style="width: 47px;">
+                                <label>
+                                    <input type="checkbox" class="ace">
+                                    <span class="lbl"></span>
+                                </label>
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                                rowspan="1" colspan="1" aria-label="Domain: activate to sort column ascending"
+                                style="width: 153px;">新闻名称
+                            </th>
+                            <th class="hidden-480 sorting" role="columnheader" tabindex="0"
+                                aria-controls="sample-table-2" rowspan="1" colspan="1"
+                                aria-label="Clicks: activate to sort column ascending" style="width: 120px;">阅读次数
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                                rowspan="1" colspan="1" aria-label="Update: activate to sort column ascending"
+                                style="width: 157px;">
+                                <i class="icon-time bigger-110 hidden-480"></i>
+                                创建时间
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2"
+                                rowspan="1" colspan="1" aria-label="Update: activate to sort column ascending"
+                                style="width: 177px;">
+                                <i class="icon-time bigger-110 hidden-480"></i>
+                                最后编辑时间
+                            </th>
+                            <th class="hidden-480 sorting" role="columnheader" tabindex="0"
+                                aria-controls="sample-table-2" rowspan="1" colspan="1"
+                                aria-label="Status: activate to sort column ascending" style="width: 148px;">是否已删除
+                            </th>
+                            <th class="hidden-480 sorting" role="columnheader" tabindex="0"
+                                aria-controls="sample-table-2" rowspan="1" colspan="1"
+                                aria-label="Status: activate to sort column ascending" style="width: 148px;">来源
+                            </th>
+                            <th class="hidden-480 sorting" role="columnheader" tabindex="0"
+                                aria-controls="sample-table-2" rowspan="1" colspan="1"
+                                aria-label="Status: activate to sort column ascending" style="width: 148px;">作者
+                            </th>
+                            <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" aria-label=""
+                                style="width: 142px;"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="news_show_tbody" role="alert" aria-live="polite" aria-relevant="all">
+                        <!-- 表格内容 -->
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_info" id="showTotal"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="dataTables_paginate paging_bootstrap">
+                                <ul class="pagination">
+                                    <li class="prev disabled"><a href="#"><i class="icon-double-angle-left"></i></a>
+                                    </li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="next"><a href="#"><i class="icon-double-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div><!-- /.main-content -->
 </@override>
 <@override name="js">
+<script type="text/javascript" src="/ajs/newsshow.js"></script>
 </@override> <@extends name="./common/master_admin.html"/>

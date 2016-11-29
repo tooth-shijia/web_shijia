@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shijia.web.repository.mapper.INewsDAO">
+<mapper namespace="com.shijia.web.repository.mapper.INewDAO">
 
     <resultMap id="NewsShowMap" type="com.shijia.web.repository.mapper.domain.NewsShow">
         <result property="id" column="id"/>
@@ -23,23 +23,56 @@
     <insert id="addNewsShow" parameterType="com.shijia.web.repository.mapper.domain.NewsShow">
         INSERT INTO
         <include refid="Sql_Base_Table_Name"/>
-        (news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete)
+        (news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime)
         VALUES
-        (#{newName},#{newsType},#{comefrom},#{author},#{content},#{showCount},#{createTime},
-        #{lastModifyTime},#{isDelete})
+        (#{newsName},#{newsType},#{comefrom},#{author},#{content},#{showCount},#{createTime},
+        #{lastModifyTime})
     </insert>
     <!-- select -->
-    <select id="getNewsByPageAndType" parameterType="int"
+    <select id="getNewsByPageAndTypeContainDelete" parameterType="int"
             resultMap="NewsShowMap">
         select
         id,news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete
         from
         <include refid="Sql_Base_Table_Name"/>
         where
-        news_type=#{2} and is_delete=0
+        news_type=#{2}
         limit #{0},#{1}
     </select>
+    <select id="getNewsById" parameterType="int" resultMap="NewsShowMap">
+        SELECT * FROM
+        <include refid="Sql_Base_Table_Name"/>
+        WHERE
+        id=#{0}
+    </select>
+    <select id="getTotalCountByTypeId" parameterType="int" resultType="int">
+        select count(*)
+        from
+        <include refid="Sql_Base_Table_Name"/>
+        where
+        news_type=#{0}
+    </select>
     <!-- update -->
+    <update id="updateNewsShow" parameterType="com.shijia.web.repository.mapper.domain.NewsShow">
+        UPDATE
+        <include refid="Sql_Base_Table_Name"/>
+        SET
+        news_name=#{newsName},
+        news_type=#{newsType},
+        comefrom=#{comefrom},
+        author=#{author},
+        content=#{content},
+        lastmodifytime=#{lastModifyTime}
+        WHERE id=#{id}
+    </update>
 
+    <update id="delOpeNewsShowById" parameterType="int">
+        UPDATE
+        <include refid="Sql_Base_Table_Name"/>
+        SET
+        is_delete = #{0}
+        WHERE
+        id=#{1}
+    </update>
 
 </mapper>

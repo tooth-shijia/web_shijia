@@ -22,7 +22,37 @@ public interface INewDAO {
      * @param type
      * @return
      */
-    public List<NewsShow> getNewsByPageAndType(int startIndex, int pageSize, int type);
+    public List<NewsShow> getNewsByPageAndTypeContainDelete(int startIndex, int pageSize, int type);
 
+    /**
+     * 更新
+     *
+     * @param newsShow
+     * @return
+     */
+    public int updateNewsShow(NewsShow newsShow);
 
+    /**
+     * 通过id获取newsshow
+     *
+     * @param id
+     * @return
+     */
+    public NewsShow getNewsById(int id);
+
+    /**
+     * 获取某个类型新闻 总数
+     *
+     * @param newsType
+     * @return
+     */
+    public int getTotalCountByTypeId(int newsType);
+
+    /**
+     * 删除字段操作
+     *
+     * @param id
+     * @return
+     */
+    public int delOpeNewsShowById(int deleteOrNot,int id);
 }

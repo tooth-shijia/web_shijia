@@ -1,64 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>${m_title}</title>
+    <meta charset="UTF-8">
+    <title>公司简介</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/uimg/favicon.ico" />
-    <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
-    <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
-    <link rel="stylesheet" type="text/css" href="/ucss/common.css">
-    <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="/ujs/common.js"></script>
-    <script language="JavaScript">
-
-        function scrollup() {
-           alert(1);
-        }
-        function scrolldown() {
-            alert(2)
-        }
-    </script>
+    <link rel="stylesheet" type="text/css" href="/ucss/gsjjAndqywh.css">
 </head>
-<body style="margin: 0px;">
-
-   <div class="header_on" >
-       <img src="/uimg/logo2.png" >
-       <div>
-           <a href="/shijia/index.html">首页</a>
-           <a href="/shijia/companyinfo/gsjj.html" style="color: #4cc2c4">公司简介</a>
-           <a>产品展示</a>
-           <a>专业团队</a>
-           <a>医技沟通</a>
-           <a>质量保障</a>
-           <a>联系我们</a>
-       </div>
-   </div>
-   <div class="common_div" style="background-color:  #e0e0e0"></div>
-   <div class="common_div"></div>
-   <div class="common_div" style="background-color: #00ffff"></div>
-   <div class="common_div"></div>
-   <div class="common_div"></div>
-   <div class="common_div"></div>
-   <ol class="scoll_bar">
-       <li class="active"><a><span class="dot"></span></a></li>
-       <li><a><span class="dot"></span></a></li>
-       <li><a><span class="dot"></span></a></li>
-       <li><a><span class="dot"></span></a></li>
-       <li><a><span class="dot"></span></a></li>
-       <li><a><span class="dot"></span></a></li>
-   </ol>
-
-
-   <@extends name="./common/master_user_tail.html"/>
-
-   <script language="JavaScript">
-       (function(){
-           $("body").allowShowByScoll(true,scrollup,scrolldown);
-       })();
-
-   </script>
+<body>
+    <div class="gsjj_wrap_div">
+        <div style="height: 10%">
+            <div class="gsjj_return">
+                <a href="/shijia/index"><< 返回主页</a>
+            </div>
+        </div>
+        <div class="gsjj_symbol">
+            <div>
+                <img data-index="1" src="/uimg/gsjj-1.png" />
+                <img data-index="2" src="/uimg/gsjj-2.png" />
+                <img data-index="3" src="/uimg/gsjj-3.png" />
+                <img data-index="4" src="/uimg/gsjj-4.png" />
+            </div>
+        </div>
+        <div class="gsjj_content">
+            <h2>世佳简介：</h2>
+            <p>
+                上海世佳义齿于2009年成立于上海，是集研发、生产、销售、服务于一体的医疗器械生产商。拥有丰富的技师和优秀的团队，同时采用了欧美国家先进设备、工艺和原材料如：3M、DENSPLY、IVOCLAR、BEGO、3shape等来服务市场。公司成立并注册了美学种植“贝艺数字义齿中心”，致力于为客户打造完美的全瓷和个性种植解决方案，服务于高端市场。
+            </p>
+        </div>
+        <div class="gsjj_tail">
+            <div >
+                <div><span>上海世佳义齿有限公司</span> <a>联系我们</a> | <a>加入我们</a></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

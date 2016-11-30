@@ -12,6 +12,7 @@ tmp/
 *.bak
 *.swp
 *~.nib
+Maven__*.xml
 local.properties
 .settings/
 .loadpath

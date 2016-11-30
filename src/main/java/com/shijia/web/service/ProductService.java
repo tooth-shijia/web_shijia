@@ -1,5 +1,6 @@
 package com.shijia.web.service;
 
+import com.shijia.web.common.framework.annotation.IgnoreException;
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
@@ -23,7 +24,8 @@ import java.util.Map;
  * @author YanxiSir
  * @since 16/11/7
  */
-@Service("productService")
+@IgnoreException
+@Service
 public class ProductService {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductService.class);

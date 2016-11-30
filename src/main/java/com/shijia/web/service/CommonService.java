@@ -12,7 +12,7 @@ import java.net.URLEncoder;
  * @author YanxiSir
  * @since 16/5/21
  */
-@Service("commonService")
+@Service
 public class CommonService {
 
     public String getURLEncodeString(String text) {

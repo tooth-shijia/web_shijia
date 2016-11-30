@@ -17,7 +17,7 @@ import java.util.List;
  * @author YanxiSir
  * @since 16/11/7
  */
-@Service("newsService")
+@Service
 public class NewsService  {
 
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);

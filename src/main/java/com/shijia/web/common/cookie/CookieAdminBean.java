@@ -8,29 +8,12 @@ import com.shijia.web.common.utils.StringUtils;
  * @author YanxiSir
  * @since 16/5/21
  */
-public class CookieManageBean {
+public class CookieAdminBean {
 
-    private final static String UGID = "ugid";
-    private final static String COOKIE_GUID = "CookieGuid";
+    private final static String AGID = "agid";
     private final static String ADMIN_GUID = "AdminGuid";
 
-    public static String getUgid() {
-        String ugid = CookieManager.getCookie(UGID);
-        if (StringUtils.isEmpty(ugid)) {
-            ugid = ConstantUtils.getUUID();
-            CookieManager.setCookie(UGID, ugid);
-        }
-        return ugid;
-    }
 
-    public static String getCookieGuid() {
-        String cookieGuid = CookieManager.getCookie(COOKIE_GUID);
-        if (StringUtils.isEmpty(cookieGuid)) {
-            cookieGuid = ConstantUtils.getUUID();
-            CookieManager.setCookie(COOKIE_GUID, cookieGuid);
-        }
-        return cookieGuid;
-    }
 
     public static String getAdminGuid() {
         String adminGuid = CookieManager.getCookie(ADMIN_GUID);
@@ -56,13 +39,11 @@ public class CookieManageBean {
             if (tmp != null) {
                 sbd.append(tmp);
             }
-            CookieManager.setCookie(UGID,sbd.toString());
+            CookieManager.setCookie(AGID,sbd.toString());
         }
     }
 
-    public static void setCookieGuid(String cookieGuid) {
-        CookieManager.setCookie(COOKIE_GUID, cookieGuid);
-    }
+
 
     public static void setAdminGuid(String adminGuid) {
         CookieManager.setCookie(ADMIN_GUID, adminGuid);

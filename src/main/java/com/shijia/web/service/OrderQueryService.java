@@ -13,7 +13,7 @@ import java.util.List;
  * @author YanxiSir
  * @since 16/8/25
  */
-@Service("orderQueryService")
+@Service
 public class OrderQueryService  {
 
     @Autowired

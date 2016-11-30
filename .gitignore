@@ -13,6 +13,7 @@ tmp/
 *.swp
 *~.nib
 Maven__*.xml
+doc/
 local.properties
 .settings/
 .loadpath

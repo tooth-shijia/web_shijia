@@ -1,8 +1,7 @@
-package com.shijia.web.service.interfaces.impl;
+package com.shijia.web.service;
 
 import com.shijia.web.common.utils.LogHelper;
 import com.shijia.web.common.utils.StringUtils;
-import com.shijia.web.service.interfaces.ICommonService;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
@@ -14,7 +13,7 @@ import java.net.URLEncoder;
  * @since 16/5/21
  */
 @Service("commonService")
-public class CommonServiceImpl implements ICommonService {
+public class CommonService {
 
     public String getURLEncodeString(String text) {
         if (StringUtils.isEmpty(text)) {
@@ -23,7 +22,7 @@ public class CommonServiceImpl implements ICommonService {
         try {
             return URLEncoder.encode(text, "utf-8");
         } catch (UnsupportedEncodingException e) {
-            LogHelper.error("CommonServiceImpl - getURLEncodeString异常", e);
+            LogHelper.error("CommonService - getURLEncodeString异常", e);
         }
         return "";
     }
@@ -35,7 +34,7 @@ public class CommonServiceImpl implements ICommonService {
         try {
             return URLDecoder.decode(text, "utf-8");
         } catch (UnsupportedEncodingException e) {
-            LogHelper.error("CommonServiceImpl - getURLDecodeString异常", e);
+            LogHelper.error("CommonService - getURLDecodeString异常", e);
         }
         return "";
     }

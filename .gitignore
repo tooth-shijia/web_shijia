@@ -6,7 +6,7 @@
 .DS_Store
 bin/
 tmp/
-.idea
+.idea/
 *.iml
 *.tmp
 *.bak

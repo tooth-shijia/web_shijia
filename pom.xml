@@ -79,13 +79,18 @@
         <!-- mybatis 配置开始 -->
         <dependency>
             <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>1.2.0</version>
+            <artifactId>mybatis</artifactId>
+            <version>3.2.3</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.2.2</version>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -98,12 +103,6 @@
             <version>4.1</version>
         </dependency>
         <!-- mybatis 配置结束 -->
-        <!--datasource-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.0.18</version>
-        </dependency>
 
         <!-- spring 配置开始 -->
         <dependency>

@@ -3,8 +3,8 @@ package com.shijia.web.controller.admin;
 import com.alibaba.fastjson.JSON;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.controller.admin.viewmodel.login.LoginAdminReqModel;
-import com.shijia.web.service.interfaces.ICommonService;
-import com.shijia.web.service.interfaces.ILoginAdminService;
+import com.shijia.web.service.CommonService;
+import com.shijia.web.service.LoginAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +21,9 @@ import java.util.HashMap;
 public class LoginAdminController {
 
     @Autowired
-    private ICommonService commonService;
+    private CommonService commonService;
     @Autowired
-    private ILoginAdminService loginAdminServiceImpl;
+    private LoginAdminService loginAdminServiceImpl;
 
     @RequestMapping("/login")
     public String adminLogin() {

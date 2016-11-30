@@ -1,12 +1,11 @@
 package com.shijia.web.controller.admin;
 
 import com.shijia.web.repository.mapper.domain.NewsShow;
-import com.shijia.web.service.interfaces.ICommonService;
-import com.shijia.web.service.interfaces.INewsService;
+import com.shijia.web.service.CommonService;
+import com.shijia.web.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NewsManagerController extends BaseAdminController {
 
     @Autowired
-    private INewsService newsService;
+    private NewsService newsService;
     @Autowired
-    private ICommonService commonService;
+    private CommonService commonService;
 
     @RequestMapping("/newsmanager")
     public String newsManager() {

@@ -5,25 +5,8 @@
 
 <configuration>
     <settings>
-        <setting name="cacheEnabled" value="true" />
-        <setting name="lazyLoadingEnabled" value="true" />
-        <setting name="aggressiveLazyLoading" value="false" />
-        <setting name="multipleResultSetsEnabled" value="true" />
-        <setting name="useColumnLabel" value="true" />
-        <setting name="useGeneratedKeys" value="false" />
-        <setting name="autoMappingBehavior" value="PARTIAL" />
-        <setting name="defaultExecutorType" value="SIMPLE" />
-        <setting name="defaultStatementTimeout" value="25000" />
-        <setting name="safeRowBoundsEnabled" value="false" />
-        <setting name="mapUnderscoreToCamelCase" value="false" />
-        <setting name="localCacheScope" value="SESSION" />
-        <setting name="jdbcTypeForNull" value="OTHER" />
-        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="LOG4J"/>
     </settings>
-
-    <mappers>
-        <mapper resource="mybatis/mapper/product-show-mapper.xml"/>
-        <mapper resource="mybatis/mapper/product-type-mapper.xml"/>
-        <mapper resource="mybatis/mapper/news-mapper.xml"/>
-    </mappers>
 </configuration>

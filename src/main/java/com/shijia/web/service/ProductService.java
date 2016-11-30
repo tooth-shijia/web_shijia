@@ -1,6 +1,6 @@
-package com.shijia.web.service.interfaces.impl;
+package com.shijia.web.service;
 
-import com.shijia.web.common.consts.enums.ESiteType;
+import com.shijia.web.common.framework.annotation.IgnoreException;
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
@@ -10,7 +10,6 @@ import com.shijia.web.repository.mapper.ProductShowDAO;
 import com.shijia.web.repository.mapper.domain.ProductShow;
 import com.shijia.web.repository.mapper.domain.ProductType;
 import com.shijia.web.service.domain.productshow.AddOrUpProductShowReq;
-import com.shijia.web.service.interfaces.IProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +24,11 @@ import java.util.Map;
  * @author YanxiSir
  * @since 16/11/7
  */
-@Service("productService")
-public class ProductServiceImpl implements IProductService {
+@IgnoreException
+@Service
+public class ProductService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
 
     @Autowired
     private ProductShowDAO productShowDAO;

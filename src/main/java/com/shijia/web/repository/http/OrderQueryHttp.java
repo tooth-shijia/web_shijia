@@ -1,24 +1,22 @@
-package com.shijia.web.repository.interfaces.impl;
+package com.shijia.web.repository.http;
 
 import com.alibaba.fastjson.JSONObject;
 import com.shijia.web.common.utils.StringUtils;
-import com.shijia.web.repository.interfaces.IOrderQueryHttp;
-import com.shijia.web.repository.interfaces.entity.resp.OrderFlowItemResp;
-import com.shijia.web.repository.interfaces.entity.resp.OrderQueryItemResp;
+import com.shijia.web.repository.http.entity.resp.OrderFlowItemResp;
+import com.shijia.web.repository.http.entity.resp.OrderQueryItemResp;
 import com.shijia.web.repository.util.HttpUtils;
 import com.shijia.web.repository.util.domain.RESTfulConfigItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author YanxiSir
  * @since 16/8/25
  */
 @Repository("orderQueryHttp")
-public class OrderQueryHttpImpl implements IOrderQueryHttp {
+public class OrderQueryHttp {
 
     @Autowired
     private RESTfulConfigItem orderQueryUrl;

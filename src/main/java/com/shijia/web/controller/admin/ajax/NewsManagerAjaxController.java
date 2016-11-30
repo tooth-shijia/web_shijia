@@ -6,9 +6,8 @@ import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.PsTotalModel;
-import com.shijia.web.repository.mapper.domain.NewsShow;
+import com.shijia.web.service.NewsService;
 import com.shijia.web.service.domain.news.AddOrUpNewsReq;
-import com.shijia.web.service.interfaces.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ import java.util.List;
 public class NewsManagerAjaxController {
 
     @Autowired
-    private INewsService newsService;
+    private NewsService newsService;
 
     /**
      * 每页产品数

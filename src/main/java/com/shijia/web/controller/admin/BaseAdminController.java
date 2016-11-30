@@ -1,10 +1,10 @@
 package com.shijia.web.controller.admin;
 
-import com.shijia.web.common.cookie.CookieManageBean;
+import com.shijia.web.common.cookie.CookieAdminBean;
 import com.shijia.web.common.framework.HttpContext;
 import com.shijia.web.common.session.SessionAdminMember;
-import com.shijia.web.common.session.SessionManager;
-import org.apache.commons.httpclient.HttpStatus;
+import com.shijia.web.common.session.SessionAdminManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,12 +26,10 @@ public class BaseAdminController {
     public void initController(Model modelAndView) {
         //判断是否登录，没有就跳到admin登录页
 
-
-        SessionAdminMember adminMember = SessionManager.getAdminInfo(CookieManageBean.getAdminGuid());
+        HttpServletRequest request = HttpContext.getRequest();
+        HttpServletResponse response = HttpContext.getResponse();
+        SessionAdminMember adminMember = SessionAdminManager.getAdminInfo(request, CookieAdminBean.getAdminGuid());
         if (adminMember == null) {
-            HttpServletRequest request = HttpContext.getRequest();
-            HttpServletResponse response = HttpContext.getResponse();
-
             String host = request.getHeader("host");
             String requestUrl = request.getRequestURL().toString();
             String adminLoginurl = "http://" + host + "/admin/login?backUrl=" + requestUrl;

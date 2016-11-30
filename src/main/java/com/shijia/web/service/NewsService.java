@@ -1,11 +1,10 @@
-package com.shijia.web.service.interfaces.impl;
+package com.shijia.web.service;
 
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
 import com.shijia.web.repository.mapper.INewDAO;
 import com.shijia.web.repository.mapper.domain.NewsShow;
 import com.shijia.web.service.domain.news.AddOrUpNewsReq;
-import com.shijia.web.service.interfaces.INewsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +17,10 @@ import java.util.List;
  * @author YanxiSir
  * @since 16/11/7
  */
-@Service("newsService")
-public class NewsServiceImpl implements INewsService {
+@Service
+public class NewsService  {
 
-    private static final Logger logger = LoggerFactory.getLogger(NewsServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
     @Autowired
     private INewDAO newDAO;
 

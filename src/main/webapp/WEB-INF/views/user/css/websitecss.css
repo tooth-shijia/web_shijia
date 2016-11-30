@@ -13,13 +13,80 @@ html,body{
     background-attachment: fixed;
 }
 .mainPageHeader{
-    height: 650px;
+    height: 800px;
     width: 100%;
     background: rgba(66, 64, 64, 0.9);
+    position: relative;
+}
+.logo{
+    height: 60px;
+    margin-top: 40px;
+    position: relative;
+    float: left;
+}
+.logo img{
+    position: relative;
+    height: 100%;
 }
 
-
-
+.mp_menu-wrap{
+    position: relative;
+    display: block;
+    float: right;
+    margin-top: 40px;
+}
+.mp_menu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.mp_menu li{
+    white-space: nowrap;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+    list-style-type: none;
+}
+.mp_menu>li{
+    position: relative;
+    float: left;
+}
+.mp_menu>li>a{
+    display: block;
+    text-decoration: none;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0.75em 0.5em;
+    font-weight: normal;
+    border:none;
+    font-size: 18px;
+    position: relative;
+    margin-bottom: 0px;
+    height: 60px;
+}
+.active>a{
+    color: #fff !important;
+}
+.mp_menu>li>a:hover{
+    color: #fff;
+}
+.mp_sub-menu{
+    width: 200px;
+    position: absolute;
+    padding: 10px 7px 10px;
+    background: #fff;
+    left: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
 
 
 

@@ -1,17 +1,14 @@
 package com.shijia.web.controller.admin;
 
-import com.shijia.web.controller.admin.BaseAdminController;
 import com.shijia.web.repository.mapper.domain.ProductShow;
-import com.shijia.web.service.interfaces.ICommonService;
-import com.shijia.web.service.interfaces.IProductService;
-import org.apache.ibatis.annotations.Param;
+import com.shijia.web.service.CommonService;
+import com.shijia.web.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.net.URLDecoder;
 
 /**
  * @author YanxiSir
@@ -22,9 +19,9 @@ import java.net.URLDecoder;
 public class ProductAboutController extends BaseAdminController {
 
     @Autowired
-    private IProductService productService;
+    private ProductService productService;
     @Autowired
-    private ICommonService commonService;
+    private CommonService commonService;
 
     @RequestMapping("/productshow")
     public String showProduct(@RequestParam(required = false) Integer id) {

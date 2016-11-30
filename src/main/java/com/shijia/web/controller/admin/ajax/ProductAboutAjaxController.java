@@ -7,9 +7,8 @@ import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
 import com.shijia.web.controller.admin.viewmodel.product.PsTotalModel;
-import com.shijia.web.repository.mapper.domain.ProductType;
+import com.shijia.web.service.ProductService;
 import com.shijia.web.service.domain.productshow.AddOrUpProductShowReq;
-import com.shijia.web.service.interfaces.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +26,7 @@ import java.util.List;
 public class ProductAboutAjaxController {
 
     @Autowired
-    private IProductService productService;
+    private ProductService productService;
 
     /**
      * 每页产品数

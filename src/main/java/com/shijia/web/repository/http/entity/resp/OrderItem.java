@@ -1,8 +1,7 @@
-package com.shijia.web.repository.interfaces.entity.resp;
+package com.shijia.web.repository.http.entity.resp;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
-import java.util.Date;
 import java.util.List;
 
 /**

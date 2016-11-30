@@ -72,17 +72,17 @@
     </beans:bean>
 
     <!-- Aop切面记录日志 start-->
-    <aop:config>
-        <aop:aspect id="aroundMethod" ref="performanceAopAdvice">
-            <aop:pointcut id="performanceMonitorPoint"
-                          expression="execution(* com.shijia.web.repository.*.*(..) )
-			|| execution(* com.shijia.web.service.*.*(..) )"/>
-            <aop:around pointcut-ref="performanceMonitorPoint" method="aroundMethod"/>
-        </aop:aspect>
-    </aop:config>
+    <!--<aop:config>-->
+        <!--<aop:aspect id="aroundMethod" ref="performanceAopAdvice">-->
+            <!--<aop:pointcut id="performanceMonitorPoint"-->
+                          <!--expression="execution(* com.shijia.web.repository.*.*(..) )-->
+			<!--|| execution(* com.shijia.web.service.*.*(..) )"/>-->
+            <!--<aop:around pointcut-ref="performanceMonitorPoint" method="aroundMethod"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
-    <beans:bean id="performanceAopAdvice" class="com.shijia.web.common.framework.PerformanceAopAdvice">
-    </beans:bean>
+    <!--<beans:bean id="performanceAopAdvice" class="com.shijia.web.common.framework.PerformanceAopAdvice">-->
+    <!--</beans:bean>-->
 
 
     <!--拦截器设置。 start -->

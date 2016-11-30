@@ -1,10 +1,10 @@
 package com.shijia.web.controller.test;
 
 import com.alibaba.fastjson.JSON;
-import com.shijia.web.repository.interfaces.entity.resp.OrderFlowItemResp;
-import com.shijia.web.repository.interfaces.entity.resp.OrderQueryItemResp;
+import com.shijia.web.repository.http.entity.resp.OrderFlowItemResp;
+import com.shijia.web.repository.http.entity.resp.OrderQueryItemResp;
 import com.shijia.web.repository.mapper.INewDAO;
-import com.shijia.web.service.interfaces.IOrderQueryService;
+import com.shijia.web.service.OrderQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/test/outapi")
 public class OuterInterfaceTestController {
     @Autowired
-    private IOrderQueryService orderQueryService;
+    private OrderQueryService orderQueryService;
 
     @Autowired
     private INewDAO newDAO;

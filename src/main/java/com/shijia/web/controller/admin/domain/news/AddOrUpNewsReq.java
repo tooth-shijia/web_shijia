@@ -1,4 +1,4 @@
-package com.shijia.web.service.domain.news;
+package com.shijia.web.controller.admin.domain.news;
 
 /**
  * @author YanxiSir

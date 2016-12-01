@@ -12,11 +12,17 @@ $(window).load(function () {
             showErrMsg("密码不能为空");
             return;
         }
-        var model = {"username": username, "password": password, "isRememberMe": isRememberMe};
-        var tmp = JSON.stringify(model);
-        var params = {"value": tmp};
-        $.post("ajax/loginSubmit", params,
-            function (res) {
+        var req = {};
+        req.username=username;
+        req.password=password;
+        req.isRememberMe=isRememberMe;
+
+        $.ajax({
+            type: "POST",
+            url: "ajax/loginSubmit",
+            headers: {'Content-type': 'application/json;charset=UTF-8'},
+            data: JSON.stringify(req),
+            success: function (res) {
                 switch (res.success) {
                     case true:
                         hideErrMsg();
@@ -31,7 +37,8 @@ $(window).load(function () {
                         showErrMsg(res.msg);
                         break;
                 }
-            });
+            }
+        });
     });
 
     function showErrMsg(msg) {

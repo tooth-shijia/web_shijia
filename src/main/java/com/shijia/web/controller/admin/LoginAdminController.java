@@ -2,11 +2,12 @@ package com.shijia.web.controller.admin;
 
 import com.alibaba.fastjson.JSON;
 import com.shijia.web.common.domain.AjaxResult;
-import com.shijia.web.controller.admin.viewmodel.login.LoginAdminReqModel;
+import com.shijia.web.controller.admin.domain.login.LoginAdminReq;
 import com.shijia.web.service.CommonService;
 import com.shijia.web.service.LoginAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,8 +38,7 @@ public class LoginAdminController {
 
     @ResponseBody
     @RequestMapping("/ajax/loginSubmit")
-    public AjaxResult adminLoginSubmit(String value) {
-        LoginAdminReqModel model = JSON.parseObject(value,LoginAdminReqModel.class);
+    public AjaxResult adminLoginSubmit(@RequestBody LoginAdminReq model) {
         model.setPassword(commonService.getURLDecodeString(model.getPassword()));
         String username = model.getUsername();
         String password = model.getPassword();

@@ -4,7 +4,7 @@ import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
 import com.shijia.web.repository.mapper.INewDAO;
 import com.shijia.web.repository.mapper.domain.NewsShow;
-import com.shijia.web.service.domain.news.AddOrUpNewsReq;
+import com.shijia.web.controller.admin.domain.news.AddOrUpNewsReq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

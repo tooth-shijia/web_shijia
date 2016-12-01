@@ -9,7 +9,7 @@ import com.shijia.web.repository.mapper.IProductTypeDAO;
 import com.shijia.web.repository.mapper.ProductShowDAO;
 import com.shijia.web.repository.mapper.domain.ProductShow;
 import com.shijia.web.repository.mapper.domain.ProductType;
-import com.shijia.web.service.domain.productshow.AddOrUpProductShowReq;
+import com.shijia.web.controller.admin.domain.productshow.AddOrUpProductShowReq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -117,7 +117,8 @@ function submitNewProduct() {
     $.ajax({
         type: "POST",
         url: "/admin/ajax/product/addOrUpProduct",
-        data: "reqStr=" + JSON.stringify(req),
+        headers: {'Content-type': 'application/json;charset=UTF-8'},
+        data: JSON.stringify(req),
         success: function (res) {
             if (res.success) {
                 alert(res.msg);

@@ -20,6 +20,10 @@ public class UserInfoService {
     private IUserInfoDAO userInfoDAO;
 
 
+    public UserInfo getUserInfoByAllDim(String username){
+        return userInfoDAO.getUserInfoAllDim(username);
+    }
+
     public UserInfo getUserInfoByUserId(String userId) {
         return getUserInfo(GetUserInfoTypeConst.USER_ID_FOR_INFO, userId);
     }
@@ -31,6 +35,14 @@ public class UserInfoService {
     public UserInfo getUserInfoByEmail(String email) {
         return getUserInfo(GetUserInfoTypeConst.EMAIL_FOR_INFO, email);
     }
+
+
+    /**
+     *==================== private ================
+     */
+
+
+
 
     private UserInfo getUserInfo(int type, String value) {
         Map<String, Object> map = new HashMap<String, Object>();

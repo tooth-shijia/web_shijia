@@ -35,7 +35,6 @@ public class LoginAdminController {
     /**
      * ajax请求
      */
-
     @ResponseBody
     @RequestMapping("/ajax/loginSubmit")
     public AjaxResult adminLoginSubmit(@RequestBody LoginAdminReq model) {

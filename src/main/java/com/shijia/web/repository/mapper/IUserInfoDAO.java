@@ -18,6 +18,8 @@ public interface IUserInfoDAO {
      */
     UserInfo getUserInfoByValue(Map map);
 
+    UserInfo getUserInfoAllDim(String username);
+
     /**
      * 插入新用户
      *

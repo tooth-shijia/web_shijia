@@ -71,12 +71,16 @@ html,body{
 .mp_menu>li>a:hover{
     color: #fff;
 }
-.mp_sub-menu{
-    width: 200px;
+.mp_sub_menu{
+    width: 180px;
     position: absolute;
-    padding: 10px 7px 10px;
+    padding: 15px 0px 15px;
+    display: none;
     background: #fff;
     left: 0;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -88,8 +92,40 @@ html,body{
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
+.mp_sub_menu:after{
+    position: absolute;
+    top: -8px;
+    left: 21px;
+    width: 0;
+    height: 0;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    border-bottom: 8px solid white;
+    border-left: 8px solid transparent;
+    content: '';
+}
 
-
+.mp_sub_menu>li{
+    position: relative;
+}
+.mp_sub_menu a{
+    display: block;
+    position: relative;
+    color: #575757;
+    padding: 0.5em 1em;
+    font-weight: normal;
+    border-left: none;
+    border-top: none;
+    border-top: none;
+    text-decoration: none;
+    zoom: 1;
+    font-size: 18px;
+    border-bottom: none ;
+    letter-spacing: 1px;
+}
+.mp_sub_menu a:hover{
+    color: #4cc2c4;
+}
 
 
 

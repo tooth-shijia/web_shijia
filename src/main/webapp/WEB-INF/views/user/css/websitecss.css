@@ -7,13 +7,19 @@ html,body{
     height: 100%;
 }
 
+@font-face {
+    font-family: 'Merienda-Regular';
+    src: url(../fonts/Merienda-Regular.ttf)format('truetype');
+}
+
+
 .mainPageBody{
     background-image: url(/uimg/backgroudimg.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
 .mainPageHeader{
-    height: 800px;
+    height: 700px;
     width: 100%;
     background: rgba(66, 64, 64, 0.9);
     position: relative;
@@ -28,7 +34,18 @@ html,body{
     position: relative;
     height: 100%;
 }
-
+#userLogo{
+    right: -30px;
+    position: absolute;
+    height: 100%;
+    line-height: 60px;
+}
+#userLogo>a>span{
+    color: rgba(255, 255, 255, 0.5);
+}
+#userLogo>a:hover>span{
+    color: #fff;
+}
 .mp_menu-wrap{
     position: relative;
     display: block;
@@ -78,9 +95,10 @@ html,body{
     display: none;
     background: #fff;
     left: 0;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+    -webkit-transition: 0.5s ease-out;
+    -moz-transition: 0.5s ease-out;
+    -o-transition: 0.5s ease-out;
+    transition: 0.5s ease-out;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -127,11 +145,35 @@ html,body{
     color: #4cc2c4;
 }
 
+.mp_header{
+    margin-top: 200px;
+    text-align: center;
+}
 
-
-
-
-
+.mp_header>h1{
+    font-size: 70px;
+    line-height: 87px;
+    font-weight: 100;
+    color: white;
+    font-family: 'Merienda-Regular';
+}
+.mp_header>h2{
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 100;
+    color: white;
+}
+.mp_header>a{
+    background: #4cc2c4;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
+    font-size: 18px;
+}
+.mp_header>a:hover{
+   background: #51f9f9;
+}
 
 /*
 

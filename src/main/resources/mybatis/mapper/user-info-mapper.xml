@@ -36,7 +36,7 @@
         </if>
     </select>
 
-    <select id="getUserInfoAllDim" parameterMap="string" resultMap="userResultMap">
+    <select id="getUserInfoAllDim" parameterType="string" resultMap="userResultMap">
         SELECT * FROM
         <include refid="Sql_Base_Table_Name"/>
         WHERE

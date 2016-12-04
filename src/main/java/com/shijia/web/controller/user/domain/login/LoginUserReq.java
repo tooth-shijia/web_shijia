@@ -1,12 +1,10 @@
-package com.shijia.web.controller.admin.viewmodel.login;
+package com.shijia.web.controller.user.domain.login;
 
 /**
- * 管理后台登录 model
- *
  * @author YanxiSir
- * @since 16/5/21
+ * @since 16/12/1
  */
-public class LoginAdminReqModel {
+public class LoginUserReq {
 
     private String username;
     private String password;

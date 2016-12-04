@@ -36,6 +36,13 @@
         </if>
     </select>
 
+    <select id="getUserInfoAllDim" parameterMap="string" resultMap="userResultMap">
+        SELECT * FROM
+        <include refid="Sql_Base_Table_Name"/>
+        WHERE
+        user_id=#{0} OR phone=#{0} OR email=#{0}
+    </select>
+    
     <!-- 插入一个新用户 -->
     <insert id="insertNewUser" parameterType="com.shijia.web.repository.mapper.domain.UserInfo">
         INSERT INTO

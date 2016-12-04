@@ -7,9 +7,10 @@ import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.PsTotalModel;
 import com.shijia.web.service.NewsService;
-import com.shijia.web.service.domain.news.AddOrUpNewsReq;
+import com.shijia.web.controller.admin.domain.news.AddOrUpNewsReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,8 +35,7 @@ public class NewsManagerAjaxController {
 
     @RequestMapping(value = "/addOrUpNews", method = RequestMethod.POST)
     @ResponseBody
-    public AjaxResult addOrUpNews(String reqStr) {
-        AddOrUpNewsReq req = JSON.parseObject(reqStr, AddOrUpNewsReq.class);
+    public AjaxResult addOrUpNews(@RequestBody AddOrUpNewsReq req) {
         if (req == null) {
             return new AjaxResult(false, "请求内容为空");
         }

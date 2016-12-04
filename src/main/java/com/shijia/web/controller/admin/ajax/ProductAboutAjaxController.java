@@ -8,9 +8,10 @@ import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
 import com.shijia.web.controller.admin.viewmodel.product.PsTotalModel;
 import com.shijia.web.service.ProductService;
-import com.shijia.web.service.domain.productshow.AddOrUpProductShowReq;
+import com.shijia.web.controller.admin.domain.productshow.AddOrUpProductShowReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,8 +36,7 @@ public class ProductAboutAjaxController {
 
     @RequestMapping(value = "/addOrUpProduct", method = RequestMethod.POST)
     @ResponseBody
-    public AjaxResult addProduct(String reqStr) {
-        AddOrUpProductShowReq req = JSON.parseObject(reqStr, AddOrUpProductShowReq.class);
+    public AjaxResult addProduct(@RequestBody AddOrUpProductShowReq req) {
         if (req == null) {
             return new AjaxResult(false, "请求内容为空");
         }

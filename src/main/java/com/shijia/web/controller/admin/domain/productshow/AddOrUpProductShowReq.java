@@ -1,4 +1,4 @@
-package com.shijia.web.service.domain.productshow;
+package com.shijia.web.controller.admin.domain.productshow;
 
 
 /**

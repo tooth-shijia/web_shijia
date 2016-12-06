@@ -36,14 +36,14 @@ function changeOnDeleteSelect() {
     }
 }
 function delNews(id) {
-    $.get("/admin/ajax/news/delNewsById?id=" + id, function (res) {
+    $.get("/web/admin/ajax/news/delNewsById?id=" + id, function (res) {
         if (!res.success) {
             alert(res.msg);
         }
     })
 }
 function recoverNews(id) {
-    $.get("/admin/ajax/news/recoverNewsById?id=" + id, function (res) {
+    $.get("/web/admin/ajax/news/recoverNewsById?id=" + id, function (res) {
         if (!res.success) {
             alert(res.msg);
         }
@@ -53,7 +53,7 @@ function getNewsShow(pageIndex) {
 
     var newsType = $("#newsType").val();
 
-    $.get("/admin/ajax/news/getNewsShow?pageIndex=" + pageIndex + "&newsType=" + newsType, function (res) {
+    $.get("/web/admin/ajax/news/getNewsShow?pageIndex=" + pageIndex + "&newsType=" + newsType, function (res) {
         if (res.success) {
             var showListHtml = "";
             for (i = 0; i < res.obj.length; i++) {
@@ -74,7 +74,7 @@ function getNewsShow(pageIndex) {
 
 function getTotalAndPageSize(newsTypeId) {
 
-    $.get("/admin/ajax/news/getTotalByTypeId?newsTypeId=" + newsTypeId, function (res) {
+    $.get("/web/admin/ajax/news/getTotalByTypeId?newsTypeId=" + newsTypeId, function (res) {
         if (res.success) {
             var typeName = $("#newsType").find("option:selected").html();
             var html = typeName + "- 总数：" + res.obj.total;
@@ -103,7 +103,7 @@ function createRecordeItemHtml(item) {
         "<td class=\" \">#{author}</td> " +
         "<td class=\" \"> " +
         "<div class=\"visible-md visible-lg hidden-sm hidden-xs action-buttons\"> " +
-        "<a class=\"green\" href='/admin/newsedit?id=#{id}'> " +
+        "<a class=\"green\" href='/web/admin/newsedit?id=#{id}'> " +
         "<i class=\"icon-pencil bigger-130\"></i> " +
         "</a></div> " +
         "</td> </tr>";

@@ -85,7 +85,7 @@ public class NewsService  {
                 NewsShowModel newsShowModel = new NewsShowModel();
                 newsShowModel.setId(ns.getId());
                 newsShowModel.setNewsType(ns.getNewsType());
-                newsShowModel.setContent(ns.getContent());
+//                newsShowModel.setContent(ns.getContent());
                 newsShowModel.setNewsName(ns.getNewsName());
                 newsShowModel.setAuthor(ns.getAuthor());
                 newsShowModel.setComefrom(ns.getComefrom());

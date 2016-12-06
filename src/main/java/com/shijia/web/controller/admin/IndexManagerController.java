@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 16/5/21
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/web/admin")
 public class IndexManagerController extends BaseAdminController {
 
     private static final Logger logger = LoggerFactory.getLogger(IndexManagerController.class);

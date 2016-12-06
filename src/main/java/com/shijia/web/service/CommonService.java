@@ -28,11 +28,18 @@ public class CommonService {
     }
 
     public String getURLDecodeString(String text) {
-        if (StringUtils.isEmpty(text)) {
+        return getURLDecodeString(text, 1);
+    }
+
+    public String getURLDecodeString(String text, int time) {
+        if (StringUtils.isEmpty(text) || time <= 0) {
             return "";
         }
         try {
-            return URLDecoder.decode(text, "utf-8");
+            for (int i = 0; i < time; i++) {
+                text = URLDecoder.decode(text, "utf-8");
+            }
+            return text;
         } catch (UnsupportedEncodingException e) {
             LogHelper.error("CommonService - getURLDecodeString异常", e);
         }

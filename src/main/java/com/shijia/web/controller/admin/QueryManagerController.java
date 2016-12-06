@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 16/8/29
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/web/admin")
 public class QueryManagerController {
 
     @RequestMapping("/querymanager")

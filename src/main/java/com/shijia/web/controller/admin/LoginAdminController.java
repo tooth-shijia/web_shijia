@@ -18,7 +18,7 @@ import java.util.HashMap;
  * @since 16/5/21
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/web/admin")
 public class LoginAdminController {
 
     @Autowired

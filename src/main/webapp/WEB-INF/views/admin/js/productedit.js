@@ -116,13 +116,13 @@ function submitNewProduct() {
 
     $.ajax({
         type: "POST",
-        url: "/admin/ajax/product/addOrUpProduct",
+        url: "/web/admin/ajax/product/addOrUpProduct",
         headers: {'Content-type': 'application/json;charset=UTF-8'},
         data: JSON.stringify(req),
         success: function (res) {
             if (res.success) {
                 alert(res.msg);
-                var url = "http://" + window.location.host + "/admin/productshow.html";
+                var url = "http://" + window.location.host + "/web/admin/productshow.html";
                 window.location.href = url;
             } else {
                 alert(res.msg);
@@ -133,7 +133,7 @@ function submitNewProduct() {
 };
 function getProductTypeAll() {
     var siteId = $("#siteId").val();
-    $.get("/admin/ajax/product/getAllProductType?parentId=-1&siteId=" + siteId, function (res) {
+    $.get("/web/admin/ajax/product/getAllProductType?parentId=-1&siteId=" + siteId, function (res) {
         if (res.success) {
             var typelistHtml = "";
             for (i = 0; i < res.obj.length; i++) {

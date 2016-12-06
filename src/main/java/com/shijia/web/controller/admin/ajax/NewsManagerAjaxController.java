@@ -22,7 +22,7 @@ import java.util.List;
  * @since 16/11/29
  */
 @Controller
-@RequestMapping("/admin/ajax/news")
+@RequestMapping("/web/admin/ajax/news")
 public class NewsManagerAjaxController {
 
     @Autowired

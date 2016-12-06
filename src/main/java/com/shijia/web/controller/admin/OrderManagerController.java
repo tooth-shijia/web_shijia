@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @since 16/5/19
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/web/admin")
 public class OrderManagerController extends BaseAdminController {
 
 

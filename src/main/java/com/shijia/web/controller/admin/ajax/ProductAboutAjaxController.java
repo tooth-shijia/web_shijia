@@ -23,7 +23,7 @@ import java.util.List;
  * @since 16/11/9
  */
 @Controller
-@RequestMapping("/admin/ajax/product")
+@RequestMapping("/web/admin/ajax/product")
 public class ProductAboutAjaxController {
 
     @Autowired

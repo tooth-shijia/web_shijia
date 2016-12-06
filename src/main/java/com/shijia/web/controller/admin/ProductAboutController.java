@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @since 16/5/22
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/web/admin")
 public class ProductAboutController extends BaseAdminController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class ProductAboutController extends BaseAdminController {
         ProductShow productShow = new ProductShow();
         if (id != null && id.intValue() > 0) {
             productShow = productService.getProductById(id);
-            String content = commonService.getURLDecodeString(productShow.getContent());
+            String content = commonService.getURLDecodeString(productShow.getContent(),2);
             productShow.setContent(content);
             model.addAttribute("id", id);
             model.addAttribute("product", productShow);

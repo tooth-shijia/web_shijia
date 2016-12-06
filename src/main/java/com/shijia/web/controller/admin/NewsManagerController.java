@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @since 16/5/21
  */
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/web/admin")
 public class NewsManagerController extends BaseAdminController {
 
     @Autowired
@@ -31,9 +31,9 @@ public class NewsManagerController extends BaseAdminController {
     @RequestMapping("/newsedit")
     public String newsEdit(Model model, @RequestParam(required = false) Integer id) {
         NewsShow ns = new NewsShow();
-        if (id!=null && id.intValue() > 0) {
+        if (id != null && id.intValue() > 0) {
             ns = newsService.getNewsById(id);
-            String content = commonService.getURLDecodeString(ns.getContent());
+            String content = commonService.getURLDecodeString(ns.getContent(), 2);
             ns.setContent(content);
             model.addAttribute("id", id);
             model.addAttribute("news", ns);

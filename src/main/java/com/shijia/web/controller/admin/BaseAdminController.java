@@ -32,7 +32,7 @@ public class BaseAdminController {
         if (adminMember == null) {
             String host = request.getHeader("host");
             String requestUrl = request.getRequestURL().toString();
-            String adminLoginurl = "http://" + host + "/admin/login?backUrl=" + requestUrl;
+            String adminLoginurl = "http://" + host + "/web/admin/login?backUrl=" + requestUrl;
             try {
                 response.sendRedirect(adminLoginurl);
             } catch (Exception e) {

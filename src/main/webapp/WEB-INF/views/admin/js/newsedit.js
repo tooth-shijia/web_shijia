@@ -103,13 +103,13 @@ function submitNewsInfo() {
 
     $.ajax({
         type: "POST",
-        url: "/admin/ajax/news/addOrUpNews",
+        url: "/web/admin/ajax/news/addOrUpNews",
         headers: {'Content-type': 'application/json;charset=UTF-8'},
         data: JSON.stringify(req),
         success: function (res) {
             if (res.success) {
                 alert(res.msg);
-                var url = "http://" + window.location.host + "/admin/newsmanager.html";
+                var url = "http://" + window.location.host + "/web/admin/newsmanager.html";
                 window.location.href = url;
             } else {
                 alert(res.msg);

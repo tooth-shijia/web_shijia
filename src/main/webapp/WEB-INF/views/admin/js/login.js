@@ -26,7 +26,7 @@ $(window).load(function () {
                 switch (res.success) {
                     case true:
                         hideErrMsg();
-                        var url = "http://" + window.location.host + "/admin/index.html";
+                        var url = "http://" + window.location.host + "/web/admin/index.html";
                         var backUrl = requestParam("backUrl");
                         if (backUrl) {
                             url = backUrl;

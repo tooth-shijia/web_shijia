@@ -36,6 +36,9 @@ public class ProductService {
     @Autowired
     private IProductTypeDAO productTypeDAO;
 
+    @Autowired
+    private CommonService commonService;
+
     /**
      * 获取所有产品类型（1：世佳 ； 2：贝艺）
      *
@@ -113,7 +116,7 @@ public class ProductService {
                     if (StringUtils.isNotEmpty(ps.getComefrom()))
                         item.setComefrom(ps.getComefrom());
                     item.setShowCount(ps.getShowCount());
-                    item.setContent(ps.getContent());
+//                    item.setContent(commonService.getURLDecodeString(ps.getContent()));
                     item.setIsDelete(ps.getIsDelete());
                     if (ps.getCreateTime() != null)
                         item.setCreateTime(DateUtils.getDate(ps.getCreateTime()));

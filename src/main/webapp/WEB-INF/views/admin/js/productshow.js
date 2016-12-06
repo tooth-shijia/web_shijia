@@ -38,14 +38,14 @@ function changeOnDeleteSelect() {
     }
 }
 function delProduct(id) {
-    $.get("/admin/ajax/product/delProductById?id="+id, function (res) {
+    $.get("/web/admin/ajax/product/delProductById?id="+id, function (res) {
         if (!res.success) {
             alert(res.msg);
         }
     })
 }
 function recoverProduct(id) {
-    $.get("/admin/ajax/product/recoverProductById?id="+id, function (res) {
+    $.get("/web/admin/ajax/product/recoverProductById?id="+id, function (res) {
         if (!res.success) {
             alert(res.msg);
         }
@@ -55,7 +55,7 @@ function getProductShow(pageIndex) {
 
     var productType = $("#product_type_list").val();
 
-    $.get("/admin/ajax/product/getProductShow?pageIndex=" + pageIndex + "&productType=" + productType, function (res) {
+    $.get("/web/admin/ajax/product/getProductShow?pageIndex=" + pageIndex + "&productType=" + productType, function (res) {
         if (res.success) {
             var showListHtml = "";
             for (i = 0; i < res.obj.length; i++) {
@@ -76,7 +76,7 @@ function getProductShow(pageIndex) {
 
 function getProductTypeAll() {
     var siteId = $("#siteId").val();
-    $.get("/admin/ajax/product/getAllProductType?parentId=-1&siteId=" + siteId, function (res) {
+    $.get("/web/admin/ajax/product/getAllProductType?parentId=-1&siteId=" + siteId, function (res) {
         if (res.success) {
             var typelistHtml = "";
             for (i = 0; i < res.obj.length; i++) {
@@ -94,7 +94,7 @@ function getProductTypeAll() {
 
 function getTotalAndPageSize(productTypeId) {
 
-    $.get("/admin/ajax/product/getTotalByTypeId?productTypeId=" + productTypeId, function (res) {
+    $.get("/web/admin/ajax/product/getTotalByTypeId?productTypeId=" + productTypeId, function (res) {
         if (res.success) {
             var siteName = $("#siteId").find("option:selected").html();
             var typeName = $("#product_type_list").find("option:selected").html();
@@ -106,7 +106,7 @@ function getTotalAndPageSize(productTypeId) {
     })
 };
 function deleteProductShow(id) {
-    $.get("/admin/ajax/product/delProductById?id=" + id, function (res) {
+    $.get("/web/admin/ajax/product/delProductById?id=" + id, function (res) {
         if (res.success) {
             alert(res.msg);
         } else {
@@ -132,7 +132,7 @@ function createRecordeItemHtml(item) {
         "<td class=\" \">#{author}</td> " +
         "<td class=\" \"> " +
         "<div class=\"visible-md visible-lg hidden-sm hidden-xs action-buttons\"> " +
-        "<a class=\"green\" href='/admin/productedit?id=#{id}'> " +
+        "<a class=\"green\" href='/web/admin/productedit?id=#{id}'> " +
         "<i class=\"icon-pencil bigger-130\"></i> " +
         "</a></div> " +
         "</td> </tr>";

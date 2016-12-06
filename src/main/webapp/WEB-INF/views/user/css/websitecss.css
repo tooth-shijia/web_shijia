@@ -194,7 +194,7 @@ html,body{
     height: 80px;
 }
 .footer>.content{
-    height: 300px;
+    height: 350px;
     border-bottom: 3px solid #272727;
     border-top: 3px solid #272727;
     padding:10px 50px;
@@ -287,7 +287,6 @@ html,body{
     width: 100%;
 }
 .footer>.content>div>div:first-child{
-    height:60px;
     border-bottom: 3px solid #4cc2c4;
 }
 .footer>.content>div>div:first-child>span{

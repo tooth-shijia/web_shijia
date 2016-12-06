@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Tangxinqi on 2016/7/3.
  */
 @Controller
-@RequestMapping("/shijia/companyinfo")
+@RequestMapping("web/shijia/companyinfo")
 public class MenuListPageController {
 
     @RequestMapping("/gsjj")

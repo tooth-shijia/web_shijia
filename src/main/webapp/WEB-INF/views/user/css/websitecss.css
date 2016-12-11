@@ -175,6 +175,17 @@ html,body{
    background: #51f9f9;
 }
 
+
+.mainPageContent{
+    background: #fff
+}
+.mp_sjjj>h4{
+    margin: 0px;
+    text-align: center;
+    padding-top: 40px;
+    color: #000;
+}
+
 /*
 
 底部信息样式

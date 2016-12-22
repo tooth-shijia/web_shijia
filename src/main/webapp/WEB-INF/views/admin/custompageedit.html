@@ -1,0 +1,74 @@
+<@override name="css">
+
+</@override> <@override name="main">
+<div class="main-content">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home home-icon"></i>
+                <a href="#">首页</a>
+            </li>
+            <li class="active">
+                <#if type=="update">更新页面
+                    <#else>新增页面
+                </#if>
+            </li>
+        </ul>
+        <!-- .breadcrumb -->
+    </div>
+
+    <div class="page-content">
+        <!-- /.page-header -->
+        <input hidden="hidden" value="${id}" id="idHidden">
+        <input hidden="hidden" value="${type}" id="typeHidden">
+        <input hidden="hidden" value="${pageNo}" id="noHidden">
+        <input hidden="hidden" value="${pageName}" id="nameHidden">
+
+
+        <div id="edit_conditions">
+            <div class="col-sm-12">
+                <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>页面类型：</span>
+                    <select class="" id="custom_page_type">
+
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+
+                <h4 class="header green clearfix">
+                    <!-- 编辑器风格 -->
+                </h4>
+
+                <div class="wysiwyg-editor" id="editor1" contenteditable="true">${page.content}</div>
+
+                <div class="hr hr-double dotted"></div>
+
+                <script type="text/javascript">
+                    var $path_assets = "assets";//this will be used in loading jQuery UI if needed!
+                </script>
+
+                <!-- PAGE CONTENT ENDS -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <button class="btn btn-info" id="submit">提交</button>
+        </div>
+    </div>
+    <!-- /.page-content -->
+</div>
+</@override>
+<@override name="js">
+<script type="text/javascript" src="/ajs/custompageedit.js"></script>
+</@override> <@extends name="./common/master_admin.html"/>

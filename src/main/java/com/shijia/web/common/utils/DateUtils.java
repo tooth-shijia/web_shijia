@@ -29,6 +29,7 @@ public class DateUtils {
      * @return
      */
     public static String getDate(Date date) {
+        if (date == null) return "";
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return format.format(date);
     }

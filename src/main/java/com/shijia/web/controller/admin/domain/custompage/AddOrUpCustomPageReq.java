@@ -12,6 +12,7 @@ public class AddOrUpCustomPageReq {
 
     private int id;
     private String pageNo;
+    private String pageName;
     private String content;
 
     public int getId() {
@@ -36,6 +37,14 @@ public class AddOrUpCustomPageReq {
 
     public void setPageNo(String pageNo) {
         this.pageNo = pageNo;
+    }
+
+    public String getPageName() {
+        return pageName;
+    }
+
+    public void setPageName(String pageName) {
+        this.pageName = pageName;
     }
 
     public String getContent() {

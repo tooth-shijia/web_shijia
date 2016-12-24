@@ -10,6 +10,7 @@ public class CustomPageDO {
 
     private int id;
     private String pageNo;
+    private String pageName;
     private String content;
     private Date createTime;
     private Date lastModifyTime;
@@ -29,6 +30,14 @@ public class CustomPageDO {
 
     public void setPageNo(String pageNo) {
         this.pageNo = pageNo;
+    }
+
+    public String getPageName() {
+        return pageName;
+    }
+
+    public void setPageName(String pageName) {
+        this.pageName = pageName;
     }
 
     public String getContent() {

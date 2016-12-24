@@ -5,6 +5,7 @@
     <resultMap id="cpResultMap" type="com.shijia.web.repository.mapper.domain.CustomPageDO">
         <result property="id" column="id" jdbcType="INTEGER"/>
         <result property="pageNo" column="page_no" jdbcType="VARCHAR"/>
+        <result property="pageName" column="page_name" jdbcType="VARCHAR"/>
         <result property="content" column="content"/>
         <result property="status" column="status" jdbcType="INTEGER"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
@@ -34,9 +35,9 @@
     <insert id="insertNewCustomPage" parameterType="com.shijia.web.repository.mapper.domain.CustomPageDO">
         INSERT INTO
         <include refid="Base_Custom_Page_Table"/>
-        (page_no,content,status)
+        (page_no,page_name,content,status)
         VALUES
-        (#{pageNo},#{content},#{status})
+        (#{pageNo},#{pageName},#{content},#{status})
     </insert>
     <update id="updateCustomPageById" parameterType="com.shijia.web.repository.mapper.domain.CustomPageDO">
         UPDATE
@@ -49,10 +50,10 @@
 
     <select id="selectAllVersionByPageNo" parameterType="string" resultMap="cpResultMap">
         SELECT
-        id,page_no,status
+        id,page_no,page_name,status,create_time,last_modify_time
         FROM
         <include refid="Base_Custom_Page_Table"/>
-        WHERE page_no=#{0} AND (status = 1 or status = 2)
+        WHERE page_no=#{0} AND status = 1
         ORDER BY create_time desc
     </select>
 

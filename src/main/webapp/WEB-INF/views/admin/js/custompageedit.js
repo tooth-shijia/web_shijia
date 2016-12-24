@@ -58,8 +58,9 @@ $(window).load(function () {
 function initEvent() {
     $("#submit").bind("click", submitCustomPage);
 };
-function submitCustomPage(){
+function submitCustomPage() {
     var customPageType = $("#custom_page_type").val();
+    var pageName = $("#custom_page_type option[value='" + customPageType + "']").html();
     var content = $("#editor1").html();
     if (content == "") {
         alert("内容为空");
@@ -75,7 +76,8 @@ function submitCustomPage(){
         req.id = -1;
         req.reqType = 1;
     }
-    req.pageNo=customPageType;
+    req.pageNo = customPageType;
+    req.pageName = pageName;
     req.content = encodeURIComponent(encodeURIComponent(content));
     $.ajax({
         type: "POST",

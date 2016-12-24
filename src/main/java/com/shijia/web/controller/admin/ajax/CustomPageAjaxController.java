@@ -3,6 +3,8 @@ package com.shijia.web.controller.admin.ajax;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.domain.custompage.AddOrUpCustomPageReq;
+import com.shijia.web.controller.admin.viewmodel.custompage.CustomPageShowItem;
+import com.shijia.web.repository.mapper.domain.CustomPageDO;
 import com.shijia.web.repository.mapper.domain.CustomPageTypeDO;
 import com.shijia.web.service.CustomPageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,6 +50,16 @@ public class CustomPageAjaxController {
         } else {
             return new AjaxResult(false, operate + "失败");
         }
+    }
+
+    @ResponseBody
+    @RequestMapping("/getCustomPageShow")
+    public Object getCustomPageShow(String pageNo) {
+        List<CustomPageShowItem> list = new ArrayList<CustomPageShowItem>();
+        if (StringUtils.isNotEmpty(pageNo)) {
+            list = customPageService.getAllVersionPageByPageNo(pageNo);
+        }
+        return new AjaxResult(true, "", list);
     }
 
     @ResponseBody

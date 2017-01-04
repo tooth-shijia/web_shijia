@@ -1,41 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>${m_title}</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/uimg/favicon.ico" />
-    <link rel="stylesheet" rev="stylesheet" href="/ucss/bootstrap.min.css" type="text/css" media="all" />
-    <link rel="stylesheet" type="text/css" href="/ucss/websitecss.css">
-    <script type="text/javascript" src="/ujs/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
-    <@block name="js"></@block>
-    <@block name="css"></@block>
-</head>
-<body style="min-width: 1280px;">
-    <div class="web_header">
-        ${time}
-        ${login}
+<div class="header_on" >
+    <img src="/uimg/logo2.png" >
+    <div>
+        <a href="/shijia/index.html">首页</a>
+        <a href="/shijia/companyinfo/gsjj.html" style="color: #4cc2c4">公司简介</a>
+        <a>产品展示</a>
+        <a>专业团队</a>
+        <a>医技沟通</a>
+        <a>质量保障</a>
+        <a>联系我们</a>
     </div>
-    <div class="web_title">
-        <img src="/uimg/logo.png">
-
-        <div>
-            <a href="/shijia/index.html">首页</a>
-            <a href="/shijia/companyinfo/gsjj.html">公司简介</a>
-            <a>产品展示</a>
-            <a>专业团队</a>
-            <a>医技沟通</a>
-            <a>质量保障</a>
-            <a>联系我们</a>
-        </div>
-    </div>
-    <@block name="main"></@block>
-
-    <@block name="jsb"></@block>
-    <@extends name="./common/master_user_tail.html"/>
-
-</body>
-</html>
+</div>

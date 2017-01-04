@@ -108,6 +108,7 @@ html,body{
     -ms-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     -o-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
 }
 
 .mp_sub_menu:after{
@@ -178,12 +179,6 @@ html,body{
 
 .mainPageContent{
     background: #fff
-}
-.mp_sjjj>h4{
-    margin: 0px;
-    text-align: center;
-    padding-top: 40px;
-    color: #000;
 }
 
 /*

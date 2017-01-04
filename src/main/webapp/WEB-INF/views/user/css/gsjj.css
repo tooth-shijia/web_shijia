@@ -1,0 +1,170 @@
+ body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.gsjj_wrap_div {
+    height: 100%;
+    width: 100%;
+    min-width: 1024px;
+    /*background-color: #4cc2c4;*/
+    background-color: #fff;
+    display: block;
+    position: absolute;
+}
+
+.gsjj_return {
+    height: 40px;
+    width: inherit;
+    line-height: 40px;
+}
+
+.gsjj_return > a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 5px;
+    color: #ddd;
+}
+
+.gsjj_return > a:hover {
+    color: #d0d0d0;
+}
+
+.gsjj_content {
+    float: right;
+    height: 80%;
+    width: 50%;
+    min-width: 512px;
+    background-color: #4cc2c4;
+}
+
+h2 {
+    margin-top: 80px;
+    font-family: "Microsoft JhengHei Light";
+}
+
+.gsjj_content > p {
+    width: 70%;
+    text-indent: 2em;
+    line-height: 200%;
+    font-weight: bold;
+    font-family: "Microsoft JhengHei Light";
+
+}
+
+.gsjj_symbol {
+    width: 50%;
+    float: left;
+    min-width: 512px;
+    height: 80%;
+    background-color: #4cc2c4;
+    position: relative;
+}
+.gsjj_symbol>div{
+    height: 100%;
+    width: 500px;
+    margin: auto auto;
+    position: relative;
+}
+.gsjj_symbol >div>img {
+    transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+    position: absolute;
+}
+
+.gsjj_symbol >div> img:hover {
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+}
+
+.gsjj_symbol >div>img[data-index="1"] {
+    animation: gsjjimgshow 5s;
+    -moz-animation: gsjjimgshow 5s;
+    -webkit-animation: gsjjimgshow 5s;
+}
+
+.gsjj_symbol >div>img[data-index="2"] {
+
+    top :50%;
+    left:50%;
+}
+
+.gsjj_symbol >div>img[data-index="3"] {
+    left: 45%;
+    top:65%;
+}
+
+.gsjj_symbol >div>img[data-index="4"] {
+    left:10%;
+    top: 40%;
+}
+
+.gsjj_tail {
+    width: 100%;
+    min-width: 512px;
+    height: 9%;
+    text-align: center;
+    float: right;
+
+}
+
+.gsjj_tail > div {
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    border-top: 1px #ddd dashed;
+}
+
+.gsjj_tail > div > div {
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    min-width: 2px;
+    padding-top: 10px;
+}
+
+.gsjj_tail span {
+    font-family: "Microsoft JhengHei";
+}
+
+.gsjj_tail a {
+    font-family: "Microsoft JhengHei";
+    text-decoration: none;
+}
+
+.gsjj_tail a:hover {
+    color: #ddd;
+    cursor: pointer;
+}
+
+@keyframes gsjjimgshow {
+    from {
+        background: red;
+    }
+    to {
+        background: yellow;
+    }
+}
+
+@-moz-keyframes gsjjimgshow
+{
+    from {
+        background: red;
+    }
+    to {
+        background: yellow;
+    }
+}
+
+@-webkit-keyframes gsjjimgshow /* Safari 和 Chrome */
+{
+    from {
+        top:40%;
+        left: 75%;
+    }
+    to {
+        left: 45%;
+        top: 7%;
+    }
+}

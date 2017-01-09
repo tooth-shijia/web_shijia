@@ -1,3 +1,10 @@
+body{
+    margin: 0px;
+    background-color: #e7e8eb;
+    font-size: 14px;
+}
+
+
 .header_on{
     width: 100%;
     height: 60px;
@@ -134,4 +141,28 @@
 }
 .mp_sub_menu a:hover{
     color: #4cc2c4;
+}
+
+.content{
+    margin-top: 90px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.menuBox{
+    width: 200px;
+    min-width: 200px;
+    display: table-cell;
+    border-right: 1px solid #d9dadc
+}
+
+.contentBox{
+    height: 500px;
+    width: 100%;
+    display: table-cell;
+
 }

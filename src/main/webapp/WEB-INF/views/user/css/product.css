@@ -151,6 +151,7 @@ body{
     -ms-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
     -o-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    padding: 0px;
 }
 
 .menuBox{
@@ -160,9 +161,24 @@ body{
     border-right: 1px solid #d9dadc
 }
 
+.menuList{
+    display: block;
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+}
+.menuList>a{
+    text-decoration: none;
+}
+.menuList:hover{
+    background-color: #4cc2c4;
+    cursor: pointer;
+}
+
 .contentBox{
     height: 500px;
     width: 100%;
     display: table-cell;
-
 }

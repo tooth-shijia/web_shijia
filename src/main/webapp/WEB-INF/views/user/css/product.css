@@ -171,6 +171,9 @@ body{
 }
 .menuList>a{
     text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-family:  "微软雅黑";
 }
 .menuList:hover{
     background-color: #4cc2c4;

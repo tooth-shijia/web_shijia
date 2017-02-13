@@ -1,6 +1,6 @@
 package com.shijia.web.common.session;
 
-import com.shijia.web.common.cookie.CookieAdminBean;
+import com.shijia.web.common.cookie.CookieUserBean;
 import com.shijia.web.common.utils.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +23,6 @@ public class SessionUserManager {
     }
 
     public static void setUserInfo(HttpServletRequest request, SessionUserMember member) {
-        request.getSession().setAttribute(CookieAdminBean.getAdminGuid(), member);
+        request.getSession().setAttribute(CookieUserBean.getUgid(), member);
     }
 }

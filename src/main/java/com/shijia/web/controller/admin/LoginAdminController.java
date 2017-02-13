@@ -1,6 +1,5 @@
 package com.shijia.web.controller.admin;
 
-import com.alibaba.fastjson.JSON;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.controller.admin.domain.login.LoginAdminReq;
 import com.shijia.web.service.CommonService;

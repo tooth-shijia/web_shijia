@@ -12,7 +12,9 @@
     <script type="text/javascript" src="/ujs/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/ucss/product.css">
     <link rel="stylesheet" type="text/css" href="/ucss/animate.css">
+    <link rel="stylesheet" type="text/css" href="/ucss/pagination.css">
     <script type="text/javascript" src="/ujs/mainPageCtr.js"></script>
+    <script type="text/javascript" src="/ujs/jquery.pagination.min.js"></script>
 </head>
 <body>
 <div class="header_on">
@@ -90,10 +92,29 @@
     </div>
     <div class="contentBox">
 
-        <div >
-
+        <div class="boxTail">
+            <div class="M-box"></div>
         </div>
     </div>
 </div>
 </body>
+<script language="JavaScript">
+    $(function () {
+        var pageSize = 100;
+        $('.M-box').pagination({
+            pageCount:pageSize,
+            jump:true,
+            coping:true,
+            homePage:'首页',
+            endPage:'末页',
+            count: 4,
+            prevContent:'上页',
+            nextContent:'下页',
+            callback: function (index) {
+                alert(index.getCurrent());
+            }
+        });
+    });
+
+</script>
 </html>

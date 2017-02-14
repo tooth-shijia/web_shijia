@@ -89,32 +89,19 @@
         <dl class="menuList">
             <a>列表展示</a>
         </dl>
+        <dl class="menuList">
+            <a>列表展示</a>
+        </dl>
     </div>
     <div class="contentBox">
+        <div class="boxList">
 
+        </div>
         <div class="boxTail">
             <div class="M-box"></div>
         </div>
     </div>
 </div>
 </body>
-<script language="JavaScript">
-    $(function () {
-        var pageSize = 100;
-        $('.M-box').pagination({
-            pageCount:pageSize,
-            jump:true,
-            coping:true,
-            homePage:'首页',
-            endPage:'末页',
-            count: 4,
-            prevContent:'上页',
-            nextContent:'下页',
-            callback: function (index) {
-                alert(index.getCurrent());
-            }
-        });
-    });
-
-</script>
+<script type="text/javascript" src="/ujs/shijiaProductCtr.js"></script>
 </html>

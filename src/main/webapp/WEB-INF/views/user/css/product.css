@@ -168,6 +168,7 @@ body{
     font-size: 18px;
     text-align: center;
     line-height: 50px;
+    margin: 0px;
 }
 .menuList>a{
     text-decoration: none;
@@ -190,4 +191,12 @@ body{
     position:absolute;
     bottom: 10px;
     right: 20px;
+}
+
+.boxList{
+    position: relative;
+    min-height: 500px;
+    height: auto;
+    width:100%;
+    background-color: red;
 }

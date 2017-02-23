@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<@block name="include">
+</@block>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上海世佳义齿</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:700,400">
+    <link rel="stylesheet" href="/muassets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/muassets/elegant-font/code/style.css">
+    <link rel="stylesheet" href="/muassets/css/animate.css">
+    <link rel="stylesheet" href="/muassets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/muassets/flexslider/flexslider.css">
+    <link rel="stylesheet" href="/muassets/css/form-elements.css">
+    <link rel="stylesheet" href="/muassets/css/style.css">
+    <link rel="stylesheet" href="/muassets/css/media-queries.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="/muassets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/muassets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/muassets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/muassets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/muassets/ico/apple-touch-icon-57-precomposed.png">
+
+    <@block name="css">
+</@block>
+</head>
+
+<body>
+<!-- Top menu -->
+<nav class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/web/shijia/index">上海 - 世佳义齿</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="top-navbar-1">
+            <ul class="nav navbar-nav navbar-right">
+                <#if base.curPage == 'home'>
+                    <li class="active">
+                        <#else>
+                            <li>
+                </#if>
+                <a href="/web/shijia/index"><span aria-hidden="true" class="icon_house"></span><br>首页</a>
+                </li>
+                <#if base.curPage == 'shijia'>
+                    <li class="active">
+                        <#else>
+                            <li>
+                </#if>
+                <a href="/web/shijia/product/1/list"><span aria-hidden="true" class="icon_camera"></span><br>世佳产品</a>
+
+                </li>
+                <#if base.curPage == "beiyi">
+                    <li class="active">
+                        <#else>
+                            <li>
+                </#if>
+                <a href="/web/shijia/product/2/list"><span aria-hidden="true"
+                                                        class="icon_comment"></span><br>贝艺数字产品</a>
+                </li>
+                <#if base.curPage == "news">
+                    <li class="active">
+                        <#else>
+                            <li>
+                </#if>
+                <a href="/web/shijia/news/list"><span aria-hidden="true" class="icon_tools"></span><br>新闻动态</a>
+                </li>
+                <#if base.curPage == "about">
+                    <li class="active">
+                        <#else>
+                            <li>
+                </#if>
+                <a href="about.html"><span aria-hidden="true" class="icon_profile"></span><br>关于世佳</a>
+                </li>
+                <#if base.curPage == "contact">
+                    <li class="active">
+                        <#else>
+                            <li>
+                </#if>
+                <a href="contact.html"><span aria-hidden="true" class="icon_mail"></span><br>联系我们</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<@block name="main">
+</@block>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 footer-box wow fadeInUp">
+                <h4>关于我们</h4>
+
+                <div class="footer-box-text">
+                    <p>
+                        上海世佳义齿于2009年成立于上海，是集研发、生产、销售、服务于一体的医疗器械生产商。
+                        拥有丰富的技师和优秀的团队，同时采用了欧美国家先进设备、工艺和原材料如：
+                        3M、DENSPLY、IVOCLAR、BEGO、3shape等来服务市场。
+                        公司成立并注册了美学种植“贝艺数字义齿中心”，
+                        致力于为客户打造完美的全瓷和个性种植解决方案，服务于高端市场。
+                    </p>
+
+                    <p><a href="about.html">了解更多...</a></p>
+                </div>
+            </div>
+            <div class="col-sm-3 footer-box wow fadeInDown">
+                <h4>经营理念</h4>
+
+                <div class="footer-box-text footer-box-text-subscribe">
+                    <p>让快乐微笑绽放你的魅力</p>
+
+                    <!--<form role="form" action="/muassets/subscribe.php" method="post">-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="sr-only" for="subscribe-email">Email address</label>-->
+                            <!--<input type="text" name="email" placeholder="Email..." class="subscribe-email form-control"-->
+                                   <!--id="subscribe-email">-->
+                        <!--</div>-->
+                        <!--<button type="submit" class="btn">Subscribe</button>-->
+                    <!--</form>-->
+                    <!--<p class="success-message"></p>-->
+
+                    <!--<p class="error-message"></p>-->
+                </div>
+            </div>
+            <div class="col-sm-3 footer-box wow fadeInUp">
+                <h4>加入我们</h4>
+
+                <div class="footer-box-text flickr-feed"></div>
+            </div>
+            <div class="col-sm-3 footer-box wow fadeInDown">
+                <h4>联系我们</h4>
+
+                <div class="footer-box-text footer-box-text-contact">
+                    <p><span aria-hidden="true" class="icon_pin"></span>地址：上海市松江区新桥镇新飞路1505号D栋2楼</p>
+
+                    <p><span aria-hidden="true" class="icon_phone"></span>世佳：021-67676138   67676038  18116403116</p>
+
+                    <p><span aria-hidden="true" class="icon_phone"></span>贝艺数字义齿：021-37653330    17721217198</p>
+
+                    <p><span aria-hidden="true" class="icon_profile"></span>传真：021-67671019</p>
+
+                    <p><span aria-hidden="true" class="icon_mail"></span> Email: <a href="#">shijiash@126.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 wow fadeIn">
+                <div class="footer-border"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7 footer-copyright wow fadeIn">
+                <p>&copy; 世佳 - All rights reserved. </p>
+            </div>
+            <!--<div class="col-sm-5 footer-social wow fadeIn">-->
+                <!--<a href="#"><span class="social_facebook"></span></a>-->
+                <!--<a href="#"><span class="social_dribbble"></span></a>-->
+                <!--<a href="#"><span class="social_twitter"></span></a>-->
+                <!--<a href="#"><span class="social_pinterest"></span></a>-->
+            <!--</div>-->
+        </div>
+    </div>
+</footer>
+<@block name="js"></@block>
+<!-- Javascript -->
+<script src="/muassets/js/jquery-1.11.1.min.js"></script>
+<script src="/muassets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/muassets/js/bootstrap-hover-dropdown.min.js"></script>
+<script src="/muassets/js/wow.min.js"></script>
+<script src="/muassets/js/retina-1.1.0.min.js"></script>
+<script src="/muassets/js/jquery.magnific-popup.min.js"></script>
+<script src="/muassets/flexslider/jquery.flexslider-min.js"></script>
+<script src="/muassets/js/jflickrfeed.min.js"></script>
+<script src="/muassets/js/masonry.pkgd.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="/muassets/js/jquery.ui.map.min.js"></script>
+<script src="/muassets/js/scripts.js"></script>
+
+</body>
+</html>

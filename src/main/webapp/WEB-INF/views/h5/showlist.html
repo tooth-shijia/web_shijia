@@ -1,0 +1,215 @@
+<@override name="css">
+
+</@override> <@override name="main">
+<!-- Page Title -->
+<div class="page-title-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 page-title wow fadeIn">
+                <span aria-hidden="true" class="icon_camera"></span>
+
+                <h1>${mv.title} /</h1>
+
+                <p>${mv.desc}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio -->
+<div class="portfolio-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 portfolio-filters wow fadeInLeft">
+                <#list mv.typeItemVMList as item>
+                    <a href="#" class="" value="${item.typeId}">${item.name}</a>/
+                </#list>
+                <!--<a href="#" class="filter-all active">活动系列</a> /-->
+                <!--<a href="#" class="filter-web-design">金属系列</a> /-->
+                <!--<a href="#" class="filter-logo-design">Logo Design</a> /-->
+                <!--<a href="#" class="filter-print-design">Print Design</a>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 portfolio-masonry">
+                <div class="portfolio-box web-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work1.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work1.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Lorem Website</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box logo-design">
+                    <div class="portfolio-box-container portfolio-video"
+                         data-portfolio-big="http://vimeo.com/84910153?autoplay=0">
+                        <img src="/muassets/img/portfolio/work2.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work2.jpg">
+                        <span class="portfolio-box-icon arrow_triangle-right"></span>
+
+                        <div class="portfolio-box-text">
+                            <h3>Ipsum Logo</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box print-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work3.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work3.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Dolor Prints</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box web-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work4.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work4.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Sit Amet Website</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box logo-design">
+                    <div class="portfolio-box-container portfolio-video"
+                         data-portfolio-big="https://www.youtube.com/watch?v=tFTLxkMmY4M">
+                        <img src="/muassets/img/portfolio/work5.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work5.jpg">
+                        <span class="portfolio-box-icon arrow_triangle-right"></span>
+
+                        <div class="portfolio-box-text">
+                            <h3>Consectetur Logo</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box print-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work6.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work6.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Adipisicing Print</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box web-design">
+                    <div class="portfolio-box-container portfolio-video"
+                         data-portfolio-big="http://vimeo.com/84910153?autoplay=0">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item"
+                                    src="//player.vimeo.com/video/84910153?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=fe503e"
+                                    webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="portfolio-box-text">
+                            <h3>Elit Website</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box print-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work8.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work8.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Sed Do Prints</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box web-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work9.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work9.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Eiusmod Website</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box logo-design">
+                    <div class="portfolio-box-container portfolio-video"
+                         data-portfolio-big="https://www.youtube.com/watch?v=cfOa1a8hYP8">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item"
+                                    src="//www.youtube.com/embed/cfOa1a8hYP8?rel=0&amp;controls=0&amp;showinfo=0"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="portfolio-box-text">
+                            <h3>Tempor Logo</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box web-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work11.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work11.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Incididunt Website</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-box print-design">
+                    <div class="portfolio-box-container">
+                        <img src="/muassets/img/portfolio/work12.jpg" alt=""
+                             data-at2x="/muassets/img/portfolio/work12.jpg">
+
+                        <div class="portfolio-box-text">
+                            <h3>Ut Labore Print</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call To Action -->
+<!--<div class="call-to-action-container">-->
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-sm-12 call-to-action-text wow fadeInLeftBig">-->
+<!--<p>-->
+<!--Do you want to work on a <span class="colored-text">new project</span> with us?-->
+<!--Click on the red button to contact us and get a quote.-->
+<!--</p>-->
+<!--<div class="call-to-action-button">-->
+<!--<a class="big-link-3" href="contact.html">Contact Us Now!</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+</@override>
+<@override name="js">
+<script type="text/javascript" src="/mujs/showlist.js"></script>
+</@override> <@extends name="./common/master_h5_common.html"/>

@@ -9,11 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/web/shijia")
-public class MainPageController  extends  BaseController{
+public class IndexController extends  BaseController{
 
     @RequestMapping("/index")
     public  ModelAndView moveToMainPage(){
-         ModelAndView model = new ModelAndView("user/index");
+         ModelAndView model = new ModelAndView("h5/index");
          model.addObject("m_title","上海世佳义齿");
          return model;
      }

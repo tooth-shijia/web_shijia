@@ -1,8 +1,10 @@
 package com.shijia.web.controller.user;
 
 import com.shijia.web.common.consts.enums.ESiteType;
+import com.shijia.web.common.consts.enums.PageTypeEnum;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.common.utils.CollectionUtils;
+import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
 import com.shijia.web.controller.user.viewmodel.BaseDTO;
 import com.shijia.web.controller.user.viewmodel.ShowListPageDTO;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -37,10 +40,12 @@ public class ProductController {
         if (site == ESiteType.SITE_SHIJIA.value()) {
             dto.setTitle("世佳产品");
             dto.setDesc("世佳系列产品");
+            dto.setPageType(PageTypeEnum.PRODUCT_SHIJIA.value());
             baseDTO.setCurPage(BaseDTO.SHIJIA);
         } else {
             dto.setTitle("贝艺数字产品");
             dto.setDesc("贝艺高端系列产品");
+            dto.setPageType(PageTypeEnum.PRODUCT_BEIYI.value());
             baseDTO.setCurPage(BaseDTO.BEIYI);
         }
         List<ProductTypeModel> typeModels = productService.getProductTypeAll(site, 0);
@@ -53,9 +58,11 @@ public class ProductController {
         return model;
     }
 
-    @RequestMapping("/product/list")
-    public AjaxResult getProduct(int opt) {
-        return null;
+    @ResponseBody
+    @RequestMapping("/product/{site}/list-detail")
+    public AjaxResult getProduct(@PathVariable int site) {
+        List<ProductShowModel> modelList = productService.getAllProductInSite(site);
+        return new AjaxResult(true, "", modelList);
     }
 
 
@@ -66,6 +73,7 @@ public class ProductController {
                 ShowListPageDTO.TypeItemVM vm = new ShowListPageDTO.TypeItemVM();
                 vm.setId(model.getTypeId());
                 vm.setName(model.getTypeName());
+                vm.setClassName(model.getClassName());
                 vmList.add(vm);
             }
         }

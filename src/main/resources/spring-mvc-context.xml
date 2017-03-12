@@ -36,9 +36,7 @@
     <resources mapping="/uimg/**" location="/WEB-INF/views/user/img/"/>
     <resources mapping="/fonts/**" location="/WEB-INF/views/user/fonts/"/>
 
-    <resources mapping="/mujs/**" location="/WEB-INF/views/h5/js"/>
-    <resources mapping="/mucss/**" location="/WEB-INF/views/h5/css"/>
-    <resources mapping="/muimg/**" location="/WEB-INF/views/h5/img/"/>
+    <resources mapping="/mujs/**" location="/WEB-INF/views/h5/js/"/>
     <resources mapping="/muassets/**" location="/WEB-INF/views/h5/assets/"/>
 
     <!-- freemarker的配置 -->

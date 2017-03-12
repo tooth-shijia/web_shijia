@@ -1,14 +1,12 @@
 package com.shijia.web.controller.user;
 
-import com.shijia.web.common.consts.enums.ESiteType;
-import com.shijia.web.common.utils.CollectionUtils;
-import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
+import com.shijia.web.common.consts.enums.PageTypeEnum;
+import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.controller.user.viewmodel.BaseDTO;
 import com.shijia.web.controller.user.viewmodel.ShowListPageDTO;
 import com.shijia.web.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,6 +40,7 @@ public class NewsController {
 
         dto.setTypeItemVMList(getNewsType());
         dto.setTypeSize(dto.getTypeItemVMList().size());
+        dto.setPageType(PageTypeEnum.NEWS.value());
 
         model.addObject("mv", dto);
         model.addObject("base", baseDTO);
@@ -51,8 +50,10 @@ public class NewsController {
 
     private List<ShowListPageDTO.TypeItemVM> getNewsType() {
         List<ShowListPageDTO.TypeItemVM> list = new ArrayList<>();
-        list.add(new ShowListPageDTO.TypeItemVM(1, "公司新闻"));
-        list.add(new ShowListPageDTO.TypeItemVM(2, "行业动态"));
+        String companyNews = "filter-" + CssClassMapConsts.newsCssClassMap.get(1);
+        String industryNews = "filter-" + CssClassMapConsts.newsCssClassMap.get(2);
+        list.add(new ShowListPageDTO.TypeItemVM(1, "公司新闻", companyNews));
+        list.add(new ShowListPageDTO.TypeItemVM(2, "行业动态", industryNews));
         return list;
     }
 }

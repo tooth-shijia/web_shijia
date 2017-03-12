@@ -97,11 +97,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.26</version>
         </dependency>
-        <dependency>
-            <groupId>sqljdbc</groupId>
-            <artifactId>sqljdbc</artifactId>
-            <version>4.1</version>
-        </dependency>
         <!-- mybatis 配置结束 -->
 
         <!-- spring 配置开始 -->
@@ -154,6 +149,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
         <dependency>
@@ -222,6 +222,13 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.3.6</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
         </dependency>
     </dependencies>
 

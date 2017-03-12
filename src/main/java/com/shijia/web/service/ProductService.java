@@ -1,5 +1,7 @@
 package com.shijia.web.service;
 
+import com.shijia.web.common.consts.enums.ESiteType;
+import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.common.framework.annotation.IgnoreException;
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.common.utils.StringUtils;
@@ -14,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,8 +63,14 @@ public class ProductService {
                 }
                 for (Map.Entry entry : map.entrySet()) {
                     ProductTypeModel item = new ProductTypeModel();
-                    item.setTypeId((Integer) entry.getKey());
+                    Integer key = (Integer) entry.getKey();
+                    item.setTypeId(key);
                     item.setTypeName((String) entry.getValue());
+                    if (siteId == ESiteType.SITE_SHIJIA.value()) {
+                        item.setClassName("filter-" + CssClassMapConsts.shijiaCssClassMap.get(key));
+                    } else {
+                        item.setClassName("filter-" + CssClassMapConsts.beiyiCssClassMap.get(key));
+                    }
                     modelList.add(item);
                 }
             } else {
@@ -74,8 +83,14 @@ public class ProductService {
                 }
                 for (Map.Entry entry : map.entrySet()) {
                     ProductTypeModel item = new ProductTypeModel();
-                    item.setTypeId((Integer) entry.getKey());
+                    Integer key = (Integer) entry.getKey();
+                    item.setTypeId(key);
                     item.setTypeName((String) entry.getValue());
+                    if (siteId == ESiteType.SITE_SHIJIA.value()) {
+                        item.setClassName("filter-" + CssClassMapConsts.shijiaCssClassMap.get(key));
+                    } else {
+                        item.setClassName("filter-" + CssClassMapConsts.beiyiCssClassMap.get(key));
+                    }
                     modelList.add(item);
                 }
             }
@@ -87,7 +102,7 @@ public class ProductService {
     }
 
     /**
-     * 按类型分页获取产品
+     * 按类型分页获取产品(包括delete)
      *
      * @param pageIndex
      * @param pageSize
@@ -129,6 +144,34 @@ public class ProductService {
             logger.error("getProductByPageAndType 异常", e);
         }
         return modelList;
+    }
+
+    /**
+     * 按站点获取产品列表
+     *
+     * @param site
+     * @return
+     */
+    public List<ProductShowModel> getAllProductInSite(int site) {
+        List<ProductShowModel> productShowModelList = new ArrayList<>();
+        List<ProductShow> productShowList = productShowDAO.getAllProductSimpleBySite(site);
+        if (!CollectionUtils.isEmpty(productShowList)) {
+            for (ProductShow ps : productShowList) {
+                ProductShowModel model = new ProductShowModel();
+                model.setId(ps.getId());
+                model.setProductName(ps.getProductName());
+                model.setProductId(ps.getProductId());
+                model.setProductTypeId(ps.getProductTypeId());
+                model.setComefrom(ps.getComefrom());
+                if (site == ESiteType.SITE_SHIJIA.value()) {
+                    model.setClassName(CssClassMapConsts.shijiaCssClassMap.get(ps.getProductTypeId()));
+                } else {
+                    model.setClassName(CssClassMapConsts.beiyiCssClassMap.get(ps.getProductTypeId()));
+                }
+                productShowModelList.add(model);
+            }
+        }
+        return productShowModelList;
     }
 
     /**

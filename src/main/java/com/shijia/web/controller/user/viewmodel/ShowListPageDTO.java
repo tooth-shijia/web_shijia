@@ -13,6 +13,11 @@ public class ShowListPageDTO {
     private List<TypeItemVM> typeItemVMList;
     private int typeSize;
 
+    /**
+     * 1-世佳产品,2-贝艺产品,3-新闻
+     */
+    private int pageType;
+
 
     public String getTitle() {
         return title;
@@ -46,9 +51,18 @@ public class ShowListPageDTO {
         this.typeSize = typeSize;
     }
 
+    public int getPageType() {
+        return pageType;
+    }
+
+    public void setPageType(int pageType) {
+        this.pageType = pageType;
+    }
+
     public static class TypeItemVM {
         private int id;
         private String name;
+        private String className;
 
         public TypeItemVM() {
         }
@@ -56,6 +70,12 @@ public class ShowListPageDTO {
         public TypeItemVM(int id, String name) {
             this.id = id;
             this.name = name;
+        }
+
+        public TypeItemVM(int id, String name, String className) {
+            this.id = id;
+            this.name = name;
+            this.className = className;
         }
 
         public int getId() {
@@ -72,6 +92,14 @@ public class ShowListPageDTO {
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        public String getClassName() {
+            return className;
+        }
+
+        public void setClassName(String className) {
+            this.className = className;
         }
     }
 }

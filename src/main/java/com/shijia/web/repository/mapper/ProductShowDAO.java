@@ -1,6 +1,7 @@
 package com.shijia.web.repository.mapper;
 
 import com.shijia.web.repository.mapper.domain.ProductShow;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -27,6 +28,14 @@ public interface ProductShowDAO {
      * @return
      */
     public List<ProductShow> getProductByPageAndTypeContainDelete(int startIndex, int pageSize, int productType);
+
+    /**
+     * 按站点获取产品简单列表
+     *
+     * @param site
+     * @return
+     */
+    public List<ProductShow> getAllProductSimpleBySite(@Param("site") int site);
 
     /**
      * 更新内容

@@ -11,6 +11,7 @@ public class ProductTypeModel {
 
     private int typeId;
     private String typeName;
+    private String className;
 
     public int getId() {
         return id;
@@ -34,5 +35,13 @@ public class ProductTypeModel {
 
     public void setTypeName(String typeName) {
         this.typeName = typeName;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }

@@ -70,6 +70,20 @@
         order by id desc
         limit #{0},#{1}
     </select>
+
+    <select id="getAllProductSimpleBySite" parameterType="int" resultMap="ProductShowMap">
+        SELECT
+        id,product_name,product_id,product_type_id,comefrom
+        FROM
+        <include refid="Sql_Base_Table_Name"/>
+        where
+        product_classify=#{site}
+        and
+        is_delete=0
+        order by
+        createtime desc
+    </select>
+
     <select id="getTotalCountByTypeId" parameterType="int" resultType="int">
         select count(*)
         from

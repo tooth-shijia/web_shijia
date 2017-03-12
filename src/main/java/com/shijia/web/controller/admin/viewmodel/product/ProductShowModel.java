@@ -21,6 +21,7 @@ public class ProductShowModel {
     private String createTime = "";
     private String lastModifyTime = "";
     private int isDelete;
+    private String className;
 
     public int getId() {
         return id;
@@ -132,6 +133,14 @@ public class ProductShowModel {
 
     public void setIsDelete(int isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 }
 

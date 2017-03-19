@@ -1,14 +1,20 @@
 package com.shijia.web.service;
 
+import com.shijia.web.common.consts.enums.ESiteType;
+import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
+import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
+import com.shijia.web.controller.user.viewmodel.ShowListItemDTO;
 import com.shijia.web.repository.mapper.INewDAO;
 import com.shijia.web.repository.mapper.domain.NewsShow;
 import com.shijia.web.controller.admin.domain.news.AddOrUpNewsReq;
+import com.shijia.web.repository.mapper.domain.ProductShow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +24,7 @@ import java.util.List;
  * @since 16/11/7
  */
 @Service
-public class NewsService  {
+public class NewsService {
 
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
     @Autowired
@@ -75,13 +81,30 @@ public class NewsService  {
         return ns;
     }
 
+    public List<ShowListItemDTO> getAllNews() {
+        List<ShowListItemDTO> showListItemDTOList = new ArrayList<>();
+        List<NewsShow> newsShowList = newDAO.getAllNewsSimple();
+        if (!CollectionUtils.isEmpty(newsShowList)) {
+            for (NewsShow ns : newsShowList) {
+                ShowListItemDTO model = new ShowListItemDTO();
+                model.setId(ns.getId());
+                model.setName(ns.getNewsName());
+                model.setTypeId(ns.getNewsType());
+                model.setComefrom(ns.getComefrom());
+                model.setClassName(CssClassMapConsts.newsCssClassMap.get(ns.getNewsType()));
+                showListItemDTOList.add(model);
+            }
+        }
+        return showListItemDTOList;
+    }
+
     public List<NewsShowModel> getNewsByPageAndType(int pageIndex, int pageSize, int type) {
         int startIndex = (pageIndex - 1) * pageSize;
         List<NewsShowModel> newsShowModelList = null;
         try {
             List<NewsShow> newsShowList = newDAO.getNewsByPageAndTypeContainDelete(startIndex, pageSize, type);
             newsShowModelList = new ArrayList<NewsShowModel>();
-            for(NewsShow ns : newsShowList){
+            for (NewsShow ns : newsShowList) {
                 NewsShowModel newsShowModel = new NewsShowModel();
                 newsShowModel.setId(ns.getId());
                 newsShowModel.setNewsType(ns.getNewsType());

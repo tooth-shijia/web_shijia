@@ -7,6 +7,7 @@ import com.shijia.web.common.utils.CollectionUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
 import com.shijia.web.controller.user.viewmodel.BaseDTO;
+import com.shijia.web.controller.user.viewmodel.ShowListItemDTO;
 import com.shijia.web.controller.user.viewmodel.ShowListPageDTO;
 import com.shijia.web.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,7 @@ public class ProductController {
     @ResponseBody
     @RequestMapping("/product/{site}/list-detail")
     public AjaxResult getProduct(@PathVariable int site) {
-        List<ProductShowModel> modelList = productService.getAllProductInSite(site);
+        List<ShowListItemDTO> modelList = productService.getAllProductInSite(site);
         return new AjaxResult(true, "", modelList);
     }
 

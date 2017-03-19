@@ -2,12 +2,17 @@ package com.shijia.web.controller.user;
 
 import com.shijia.web.common.consts.enums.PageTypeEnum;
 import com.shijia.web.common.consts.map.CssClassMapConsts;
+import com.shijia.web.common.domain.AjaxResult;
+import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
+import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.user.viewmodel.BaseDTO;
+import com.shijia.web.controller.user.viewmodel.ShowListItemDTO;
 import com.shijia.web.controller.user.viewmodel.ShowListPageDTO;
 import com.shijia.web.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -46,6 +51,13 @@ public class NewsController {
         model.addObject("base", baseDTO);
         return model;
 
+    }
+
+    @ResponseBody
+    @RequestMapping("/news/list-detail")
+    public AjaxResult getNews() {
+        List<ShowListItemDTO> modelList = newsService.getAllNews();
+        return new AjaxResult(true, "", modelList);
     }
 
     private List<ShowListPageDTO.TypeItemVM> getNewsType() {

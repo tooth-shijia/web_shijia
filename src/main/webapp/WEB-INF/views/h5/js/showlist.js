@@ -19,28 +19,41 @@ function initEvent() {
 function getAllProduct() {
     var pageType = $("#pageType").val();
 
-    if (pageType == 1 || pageType == 2) {
-        var url = "/web/shijia/product/1/list-detail";
-        if (pageType == 2) {
-            url = "/web/shijia/product/2/list-detail";
-        }
-        $.get(url, function (res) {
-            if (res.success) {
-                var listHtml = "";
-                for (i = 0; i < res.obj.length; i++) {
-                    var item = res.obj[i];
-                    listHtml += createProductItemHtml(item);
-                }
-                $("#showListContent").html(listHtml);
-            } else {
-                alert(res.msg);
-            }
-        });
-    }
+    /**
+     * 默认 世佳产品内容
+     * @type {string}
+     */
+    var url = "/web/shijia/product/1/list-detail";
 
-    else if (pageType == 3) {
+    if (pageType == 2) {
+        url = "/web/shijia/product/2/list-detail";
+    } else if (pageType == 3) {
         //新闻
+        url = "/web/shijia/news/list-detail";
     }
+    $.get(url, function (res) {
+        if (res.success) {
+            var listHtml = "";
+            listHtml += "<div class='col-sm-12 portfolio-masonry'>";
+            for (i = 0; i < res.obj.length; i++) {
+                var item = res.obj[i];
+                listHtml += createProductItemHtml(item);
+            }
+            listHtml += "</div>";
+            $("#showListContent").html(listHtml);
+            i
+            /**
+             * 初始化摆放各个标题
+             */
+            $('.portfolio-masonry').masonry({
+                columnWidth: '.portfolio-box',
+                itemSelector: '.portfolio-box',
+                transitionDuration: '0.5s'
+            });
+        } else {
+            alert(res.msg);
+        }
+    });
 }
 
 function createProductItemHtml(item) {
@@ -52,8 +65,8 @@ function createProductItemHtml(item) {
         "<span class='portfolio-box-icon arrow_triangle-right'>" +
         "</span> " +
         "<div class='portfolio-box-text'> " +
-        "<h3>来源:" + item.comefrom + "</h3> " +
-        "<p>" + item.productName + "</p> " +
+        "<h3>" + item.name + "</h3> " +
+        "<p>来源:" + item.comefrom + "</p> " +
         "</div> " +
         "</div>" +
         " </div>";

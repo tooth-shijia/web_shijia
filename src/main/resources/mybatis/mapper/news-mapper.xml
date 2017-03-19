@@ -75,4 +75,14 @@
         id=#{1}
     </update>
 
+    <select id="getAllNewsSimple" resultMap="NewsShowMap">
+        SELECT
+        id,news_name,news_type,comefrom
+        FROM
+        <include refid="Sql_Base_Table_Name"/>
+        where
+        is_delete=0
+        order by
+        createtime desc
+    </select>
 </mapper>

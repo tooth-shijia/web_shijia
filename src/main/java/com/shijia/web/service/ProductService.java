@@ -7,6 +7,7 @@ import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
+import com.shijia.web.controller.user.viewmodel.ShowListItemDTO;
 import com.shijia.web.repository.mapper.IProductTypeDAO;
 import com.shijia.web.repository.mapper.ProductShowDAO;
 import com.shijia.web.repository.mapper.domain.ProductShow;
@@ -152,26 +153,26 @@ public class ProductService {
      * @param site
      * @return
      */
-    public List<ProductShowModel> getAllProductInSite(int site) {
-        List<ProductShowModel> productShowModelList = new ArrayList<>();
+    public List<ShowListItemDTO> getAllProductInSite(int site) {
+        List<ShowListItemDTO> showListItemDTOList = new ArrayList<>();
         List<ProductShow> productShowList = productShowDAO.getAllProductSimpleBySite(site);
         if (!CollectionUtils.isEmpty(productShowList)) {
             for (ProductShow ps : productShowList) {
-                ProductShowModel model = new ProductShowModel();
+                ShowListItemDTO model = new ShowListItemDTO();
                 model.setId(ps.getId());
-                model.setProductName(ps.getProductName());
-                model.setProductId(ps.getProductId());
-                model.setProductTypeId(ps.getProductTypeId());
+                model.setName(ps.getProductName());
+                model.setBodyId(ps.getProductId());
+                model.setTypeId(ps.getProductTypeId());
                 model.setComefrom(ps.getComefrom());
                 if (site == ESiteType.SITE_SHIJIA.value()) {
                     model.setClassName(CssClassMapConsts.shijiaCssClassMap.get(ps.getProductTypeId()));
                 } else {
                     model.setClassName(CssClassMapConsts.beiyiCssClassMap.get(ps.getProductTypeId()));
                 }
-                productShowModelList.add(model);
+                showListItemDTOList.add(model);
             }
         }
-        return productShowModelList;
+        return showListItemDTOList;
     }
 
     /**

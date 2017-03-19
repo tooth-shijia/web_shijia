@@ -12,7 +12,7 @@ public interface INewDAO {
     /**
      * NewsShow
      */
-    public int addNewsShow(NewsShow newsShow);
+    int addNewsShow(NewsShow newsShow);
 
     /**
      * 按新闻类型 分页获取新闻
@@ -22,7 +22,7 @@ public interface INewDAO {
      * @param type
      * @return
      */
-    public List<NewsShow> getNewsByPageAndTypeContainDelete(int startIndex, int pageSize, int type);
+    List<NewsShow> getNewsByPageAndTypeContainDelete(int startIndex, int pageSize, int type);
 
     /**
      * 更新
@@ -30,7 +30,7 @@ public interface INewDAO {
      * @param newsShow
      * @return
      */
-    public int updateNewsShow(NewsShow newsShow);
+    int updateNewsShow(NewsShow newsShow);
 
     /**
      * 通过id获取newsshow
@@ -38,7 +38,7 @@ public interface INewDAO {
      * @param id
      * @return
      */
-    public NewsShow getNewsById(int id);
+    NewsShow getNewsById(int id);
 
     /**
      * 获取某个类型新闻 总数
@@ -46,7 +46,7 @@ public interface INewDAO {
      * @param newsType
      * @return
      */
-    public int getTotalCountByTypeId(int newsType);
+    int getTotalCountByTypeId(int newsType);
 
     /**
      * 删除字段操作
@@ -54,5 +54,7 @@ public interface INewDAO {
      * @param id
      * @return
      */
-    public int delOpeNewsShowById(int deleteOrNot,int id);
+    int delOpeNewsShowById(int deleteOrNot, int id);
+
+    List<NewsShow> getAllNewsSimple();
 }

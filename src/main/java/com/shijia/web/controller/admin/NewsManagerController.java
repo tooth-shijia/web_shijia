@@ -33,8 +33,6 @@ public class NewsManagerController extends BaseAdminController {
         NewsShow ns = new NewsShow();
         if (id != null && id.intValue() > 0) {
             ns = newsService.getNewsById(id);
-            String content = commonService.getURLDecodeString(ns.getContent(), 2);
-            ns.setContent(content);
             model.addAttribute("id", id);
             model.addAttribute("news", ns);
             model.addAttribute("type", "update");

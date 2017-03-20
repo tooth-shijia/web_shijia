@@ -1,6 +1,8 @@
 package com.shijia.web.service;
 
+import com.shijia.web.common.consts.UrlConsts;
 import com.shijia.web.common.consts.enums.ESiteType;
+import com.shijia.web.common.consts.enums.PageTypeEnum;
 import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.common.framework.annotation.IgnoreException;
 import com.shijia.web.common.utils.DateUtils;
@@ -19,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -166,8 +169,12 @@ public class ProductService {
                 model.setComefrom(ps.getComefrom());
                 if (site == ESiteType.SITE_SHIJIA.value()) {
                     model.setClassName(CssClassMapConsts.shijiaCssClassMap.get(ps.getProductTypeId()));
+                    String url = MessageFormat.format(UrlConsts.PAGE_DETAIL_URL, PageTypeEnum.PRODUCT_SHIJIA.value(), ps.getId());
+                    model.setUrl(url);
                 } else {
                     model.setClassName(CssClassMapConsts.beiyiCssClassMap.get(ps.getProductTypeId()));
+                    String url = MessageFormat.format(UrlConsts.PAGE_DETAIL_URL, PageTypeEnum.PRODUCT_BEIYI.value(), ps.getId());
+                    model.setUrl(url);
                 }
                 showListItemDTOList.add(model);
             }
@@ -284,6 +291,10 @@ public class ProductService {
         ProductShow productShow = new ProductShow();
         try {
             productShow = productShowDAO.getProductById(id);
+            if (productShow != null) {
+                String content = commonService.getURLDecodeString(productShow.getContent(), 2);
+                productShow.setContent(content);
+            }
         } catch (Exception e) {
             logger.error("getProductById 异常", e);
         }

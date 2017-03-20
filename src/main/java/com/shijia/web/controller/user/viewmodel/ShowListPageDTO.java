@@ -63,6 +63,7 @@ public class ShowListPageDTO {
         private int id;
         private String name;
         private String className;
+        private String url;
 
         public TypeItemVM() {
         }
@@ -100,6 +101,14 @@ public class ShowListPageDTO {
 
         public void setClassName(String className) {
             this.className = className;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
         }
     }
 }

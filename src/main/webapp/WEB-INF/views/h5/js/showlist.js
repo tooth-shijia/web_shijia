@@ -60,10 +60,8 @@ function createProductItemHtml(item) {
 
     var html = "";
     html += "<div class='portfolio-box " + item.className + "'> " +
-        "<div class='portfolio-box-container portfolio-video' data-portfolio-big='http://vimeo.com/84910153?autoplay=0'> " +
-        "<img src='/muassets/img/portfolio/work2.jpg' alt='' data-at2x='/muassets/img/portfolio/work2.jpg'> " +
-        "<span class='portfolio-box-icon arrow_triangle-right'>" +
-        "</span> " +
+        "<div class='portfolio-box-container'> " +
+        "<a href='" + item.url + "'><img src='/muassets/img/portfolio/work1.jpg' alt='' data-at2x='/muassets/img/portfolio/work1.jpg'></a> " +
         "<div class='portfolio-box-text'> " +
         "<h3>" + item.name + "</h3> " +
         "<p>来源:" + item.comefrom + "</p> " +

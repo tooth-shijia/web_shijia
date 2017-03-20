@@ -1,6 +1,8 @@
 package com.shijia.web.service;
 
+import com.shijia.web.common.consts.UrlConsts;
 import com.shijia.web.common.consts.enums.ESiteType;
+import com.shijia.web.common.consts.enums.PageTypeEnum;
 import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.common.utils.DateUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +32,8 @@ public class NewsService {
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
     @Autowired
     private INewDAO newDAO;
+    @Autowired
+    private CommonService commonService;
 
     public int addNews(AddOrUpNewsReq req) {
         NewsShow ns = new NewsShow();
@@ -75,6 +80,10 @@ public class NewsService {
         NewsShow ns = null;
         try {
             ns = newDAO.getNewsById(id);
+            if (ns != null) {
+                String content = commonService.getURLDecodeString(ns.getContent(), 2);
+                ns.setContent(content);
+            }
         } catch (Exception e) {
             logger.error("getNewsById 异常", e);
         }
@@ -92,6 +101,8 @@ public class NewsService {
                 model.setTypeId(ns.getNewsType());
                 model.setComefrom(ns.getComefrom());
                 model.setClassName(CssClassMapConsts.newsCssClassMap.get(ns.getNewsType()));
+                String url = MessageFormat.format(UrlConsts.PAGE_DETAIL_URL, PageTypeEnum.NEWS.value(), ns.getId());
+                model.setUrl(url);
                 showListItemDTOList.add(model);
             }
         }
@@ -148,7 +159,7 @@ public class NewsService {
         try {
             return newDAO.delOpeNewsShowById(0, id);
         } catch (Exception e) {
-            logger.error("delProductShowById 异常", e);
+            logger.error("recoverNewsShowById 异常", e);
         }
         return -1;
     }

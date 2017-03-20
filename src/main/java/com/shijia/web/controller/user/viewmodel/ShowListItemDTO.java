@@ -14,6 +14,7 @@ public class ShowListItemDTO {
      * productId或newsId
      */
     private String bodyId;
+    private String url;
 
     public int getId() {
         return id;
@@ -61,5 +62,13 @@ public class ShowListItemDTO {
 
     public void setBodyId(String bodyId) {
         this.bodyId = bodyId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

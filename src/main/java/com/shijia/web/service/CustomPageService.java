@@ -25,6 +25,8 @@ public class CustomPageService {
 
     @Autowired
     private CustomPageDAO customPageDAO;
+    @Autowired
+    private CommonService commonService;
 
     public int addNewCustomPage(AddOrUpCustomPageReq req) {
         CustomPageDO pageDO = new CustomPageDO();
@@ -47,7 +49,21 @@ public class CustomPageService {
     }
 
     public CustomPageDO getCustomPageById(int id) {
-        return customPageDAO.selectCustomPageById(id);
+        CustomPageDO pageDO = customPageDAO.selectCustomPageById(id);
+        if (pageDO != null) {
+            String content = commonService.getURLDecodeString(pageDO.getContent(), 2);
+            pageDO.setContent(content);
+        }
+        return pageDO;
+    }
+
+    public CustomPageDO getCustomPageByName(String name) {
+        CustomPageDO pageDO = customPageDAO.selectUsingPageByPageNo(name);
+        if (pageDO != null) {
+            String content = commonService.getURLDecodeString(pageDO.getContent(), 2);
+            pageDO.setContent(content);
+        }
+        return pageDO;
     }
 
     public List<CustomPageShowItem> getAllVersionPageByPageNo(String pageNo) {

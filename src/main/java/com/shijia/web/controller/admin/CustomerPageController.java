@@ -37,8 +37,6 @@ public class CustomerPageController {
             pageDO = customPageService.getCustomPageById(id);
         }
         if (pageDO != null) {
-            String content = commonService.getURLDecodeString(pageDO.getContent(), 2);
-            pageDO.setContent(content);
             model.addAttribute("id", id);
             model.addAttribute("page", pageDO);
             model.addAttribute("type", "update");

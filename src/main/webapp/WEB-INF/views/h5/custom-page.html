@@ -1,0 +1,36 @@
+<@override name="css">
+
+</@override> <@override name="main">
+
+<!-- Page Title -->
+<div class="page-title-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 page-title wow fadeIn">
+                <span aria-hidden="true" class="icon_tools"></span>
+                <h1>${mv.pageName} </h1>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services Full Width Text -->
+<div class="services-full-width-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 services-full-width-text wow fadeInLeft">
+                <h3>${mv.title}</h3>
+                <p>
+                    ${mv.content}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</@override>
+<@override name="js">
+<script type="text/javascript" src="/mujs/custom-page.js"></script>
+</@override> <@extends name="./common/master_h5_common.html"/>

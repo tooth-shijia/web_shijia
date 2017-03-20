@@ -35,8 +35,6 @@ public class ProductAboutController extends BaseAdminController {
         ProductShow productShow = new ProductShow();
         if (id != null && id.intValue() > 0) {
             productShow = productService.getProductById(id);
-            String content = commonService.getURLDecodeString(productShow.getContent(),2);
-            productShow.setContent(content);
             model.addAttribute("id", id);
             model.addAttribute("product", productShow);
             model.addAttribute("type", "update");

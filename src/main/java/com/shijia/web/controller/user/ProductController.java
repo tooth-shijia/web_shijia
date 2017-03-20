@@ -59,6 +59,8 @@ public class ProductController {
         return model;
     }
 
+
+
     @ResponseBody
     @RequestMapping("/product/{site}/list-detail")
     public AjaxResult getProduct(@PathVariable int site) {

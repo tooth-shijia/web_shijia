@@ -21,6 +21,7 @@ public class ProductShow {
      * `createtime` datetime DEFAULT NULL COMMENT '创建时间',
      * `lastmodifytime` datetime DEFAULT NULL COMMENT '最后修改时间',
      * `is_delete` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否删除',
+     * `cover_image` varchar(100) default '' comment '产品封面'
      */
     private int id;
     private String productName;
@@ -35,6 +36,8 @@ public class ProductShow {
     private Date createTime;
     private Date lastModifyTime;
     private int isDelete;
+
+    private String coverImage;
 
     public int getId() {
         return id;
@@ -138,5 +141,13 @@ public class ProductShow {
 
     public void setIsDelete(int isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public String getCoverImage() {
+        return coverImage;
+    }
+
+    public void setCoverImage(String coverImage) {
+        this.coverImage = coverImage;
     }
 }

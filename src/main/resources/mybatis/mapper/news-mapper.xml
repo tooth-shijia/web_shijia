@@ -13,6 +13,7 @@
         <result property="createTime" column="createtime"/>
         <result property="lastModifyTime" column="lastmodifytime"/>
         <result property="isDelete" column="is_delete"/>
+        <result property="coverImage" column="cover_image"/>
     </resultMap>
 
     <sql id="Sql_Base_Table_Name">
@@ -23,16 +24,16 @@
     <insert id="addNewsShow" parameterType="com.shijia.web.repository.mapper.domain.NewsShow">
         INSERT INTO
         <include refid="Sql_Base_Table_Name"/>
-        (news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime)
+        (news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,cover_image)
         VALUES
         (#{newsName},#{newsType},#{comefrom},#{author},#{content},#{showCount},#{createTime},
-        #{lastModifyTime})
+        #{lastModifyTime},#{coverImage})
     </insert>
     <!-- select -->
     <select id="getNewsByPageAndTypeContainDelete" parameterType="int"
             resultMap="NewsShowMap">
         select
-        id,news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete
+        id,news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete,cover_image
         from
         <include refid="Sql_Base_Table_Name"/>
         where
@@ -59,6 +60,7 @@
         SET
         news_name=#{newsName},
         news_type=#{newsType},
+        cover_image=#{coverImage},
         comefrom=#{comefrom},
         author=#{author},
         content=#{content},
@@ -77,7 +79,7 @@
 
     <select id="getAllNewsSimple" resultMap="NewsShowMap">
         SELECT
-        id,news_name,news_type,comefrom
+        id,news_name,news_type,comefrom,cover_image
         FROM
         <include refid="Sql_Base_Table_Name"/>
         where

@@ -11,6 +11,7 @@
             <list>
                 <value>classpath:config/jdbc.properties</value>
                 <value>classpath:config/server.properties</value>
+                <value>classpath:config/web.properties</value>
             </list>
         </constructor-arg>
     </bean>

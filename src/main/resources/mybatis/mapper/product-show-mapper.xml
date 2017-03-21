@@ -16,6 +16,7 @@
         <result property="createTime" column="createtime"/>
         <result property="lastModifyTime" column="lastmodifytime"/>
         <result property="isDelete" column="is_delete"/>
+        <result property="coverImage" column="cover_image"/>
     </resultMap>
 
     <sql id="Sql_Base_Table_Name">
@@ -27,10 +28,10 @@
         INSERT INTO
         <include refid="Sql_Base_Table_Name"/>
         (product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,
-        createtime,lastmodifytime,is_delete)
+        createtime,lastmodifytime,is_delete,cover_image)
         VALUES
         (#{productName},#{productId},#{productClassify},#{productTypeId},#{productTypeName},#{comefrom},#{author},
-        #{content},#{showCount},#{createTime},#{lastModifyTime},#{isDelete})
+        #{content},#{showCount},#{createTime},#{lastModifyTime},#{isDelete},#{coverImage})
     </insert>
 
     <!-- update -->
@@ -46,7 +47,8 @@
         comefrom=#{comefrom},
         author=#{author},
         content=#{content},
-        lastmodifytime=#{lastModifyTime}
+        lastmodifytime=#{lastModifyTime},
+        cover_image=#{coverImage}
         WHERE
         id=#{id}
     </update>
@@ -62,7 +64,7 @@
     <select id="getProductByPageAndTypeContainDelete" parameterType="int" resultMap="ProductShowMap">
         select
         id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,createtime,
-        lastmodifytime,is_delete
+        lastmodifytime,is_delete,cover_image
         from
         <include refid="Sql_Base_Table_Name"/>
         where
@@ -73,7 +75,7 @@
 
     <select id="getAllProductSimpleBySite" parameterType="int" resultMap="ProductShowMap">
         SELECT
-        id,product_name,product_id,product_type_id,comefrom
+        id,product_name,product_id,product_type_id,comefrom,cover_image
         FROM
         <include refid="Sql_Base_Table_Name"/>
         where
@@ -94,7 +96,7 @@
     <select id="getProductById" parameterType="int" resultMap="ProductShowMap">
         select
         id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,createtime,
-        lastmodifytime,is_delete
+        lastmodifytime,is_delete,cover_image
         from
         <include refid="Sql_Base_Table_Name"/>
         where id=#{0}

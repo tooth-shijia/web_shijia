@@ -22,6 +22,7 @@ public class ProductShowModel {
     private String lastModifyTime = "";
     private int isDelete;
     private String className;
+    private String imageUrl = "";
 
     public int getId() {
         return id;
@@ -141,6 +142,14 @@ public class ProductShowModel {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
 

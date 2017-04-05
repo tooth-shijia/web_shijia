@@ -16,6 +16,7 @@ public class AddOrUpProductShowReq {
     private String content;
     private int id;
     private int siteId;
+    private String imageName;
 
     /**
      * 1：add ； 2：update
@@ -101,5 +102,13 @@ public class AddOrUpProductShowReq {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

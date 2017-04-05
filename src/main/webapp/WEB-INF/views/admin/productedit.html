@@ -68,6 +68,29 @@
                 <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>作者:</span> <input
                         type="text" aria-controls="example" id="author" value="${product.author}"></label>
             </div>
+            <div class="col-sm-12">
+                <!--
+                <form action="http://localhost:8080/web/image/product/uploadImage" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" value="上传文件" />
+    </form>-->
+                <label class="col-sm-6"><span class="col-sm-3"><span style="color:red;">*</span>封面:</span>
+
+                    <!--<form method="post" enctype="multipart/form-data">-->
+                    <input type="file" name="file" id="imageFile"/>
+                    <#if product.coverImage != ''>
+                        <img src="${product.coverImage}" id="coverImage" width="540" height="347"
+                             style="text-align: center;"/>
+                        <#else>
+                            <img src="#" id="coverImage" width="540" height="347" hidden="hidden"
+                                 style="text-align: center;"/>
+                    </#if>
+                    <button id="btn">上传图片</button>
+                    <!--<input type="submit" value="上传图片" onclick="uploadCoverImage()">-->
+                    <input id="imageUrl" hidden="hidden"/>
+                    <input id="imageName" hidden="hidden"/>
+                    <!--</form>-->
+            </div>
         </div>
         <div class="row">
             <div class="col-xs-12">

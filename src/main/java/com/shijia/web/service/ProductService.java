@@ -137,6 +137,7 @@ public class ProductService {
                     item.setShowCount(ps.getShowCount());
 //                    item.setContent(commonService.getURLDecodeString(ps.getContent()));
                     item.setIsDelete(ps.getIsDelete());
+                    item.setImageUrl(ps.getCoverImage());
                     if (ps.getCreateTime() != null)
                         item.setCreateTime(DateUtils.getDate(ps.getCreateTime()));
                     if (ps.getLastModifyTime() != null)
@@ -199,6 +200,7 @@ public class ProductService {
         ps.setAuthor(addProductShowReq.getAuthor());
         ps.setComefrom(addProductShowReq.getComefrom());
         ps.setProductClassify(addProductShowReq.getSiteId());
+        ps.setCoverImage(addProductShowReq.getImageName());
         int result = -1;
         try {
             result = productShowDAO.addProductShow(ps);
@@ -226,6 +228,7 @@ public class ProductService {
         ps.setComefrom(updateProductShowReq.getComefrom());
         ps.setId(updateProductShowReq.getId());
         ps.setProductClassify(updateProductShowReq.getSiteId());
+        ps.setCoverImage(updateProductShowReq.getImageName());
         int result = -1;
         try {
             result = productShowDAO.updateProductShowById(ps);

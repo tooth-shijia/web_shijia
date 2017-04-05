@@ -1,8 +1,9 @@
 package com.shijia.web.controller.admin;
 
-import com.alibaba.fastjson.JSON;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.common.utils.FileUtils;
+import com.shijia.web.common.utils.IconCompressUtils;
+import com.shijia.web.common.utils.ImgCompress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author YanxiSir
@@ -25,16 +28,19 @@ public class FileHandleController {
 
     private static final Logger logger = LoggerFactory.getLogger(FileHandleController.class);
 
-    @Value("${UploadImageCover_Product}")
-    private String productCoverPath;
+    //    @Value("${UploadImageCover_Product}")
+    private String productCoverPath = "/Users/yanxi/shijia_web/image/cover/product/";
 
-    @Value("${UploadImageCover_News}")
-    private String newsCoverPath;
+    //    @Value("${UploadImageCover_News}")
+    private String newsCoverPath = "/Users/yanxi/shijia_web/image/cover/news/";
 
     private static final String PRODUCT_NAME_PREFFIX = "product_";
     private static final String NEWS_NAME_PREFFIX = "news_";
 
     private static final String IMAGE_SUFFIX = ".jpg";
+
+    private static final int WIDTH = 540;
+    private static final int HEGH = 347;
 
     @ResponseBody
     @RequestMapping(value = "/{type}/uploadImage", method = RequestMethod.POST)
@@ -54,12 +60,18 @@ public class FileHandleController {
         try {
             File imageFile = FileUtils.getFile(path, name);
             // 保存到本地临时目录
-            file.transferTo(imageFile);
+//            IconCompressUtils.compressAndCutCoverImg(file.getInputStream(), imageFile);
+            ImgCompress.compress(file.getInputStream(), imageFile);
+//            file.transferTo(imageFile);
         } catch (Exception e) {
             logger.error("上传图片失败", e);
         }
-        String imageUrl = "";
-        return new AjaxResult(true, "", imageUrl);
+
+        String imageUrl = "/" + type + "/show/" + name;
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("imageUrl", imageUrl);
+        return new AjaxResult(true, "", map);
     }
 
     @ResponseBody
@@ -70,6 +82,9 @@ public class FileHandleController {
             path = productCoverPath;
         } else if ("news".equalsIgnoreCase(type)) {
             path = newsCoverPath;
+        }
+        if (name.indexOf(".") <= 0) {
+            name += ".jpg";
         }
         try {
             File imageFile = FileUtils.getFile(path, name);

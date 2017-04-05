@@ -35,6 +35,7 @@ public class ProductAboutController extends BaseAdminController {
         ProductShow productShow = new ProductShow();
         if (id != null && id.intValue() > 0) {
             productShow = productService.getProductById(id);
+            productShow.setCoverImage("/web/image/product/show/" + productShow.getCoverImage());
             model.addAttribute("id", id);
             model.addAttribute("product", productShow);
             model.addAttribute("type", "update");

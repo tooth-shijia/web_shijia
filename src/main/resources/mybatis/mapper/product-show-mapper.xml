@@ -63,7 +63,7 @@
     <!-- select -->
     <select id="getProductByPageAndTypeContainDelete" parameterType="int" resultMap="ProductShowMap">
         select
-        id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,content,show_count,createtime,
+        id,product_name,product_id,product_classify,product_type_id,product_type_name,comefrom,author,show_count,createtime,
         lastmodifytime,is_delete,cover_image
         from
         <include refid="Sql_Base_Table_Name"/>

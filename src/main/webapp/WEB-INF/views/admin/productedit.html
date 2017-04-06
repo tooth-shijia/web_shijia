@@ -78,7 +78,7 @@
 
                     <!--<form method="post" enctype="multipart/form-data">-->
                     <input type="file" name="file" id="imageFile"/>
-                    <#if product.coverImage != ''>
+                    <#if product.imageName != ''>
                         <img src="${product.coverImage}" id="coverImage" width="540" height="347"
                              style="text-align: center;"/>
                         <#else>
@@ -87,8 +87,8 @@
                     </#if>
                     <button id="btn">上传图片</button>
                     <!--<input type="submit" value="上传图片" onclick="uploadCoverImage()">-->
-                    <input id="imageUrl" hidden="hidden"/>
-                    <input id="imageName" hidden="hidden"/>
+                    <input id="imageUrl" hidden="hidden" value="${product.coverImage}"/>
+                    <input id="imageName" hidden="hidden" value="${product.imageName}"/>
                     <!--</form>-->
             </div>
         </div>

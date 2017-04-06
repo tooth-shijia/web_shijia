@@ -57,7 +57,59 @@ $(window).load(function () {
 });
 function initEvent() {
     $("#submit").bind("click", submitNewsInfo);
+    $("#imageFile").bind("change", coverChange);
+    $("#btn").bind("click", uploadCoverImage);
 };
+
+function uploadCoverImage() {
+
+    var data = new FormData();
+    var file = $("#imageFile").val();
+    $.each($('#imageFile')[0].files, function (i, file) {
+        data.append('file', file);
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "/web/image/news/uploadImage",
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+            var imageUrl = res.obj.imageUrl;
+            var imageName = res.obj.name;
+            $("#imageUrl").val(imageUrl);
+            $("#imageName").val(imageName);
+            $("#coverImage").css("display", "block");
+            alert("上传成功");
+        },
+        error: function (data, status, e) {
+            alert(e);
+        }
+    });
+
+}
+function coverChange(event) {
+    var files = event.target.files, file;
+    if (files && files.length > 0) {
+        // 获取目前上传的文件
+        file = files[0];// 文件大小校验的动作
+        if (file.size > 1024 * 1024 * 10) {
+            alert('图片大小不能超过 10MB!');
+            return false;
+        }
+        // 获取 window 的 URL 工具
+        var URL = window.URL || window.webkitURL;
+        // 通过 file 生成目标 url
+        var imgURL = URL.createObjectURL(file);
+        //用attr将img的src属性改成获得的url
+        $("#coverImage").attr("src", imgURL).css("display", "block");
+        // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+        // URL.revokeObjectURL(imgURL);
+    }
+}
+
 //提交新产品
 function submitNewsInfo() {
     var newsName = $("#newsName").val();
@@ -65,6 +117,8 @@ function submitNewsInfo() {
 
     var comefrom = $("#comefrom").val();
     var newsType = $("#newsType").val();
+
+    var imageName = $("#imageName").val();
 
     var content = $("#editor1").html();
     if (newsName == "") {
@@ -77,6 +131,10 @@ function submitNewsInfo() {
     }
     if (content == "") {
         alert("内容为空");
+        return false;
+    }
+    if(imageName == ""){
+        alert("封面不能为空");
         return false;
     }
 
@@ -92,6 +150,7 @@ function submitNewsInfo() {
         req.reqType = 1;
     }
 
+    req.imageName = imageName;
     req.newsName = newsName;
     req.author = author;
     req.newsType = newsType;

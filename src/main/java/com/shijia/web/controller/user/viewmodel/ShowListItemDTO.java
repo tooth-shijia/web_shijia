@@ -16,6 +16,8 @@ public class ShowListItemDTO {
     private String bodyId;
     private String url;
 
+    private String coverImageUrl;
+
     public int getId() {
         return id;
     }
@@ -70,5 +72,13 @@ public class ShowListItemDTO {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCoverImageUrl() {
+        return coverImageUrl;
+    }
+
+    public void setCoverImageUrl(String coverImageUrl) {
+        this.coverImageUrl = coverImageUrl;
     }
 }

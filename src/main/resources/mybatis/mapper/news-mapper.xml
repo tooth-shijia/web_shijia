@@ -33,7 +33,7 @@
     <select id="getNewsByPageAndTypeContainDelete" parameterType="int"
             resultMap="NewsShowMap">
         select
-        id,news_name,news_type,comefrom,author,content,show_count,createtime,lastmodifytime,is_delete,cover_image
+        id,news_name,news_type,comefrom,author,show_count,createtime,lastmodifytime,is_delete,cover_image
         from
         <include refid="Sql_Base_Table_Name"/>
         where

@@ -5,6 +5,7 @@ import com.shijia.web.common.consts.enums.ESiteType;
 import com.shijia.web.common.consts.enums.PageTypeEnum;
 import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.common.utils.DateUtils;
+import com.shijia.web.common.utils.ImageUrlUtils;
 import com.shijia.web.controller.admin.viewmodel.news.NewsShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.user.viewmodel.ShowListItemDTO;
@@ -45,6 +46,7 @@ public class NewsService {
         ns.setLastModifyTime(DateUtils.getCurDate());
         ns.setContent(req.getContent());
         ns.setNewsType(req.getNewsType());
+        ns.setCoverImage(req.getImageName());
 
         int result = -1;
         try {
@@ -66,6 +68,7 @@ public class NewsService {
         ns.setContent(req.getContent());
         ns.setNewsType(req.getNewsType());
         ns.setId(req.getId());
+        ns.setCoverImage(req.getImageName());
 
         int result = -1;
         try {
@@ -103,6 +106,7 @@ public class NewsService {
                 model.setClassName(CssClassMapConsts.newsCssClassMap.get(ns.getNewsType()));
                 String url = MessageFormat.format(UrlConsts.PAGE_DETAIL_URL, PageTypeEnum.NEWS.value(), ns.getId());
                 model.setUrl(url);
+                model.setCoverImageUrl(ImageUrlUtils.newsCover(ns.getCoverImage()));
                 showListItemDTOList.add(model);
             }
         }

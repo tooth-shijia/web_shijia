@@ -44,7 +44,19 @@ public class ImgCompress {
      * @param h int 最大高度
      */
     public static void resizeFix(Image img, int height, int width, int w, int h, File newFile) throws IOException {
-        if (width / height > w / h) {
+        if (height < h || width < w) {
+            //扩大
+            if (Double.compare((double) width / (double) height, (double) w / (double) h) < 0) {
+                int newHeight = w * height / width;
+                resize(img, w, newHeight, newFile);
+            } else {
+                int newWidth = h * width / height;
+                resize(img, newWidth, h, newFile);
+            }
+            return;
+        }
+        //缩放
+        if (Double.compare((double) width / (double) height, (double) w / (double) h) < 0) {
             resizeByWidth(img, height, width, w, newFile);
         } else {
             resizeByHeight(img, height, width, h, newFile);
@@ -86,9 +98,17 @@ public class ImgCompress {
         JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
         encoder.encode(image); // JPEG编码
         out.close();
+
+        if (w == COVER_WIDTH && h > COVER_HEGH) {
+            int offsetHeight = (h - COVER_HEGH) / 2;
+            cut(newFile, 0, offsetHeight);
+        } else if (h == COVER_HEGH && w > COVER_WIDTH) {
+            int offsetWidth = (w - COVER_WIDTH) / 2;
+            cut(newFile, offsetWidth, 0);
+        }
     }
 
-    public static void cut(File newImg, int offsetWidth, int offsetHeight) throws Exception {
+    public static void cut(File newImg, int offsetWidth, int offsetHeight) throws IOException {
         // 读取图片文件
         InputStream is = new FileInputStream(newImg);
 

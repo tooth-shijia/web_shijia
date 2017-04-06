@@ -6,6 +6,7 @@ import com.shijia.web.common.consts.enums.PageTypeEnum;
 import com.shijia.web.common.consts.map.CssClassMapConsts;
 import com.shijia.web.common.framework.annotation.IgnoreException;
 import com.shijia.web.common.utils.DateUtils;
+import com.shijia.web.common.utils.ImageUrlUtils;
 import com.shijia.web.common.utils.StringUtils;
 import com.shijia.web.controller.admin.viewmodel.product.ProductShowModel;
 import com.shijia.web.controller.admin.viewmodel.product.ProductTypeModel;
@@ -177,6 +178,7 @@ public class ProductService {
                     String url = MessageFormat.format(UrlConsts.PAGE_DETAIL_URL, PageTypeEnum.PRODUCT_BEIYI.value(), ps.getId());
                     model.setUrl(url);
                 }
+                model.setCoverImageUrl(ImageUrlUtils.productCover(ps.getCoverImage()));
                 showListItemDTOList.add(model);
             }
         }

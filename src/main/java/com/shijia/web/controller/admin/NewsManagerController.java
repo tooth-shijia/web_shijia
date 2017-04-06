@@ -1,5 +1,6 @@
 package com.shijia.web.controller.admin;
 
+import com.shijia.web.common.utils.ImageUrlUtils;
 import com.shijia.web.repository.mapper.domain.NewsShow;
 import com.shijia.web.service.CommonService;
 import com.shijia.web.service.NewsService;
@@ -33,6 +34,8 @@ public class NewsManagerController extends BaseAdminController {
         NewsShow ns = new NewsShow();
         if (id != null && id.intValue() > 0) {
             ns = newsService.getNewsById(id);
+            ns.setImageName(ns.getCoverImage());
+            ns.setCoverImage(ImageUrlUtils.newsCover(ns.getCoverImage()));
             model.addAttribute("id", id);
             model.addAttribute("news", ns);
             model.addAttribute("type", "update");

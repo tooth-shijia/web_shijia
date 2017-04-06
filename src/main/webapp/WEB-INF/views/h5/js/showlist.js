@@ -61,7 +61,7 @@ function createProductItemHtml(item) {
     var html = "";
     html += "<div class='portfolio-box " + item.className + "'> " +
         "<div class='portfolio-box-container'> " +
-        "<a href='" + item.url + "'><img src='/muassets/img/portfolio/work1.jpg' alt='' data-at2x='/muassets/img/portfolio/work1.jpg'></a> " +
+        "<a href='" + item.url + "'><img src='" + item.coverImageUrl + "' alt='' data-at2x='" + item.coverImageUrl + "'></a> " +
         "<div class='portfolio-box-text'> " +
         "<h3>" + item.name + "</h3> " +
         "<p>来源:" + item.comefrom + "</p> " +

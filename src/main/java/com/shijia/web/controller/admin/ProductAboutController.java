@@ -1,5 +1,6 @@
 package com.shijia.web.controller.admin;
 
+import com.shijia.web.common.utils.ImageUrlUtils;
 import com.shijia.web.repository.mapper.domain.ProductShow;
 import com.shijia.web.service.CommonService;
 import com.shijia.web.service.ProductService;
@@ -35,7 +36,8 @@ public class ProductAboutController extends BaseAdminController {
         ProductShow productShow = new ProductShow();
         if (id != null && id.intValue() > 0) {
             productShow = productService.getProductById(id);
-            productShow.setCoverImage("/web/image/product/show/" + productShow.getCoverImage());
+            productShow.setImageName(productShow.getCoverImage());
+            productShow.setCoverImage(ImageUrlUtils.productCover(productShow.getCoverImage()));
             model.addAttribute("id", id);
             model.addAttribute("product", productShow);
             model.addAttribute("type", "update");

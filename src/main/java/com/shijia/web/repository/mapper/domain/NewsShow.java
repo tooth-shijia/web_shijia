@@ -32,6 +32,7 @@ public class NewsShow {
     private int isDelete;
 
     private String coverImage;
+    private String imageName;
 
     public int getId() {
         return id;
@@ -119,5 +120,13 @@ public class NewsShow {
 
     public void setCoverImage(String coverImage) {
         this.coverImage = coverImage;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

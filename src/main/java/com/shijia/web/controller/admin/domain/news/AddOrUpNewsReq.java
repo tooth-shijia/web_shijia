@@ -12,6 +12,7 @@ public class AddOrUpNewsReq {
     private String comefrom;
     private String author;
     private String content;
+    private String imageName;
 
     /**
      * 1：add ； 2：update
@@ -72,5 +73,13 @@ public class AddOrUpNewsReq {
 
     public void setReqType(int reqType) {
         this.reqType = reqType;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

@@ -180,8 +180,8 @@ ul.navbar-nav li.active .dropdown-menu > .active > a:focus { background: #fe503e
 .navbar>.container .navbar-brand { margin-left: 0; }
 
 .navbar-brand {
-	width: 173px;
-	height: 106px;
+	width: 190px;
+	height: 116px;
 	background: url(../img/logo.png) left center no-repeat;
 	text-indent: -99999px;
 }

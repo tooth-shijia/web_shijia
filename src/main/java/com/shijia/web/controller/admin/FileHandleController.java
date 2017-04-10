@@ -3,6 +3,7 @@ package com.shijia.web.controller.admin;
 import com.shijia.web.common.domain.AjaxResult;
 import com.shijia.web.common.utils.FileUtils;
 import com.shijia.web.common.utils.IconCompressUtils;
+import com.shijia.web.common.utils.ImageUrlUtils;
 import com.shijia.web.common.utils.ImgCompress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,12 +29,6 @@ public class FileHandleController {
 
     private static final Logger logger = LoggerFactory.getLogger(FileHandleController.class);
 
-    //    @Value("${UploadImageCover_Product}")
-    private String productCoverPath = "/Users/yanxi/shijia_web/image/cover/product/";
-
-    //    @Value("${UploadImageCover_News}")
-    private String newsCoverPath = "/Users/yanxi/shijia_web/image/cover/news/";
-
     private static final String PRODUCT_NAME_PREFFIX = "product_";
     private static final String NEWS_NAME_PREFFIX = "news_";
 
@@ -51,10 +46,10 @@ public class FileHandleController {
         String path = "";
         String name = "";
         if ("product".equalsIgnoreCase(type)) {
-            path = productCoverPath;
+            path = ImageUrlUtils.productCoverPath;
             name = PRODUCT_NAME_PREFFIX + System.currentTimeMillis() + IMAGE_SUFFIX;
         } else if ("news".equalsIgnoreCase(type)) {
-            path = newsCoverPath;
+            path = ImageUrlUtils.newsCoverPath;
             name = NEWS_NAME_PREFFIX + System.currentTimeMillis() + IMAGE_SUFFIX;
         }
         try {
@@ -79,9 +74,9 @@ public class FileHandleController {
     public void showImage(HttpServletResponse response, @PathVariable String type, @PathVariable String name) {
         String path = "";
         if ("product".equalsIgnoreCase(type)) {
-            path = productCoverPath;
+            path = ImageUrlUtils.productCoverPath;
         } else if ("news".equalsIgnoreCase(type)) {
-            path = newsCoverPath;
+            path = ImageUrlUtils.newsCoverPath;
         }
         if (name.indexOf(".") <= 0) {
             name += ".jpg";

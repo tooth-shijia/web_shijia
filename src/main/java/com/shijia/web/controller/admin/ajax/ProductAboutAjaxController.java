@@ -32,7 +32,7 @@ public class ProductAboutAjaxController {
     /**
      * 每页产品数
      */
-    private static final int PAGE_SIZE = 15;
+    private static final int PAGE_SIZE = 50;
 
     @RequestMapping(value = "/addOrUpProduct", method = RequestMethod.POST)
     @ResponseBody
